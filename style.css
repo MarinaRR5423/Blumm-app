@@ -1,0 +1,221 @@
+/* ═════════════════════════════════════════════════════════════════════
+   Meirins · Legal website
+   ═════════════════════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:        #1A56DB;
+  --blue-light:  #EFF6FF;
+  --bg:          #F8FAFC;
+  --text:        #1E293B;
+  --muted:       #64748B;
+  --border:      #E2E8F0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container.narrow { max-width: 760px; }
+
+/* ───── Header ───── */
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+.logo { font-size: 28px; }
+.brand-name { font-size: 18px; letter-spacing: 0.5px; }
+header nav { display: flex; gap: 22px; }
+header nav a { color: var(--muted); font-size: 14px; font-weight: 500; }
+header nav a:hover { color: var(--blue); text-decoration: none; }
+
+/* ───── Hero ───── */
+.hero {
+  background: linear-gradient(135deg, #0F1F4A 0%, #1A56DB 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+.hero .lead {
+  font-size: 18px;
+  opacity: 0.9;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.badge {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ───── Features ───── */
+.features { padding: 80px 0; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(15,31,74,0.08);
+}
+.card-emoji { font-size: 40px; display: block; margin-bottom: 12px; }
+.card h3 { font-size: 17px; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 14px; }
+
+/* ───── Legal section in landing ───── */
+.legal { padding: 60px 0; background: white; }
+.legal h2 { font-size: 28px; margin-bottom: 28px; text-align: center; }
+.legal-links { display: flex; flex-direction: column; gap: 12px; max-width: 600px; margin: 0 auto; }
+.legal-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 20px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
+}
+.legal-card:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  text-decoration: none;
+}
+.legal-emoji { font-size: 28px; }
+.legal-card div { flex: 1; }
+.legal-card h4 { font-size: 15px; margin-bottom: 2px; }
+.legal-card p { font-size: 13px; color: var(--muted); }
+.legal-card .arrow { color: var(--blue); font-weight: 700; font-size: 18px; }
+
+/* ───── Legal page (privacy/terms) ───── */
+.legal-page { padding: 60px 0 80px; }
+.legal-page h1 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.legal-page .meta { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+
+.legal-page section { margin-bottom: 36px; }
+.legal-page h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--text);
+  padding-top: 12px;
+}
+.legal-page h3 {
+  font-size: 16px;
+  margin: 18px 0 10px;
+  color: var(--text);
+}
+.legal-page p { margin-bottom: 12px; color: #334155; }
+.legal-page ul { padding-left: 22px; margin-bottom: 12px; }
+.legal-page li { margin-bottom: 6px; color: #334155; }
+.legal-page strong { color: var(--text); }
+
+.legal-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.legal-page th, .legal-page td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.legal-page th { background: var(--bg); font-weight: 600; }
+.legal-page tr:last-child td { border-bottom: 0; }
+
+/* Aviso médico destacado */
+.medical-disclaimer {
+  background: #FEF3C7;
+  border-left: 4px solid #F59E0B;
+  padding: 18px 22px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+.medical-disclaimer strong {
+  display: block;
+  color: #92400E;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.medical-disclaimer p { color: #78350F; font-size: 14px; margin: 0; }
+
+/* ───── Footer ───── */
+footer {
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+footer p { color: var(--muted); font-size: 14px; margin-bottom: 4px; }
+footer .small { font-size: 13px; }
+footer a { color: var(--blue); }
+
+/* ───── Responsive ───── */
+@media (max-width: 600px) {
+  .hero { padding: 60px 0; }
+  .features { padding: 50px 0; }
+  .legal-page { padding: 32px 0 50px; }
+  .legal-page table { font-size: 13px; }
+  .legal-page th, .legal-page td { padding: 10px; }
+}
