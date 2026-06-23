@@ -199,6 +199,103 @@ header nav a:hover { color: var(--blue); text-decoration: none; }
 }
 .medical-disclaimer p { color: #78350F; font-size: 14px; margin: 0; }
 
+/* ───── Store buttons ───── */
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.store-btn:hover { background: rgba(255,255,255,0.22); text-decoration: none; }
+.store-icon { font-size: 22px; }
+.store-btn span { display: flex; flex-direction: column; line-height: 1.2; }
+.store-btn small { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; }
+.store-btn span:last-child { font-size: 15px; font-weight: 600; }
+
+/* ───── Entrenadora section ───── */
+.trainer-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0F1F4A 0%, #1E3A8A 100%);
+  color: white;
+}
+.trainer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.trainer-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.trainer-text h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+.trainer-text p { font-size: 16px; opacity: 0.85; margin-bottom: 24px; line-height: 1.7; }
+.trainer-perks { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.trainer-perks li { font-size: 14px; opacity: 0.9; }
+.trainer-btn {
+  display: inline-block;
+  background: white;
+  color: #1A56DB;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.trainer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); text-decoration: none; }
+
+/* ── Dashboard preview card ── */
+.trainer-card-preview {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.tcp-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.tcp-logo { font-size: 22px; }
+.tcp-brand { font-size: 16px; font-weight: 700; color: white; }
+.tcp-stats { display: flex; gap: 20px; margin-bottom: 24px; }
+.tcp-stat { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 14px 20px; flex: 1; text-align: center; }
+.tcp-num { display: block; font-size: 28px; font-weight: 700; color: white; }
+.tcp-label { font-size: 12px; color: rgba(255,255,255,0.5); }
+.tcp-clients { display: flex; flex-direction: column; gap: 10px; }
+.tcp-client { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 10px 14px; }
+.tcp-avatar { width: 36px; height: 36px; border-radius: 50%; background: #6C63FF; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 14px; flex-shrink: 0; }
+.tcp-info { display: flex; align-items: center; justify-content: space-between; flex: 1; }
+.tcp-name { color: white; font-size: 14px; font-weight: 500; }
+.tcp-phase { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.phase-follicular { background: rgba(37,99,235,0.25); color: #93C5FD; }
+.phase-luteal     { background: rgba(71,85,105,0.25); color: #CBD5E1; }
+.phase-ovulation  { background: rgba(2,132,199,0.25); color: #7DD3FC; }
+
+@media (max-width: 900px) {
+  .trainer-inner { grid-template-columns: 1fr; }
+  .trainer-visual { display: none; }
+}
+
 /* ───── Footer ───── */
 footer {
   background: white;

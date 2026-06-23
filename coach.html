@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meirins Coach · Panel de entrenadora</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="coach.css">
+</head>
+<body class="coach-body">
+
+  <!-- ── LOGIN / REGISTER ── -->
+  <div id="auth-screen" class="coach-auth">
+    <div class="coach-auth-card">
+      <a href="index.html" class="coach-back">← Volver</a>
+      <div class="coach-logo">
+        <span>🌙</span>
+        <span class="coach-brand">Meirins <strong>Coach</strong></span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="showTab('login')">Entrar</button>
+        <button class="auth-tab" onclick="showTab('register')">Crear cuenta</button>
+      </div>
+
+      <!-- Login -->
+      <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+        <input class="auth-input" type="email" id="login-email" placeholder="Email" required />
+        <input class="auth-input" type="password" id="login-password" placeholder="Contraseña" required />
+        <p id="login-error" class="auth-error"></p>
+        <button class="auth-btn" type="submit" id="login-btn">Entrar</button>
+      </form>
+
+      <!-- Register -->
+      <form id="register-form" class="auth-form hidden" onsubmit="handleRegister(event)">
+        <input class="auth-input" type="text" id="reg-name" placeholder="Tu nombre" required />
+        <input class="auth-input" type="email" id="reg-email" placeholder="Email" required />
+        <input class="auth-input" type="password" id="reg-password" placeholder="Contraseña (mín. 6 caracteres)" minlength="6" required />
+        <p id="reg-error" class="auth-error"></p>
+        <button class="auth-btn" type="submit" id="reg-btn">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD ── -->
+  <div id="dashboard-screen" class="hidden">
+    <aside class="coach-sidebar">
+      <div class="sidebar-logo">
+        <span>🌙</span>
+        <span>Meirins <strong>Coach</strong></span>
+      </div>
+      <p id="trainer-email" class="sidebar-email"></p>
+      <nav class="sidebar-nav">
+        <span class="sidebar-navitem active">Mis alumnas</span>
+      </nav>
+      <div class="sidebar-code-box">
+        <p class="sidebar-code-label">Tu código de entrenadora</p>
+        <p id="trainer-code" class="sidebar-code">—</p>
+        <p class="sidebar-code-hint">Tus alumnas lo introducen en la app Meirins para conectarse contigo.</p>
+      </div>
+      <button class="sidebar-logout" onclick="handleLogout()">Cerrar sesión</button>
+    </aside>
+
+    <main class="coach-main">
+      <h1 class="coach-heading">Mis alumnas</h1>
+      <div id="clients-loading" class="coach-muted">Cargando…</div>
+      <div id="clients-empty" class="coach-empty hidden">
+        <p class="coach-empty-title">Aún no tienes alumnas conectadas</p>
+        <p class="coach-muted">Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.</p>
+      </div>
+      <div id="clients-list" class="clients-grid hidden"></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://lpcvkzmfemxziuhdmzpx.supabase.co',
+      'sb_publishable__JhEh4SY-q0NWRB5SO8-9Q_zLr_wszB'
+    );
+
+    // ── Auth state ──
+    sb.auth.onAuthStateChange((_e, session) => {
+      if (session) showDashboard(session.user);
+      else showAuth();
+    });
+
+    // ── Tabs ──
+    function showTab(tab) {
+      document.querySelectorAll('.auth-tab').forEach((t, i) => t.classList.toggle('active', (i === 0) === (tab === 'login')));
+      document.getElementById('login-form').classList.toggle('hidden', tab !== 'login');
+      document.getElementById('register-form').classList.toggle('hidden', tab !== 'register');
+    }
+
+    // ── Login ──
+    async function handleLogin(e) {
+      e.preventDefault();
+      const btn = document.getElementById('login-btn');
+      btn.textContent = 'Entrando…'; btn.disabled = true;
+      const { error } = await sb.auth.signInWithPassword({
+        email: document.getElementById('login-email').value,
+        password: document.getElementById('login-password').value,
+      });
+      if (error) {
+        document.getElementById('login-error').textContent = error.message;
+        btn.textContent = 'Entrar'; btn.disabled = false;
+      }
+    }
+
+    // ── Register ──
+    function generateCode(name) {
+      const base = name.trim().toUpperCase().replace(/\s+/g, '').slice(0, 5);
+      return base + Math.floor(1000 + Math.random() * 9000);
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const btn = document.getElementById('reg-btn');
+      btn.textContent = 'Creando cuenta…'; btn.disabled = true;
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+
+      const { data, error } = await sb.auth.signUp({ email, password });
+      if (error) {
+        document.getElementById('reg-error').textContent = error.message;
+        btn.textContent = 'Crear cuenta'; btn.disabled = false;
+        return;
+      }
+      await sb.from('trainers').insert({ user_id: data.user.id, name, trainer_code: generateCode(name) });
+    }
+
+    // ── Logout ──
+    async function handleLogout() { await sb.auth.signOut(); }
+
+    // ── Show auth ──
+    function showAuth() {
+      document.getElementById('auth-screen').classList.remove('hidden');
+      document.getElementById('dashboard-screen').classList.add('hidden');
+    }
+
+    // ── Show dashboard ──
+    async function showDashboard(user) {
+      document.getElementById('auth-screen').classList.add('hidden');
+      document.getElementById('dashboard-screen').classList.remove('hidden');
+      document.getElementById('trainer-email').textContent = user.email;
+
+      const { data: trainerRow } = await sb.from('trainers').select('id, name, trainer_code').eq('user_id', user.id).single();
+      if (trainerRow) {
+        document.getElementById('trainer-code').textContent = trainerRow.trainer_code;
+        const { data: clients } = await sb.from('trainer_clients')
+          .select('*, profile:profiles(*)')
+          .eq('trainer_id', trainerRow.id)
+          .eq('status', 'active');
+        renderClients(clients || []);
+      } else {
+        renderClients([]);
+      }
+    }
+
+    // ── Render clients ──
+    function renderClients(clients) {
+      document.getElementById('clients-loading').classList.add('hidden');
+      if (clients.length === 0) {
+        document.getElementById('clients-empty').classList.remove('hidden');
+      } else {
+        const list = document.getElementById('clients-list');
+        list.classList.remove('hidden');
+        list.innerHTML = clients.map(c => {
+          const p = c.profile || {};
+          const initials = (p.name || p.email || '?')[0].toUpperCase();
+          return `
+            <div class="client-card">
+              <div class="client-avatar">${initials}</div>
+              <div class="client-info">
+                <p class="client-name">${p.name || 'Sin nombre'}</p>
+                <p class="client-meta">${p.email || ''}</p>
+              </div>
+              <span class="client-badge">activa</span>
+            </div>`;
+        }).join('');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "meirins-legal",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "-p", "5174", "--no-clipboard"],
+      "port": 5174
+    }
+  ]
+}

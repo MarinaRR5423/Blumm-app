@@ -1,0 +1,104 @@
+/* ── Coach pages ── */
+.coach-body { background: #0f0f1a; min-height: 100vh; }
+
+/* Auth */
+.coach-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.coach-auth-card {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.coach-back { color: rgba(255,255,255,0.4); font-size: 13px; display: block; margin-bottom: 24px; text-decoration: none; }
+.coach-back:hover { color: white; text-decoration: none; }
+.coach-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.coach-logo span:first-child { font-size: 28px; }
+.coach-brand { font-size: 20px; color: white; font-weight: 400; }
+.coach-brand strong { color: #6C63FF; }
+
+.auth-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 4px; margin-bottom: 24px; }
+.auth-tab { flex: 1; background: none; border: none; color: rgba(255,255,255,0.5); font-size: 14px; font-weight: 600; padding: 8px; border-radius: 8px; cursor: pointer; transition: all 0.15s; }
+.auth-tab.active { background: #6C63FF; color: white; }
+
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+.auth-input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.auth-input:focus { border-color: #6C63FF; }
+.auth-input::placeholder { color: rgba(255,255,255,0.3); }
+.auth-btn {
+  margin-top: 4px;
+  background: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.auth-btn:disabled { opacity: 0.6; cursor: default; }
+.auth-error { color: #ff6b6b; font-size: 13px; min-height: 18px; margin: 0; }
+.hidden { display: none !important; }
+
+/* Dashboard layout */
+#dashboard-screen { display: flex; min-height: 100vh; }
+
+.coach-sidebar {
+  width: 260px;
+  background: #1a1a2e;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.sidebar-logo { display: flex; align-items: center; gap: 10px; font-size: 18px; color: white; font-weight: 400; margin-bottom: 4px; }
+.sidebar-logo strong { color: #6C63FF; }
+.sidebar-email { color: rgba(255,255,255,0.35); font-size: 12px; margin-bottom: 24px; }
+.sidebar-nav { flex: 1; }
+.sidebar-navitem { display: block; color: white; font-size: 14px; font-weight: 600; padding: 10px 14px; background: rgba(108,99,255,0.15); border-radius: 10px; cursor: pointer; }
+
+.sidebar-code-box { background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.3); border-radius: 12px; padding: 16px; margin-top: 16px; }
+.sidebar-code-label { color: rgba(255,255,255,0.5); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.sidebar-code { color: #6C63FF; font-size: 22px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.sidebar-code-hint { color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.5; }
+
+.sidebar-logout { background: none; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); border-radius: 10px; padding: 10px; cursor: pointer; font-size: 13px; margin-top: 16px; transition: border-color 0.15s; }
+.sidebar-logout:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+
+.coach-main { flex: 1; padding: 40px 48px; color: white; }
+.coach-heading { font-size: 24px; font-weight: 700; margin-bottom: 28px; }
+.coach-muted { color: rgba(255,255,255,0.4); font-size: 14px; }
+.coach-empty { background: #1a1a2e; border-radius: 14px; padding: 40px; max-width: 480px; }
+.coach-empty-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+
+/* Client list */
+.clients-grid { display: flex; flex-direction: column; gap: 12px; max-width: 600px; }
+.client-card { display: flex; align-items: center; gap: 16px; background: #1a1a2e; border-radius: 14px; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.06); }
+.client-avatar { width: 44px; height: 44px; border-radius: 50%; background: #6C63FF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; flex-shrink: 0; }
+.client-info { flex: 1; }
+.client-name { color: white; font-weight: 600; font-size: 15px; margin: 0 0 2px; }
+.client-meta { color: rgba(255,255,255,0.4); font-size: 12px; margin: 0; }
+.client-badge { background: rgba(108,99,255,0.2); color: #6C63FF; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
+
+@media (max-width: 700px) {
+  .coach-sidebar { display: none; }
+  .coach-main { padding: 24px 20px; }
+}
