@@ -61,10 +61,10 @@ header .container {
 header nav { display: flex; gap: 22px; align-items: center; }
 header nav a { color: var(--muted); font-size: 14px; font-weight: 500; }
 header nav a:hover { color: var(--blue); text-decoration: none; }
-.lang-switcher { display: flex; gap: 4px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 16px; }
-.lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px; cursor: pointer; transition: all 0.15s; letter-spacing: 0.5px; }
-.lang-btn:hover { color: white; border-color: rgba(255,255,255,0.6); }
-.lang-btn.active { color: white; border-color: white; background: rgba(255,255,255,0.15); }
+.lang-switcher { display: flex; gap: 4px; margin-left: 8px; border-left: 1px solid var(--border); padding-left: 16px; }
+.lang-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px; cursor: pointer; transition: all 0.15s; letter-spacing: 0.5px; }
+.lang-btn:hover { color: var(--blue); border-color: var(--blue); }
+.lang-btn.active { color: var(--blue); border-color: var(--blue); background: var(--blue-light); }
 
 /* ───── Hero ───── */
 .hero {
