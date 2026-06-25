@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meirins — Soporte / Support</title>
+  <title>Meirins — Soporte / Support / Aide</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #f8f9fa; }
     header { background: #0F1F4A; color: white; padding: 24px 32px; }
     header h1 { font-size: 24px; font-weight: 700; letter-spacing: 2px; }
     header p { font-size: 13px; opacity: 0.7; margin-top: 4px; }
-    main { max-width: 720px; margin: 48px auto; padding: 0 24px 80px; }
+    .lang-nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 12px 32px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .lang-nav a { color: #1A56DB; text-decoration: none; font-size: 14px; font-weight: 500; }
+    .lang-nav a:hover { text-decoration: underline; }
+    .lang-nav .sep { color: #e2e8f0; }
+    main { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+    .lang-section { display: none; padding-top: 40px; }
+    .lang-section.active { display: block; }
     h2 { font-size: 22px; font-weight: 700; color: #0F1F4A; margin-bottom: 8px; }
-    .lead { font-size: 16px; color: #6b7280; margin-bottom: 40px; line-height: 1.6; }
+    .lead { font-size: 16px; color: #6b7280; margin-bottom: 32px; line-height: 1.6; }
     .card { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e5e7eb; }
-    .card h3 { font-size: 16px; font-weight: 700; color: #0F1F4A; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .card h3 { font-size: 16px; font-weight: 700; color: #0F1F4A; margin-bottom: 10px; }
     .card p { font-size: 15px; color: #4b5563; line-height: 1.65; }
     .card a { color: #1A56DB; text-decoration: none; font-weight: 500; }
     .card a:hover { text-decoration: underline; }
@@ -22,79 +28,172 @@
     .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
     .faq-q { font-size: 15px; font-weight: 600; color: #111827; margin-bottom: 6px; }
     .faq-a { font-size: 14px; color: #4b5563; line-height: 1.6; }
-    .back-link { display: inline-block; margin-bottom: 32px; font-size: 14px; color: #1A56DB; text-decoration: none; }
+    .back-link { display: inline-block; margin: 32px 0 24px; font-size: 14px; color: #1A56DB; text-decoration: none; }
     .back-link:hover { text-decoration: underline; }
-    .lang-note { font-size: 13px; color: #9ca3af; margin-top: 48px; text-align: center; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>MEIRINS</h1>
-  <p>Centro de ayuda · Help Center · Centre d'aide · Centro assistenza</p>
+  <p>Centro de ayuda · Help Center · Centre d'aide</p>
 </header>
 
+<div class="lang-nav">
+  <a href="#" onclick="showLang('es');return false;">Español</a>
+  <span class="sep">|</span>
+  <a href="#" onclick="showLang('en');return false;">English</a>
+  <span class="sep">|</span>
+  <a href="#" onclick="showLang('fr');return false;">Français</a>
+</div>
+
 <main>
-  <a href="index.html" class="back-link">← Volver / Back</a>
 
+<!-- ══════════════════════ ESPAÑOL ══════════════════════ -->
+<div id="lang-es" class="lang-section active">
+  <a href="index.html" class="back-link">← Volver</a>
   <h2>¿Cómo podemos ayudarte?</h2>
-  <p class="lead">Si tienes algún problema con la app o una pregunta, estamos aquí para ayudarte.<br>
-  <em>If you have a question or issue, we're here to help.</em></p>
+  <p class="lead">Si tienes algún problema con la app o una pregunta, estamos aquí para ayudarte.</p>
 
-  <!-- Contacto directo -->
   <div class="card">
-    <h3>✉️ Contacto directo · Direct contact</h3>
-    <p>
-      Escríbenos a <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a> y te responderemos en un plazo de 48 horas.<br><br>
-      <em>Write to us at <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a> — we reply within 48 hours.</em>
-    </p>
+    <h3>✉️ Contacto directo</h3>
+    <p>Escríbenos a <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a> y te responderemos en un plazo de 48 horas.</p>
   </div>
 
-  <!-- Eliminar cuenta -->
   <div class="card">
-    <h3>🗑️ Eliminar mi cuenta · Delete my account</h3>
-    <p>
-      Para eliminar tu cuenta y todos tus datos, envíanos un email con el asunto <strong>"Eliminar cuenta"</strong> desde la dirección con la que te registraste.<br><br>
-      <em>To delete your account and all your data, send us an email with subject <strong>"Delete account"</strong> from your registered email address.</em>
-    </p>
+    <h3>🗑️ Eliminar mi cuenta</h3>
+    <p>Para eliminar tu cuenta y todos tus datos, envíanos un email con el asunto <strong>"Eliminar cuenta"</strong> desde la dirección con la que te registraste. También puedes hacerlo desde la app en <strong>Perfil → Eliminar cuenta</strong>.</p>
   </div>
 
-  <!-- FAQ -->
   <div class="card">
-    <h3>❓ Preguntas frecuentes · FAQ</h3>
-
+    <h3>❓ Preguntas frecuentes</h3>
     <div class="faq-item">
       <p class="faq-q">¿Cómo cambio la fecha de mi último período?</p>
       <p class="faq-a">Ve a la pestaña <strong>Ciclo</strong> → toca el calendario → selecciona el primer día de tu último período.</p>
     </div>
-
     <div class="faq-item">
-      <p class="faq-q">How do I change the language?</p>
-      <p class="faq-a">Go to <strong>Profile (IA tab)</strong> → Settings → Language. Available: Español, English, Français, Italiano.</p>
+      <p class="faq-q">¿Cómo cambio el idioma?</p>
+      <p class="faq-a">Ve a la pestaña <strong>Perfil</strong> → Configuración → Idioma. Disponible: Español, English, Français, Italiano.</p>
     </div>
-
     <div class="faq-item">
       <p class="faq-q">¿Por qué no me llegan las notificaciones?</p>
-      <p class="faq-a">Comprueba que los permisos de notificaciones estén activados en Ajustes del móvil → Meirins → Notificaciones.</p>
+      <p class="faq-a">Comprueba que los permisos estén activados en Ajustes del móvil → Meirins → Notificaciones.</p>
     </div>
-
     <div class="faq-item">
       <p class="faq-q">¿Cómo filtro recetas por mi dieta (vegana, keto, etc.)?</p>
       <p class="faq-a">En la pestaña <strong>Nutrición</strong> → ícono de filtro → selecciona tu preferencia dietética.</p>
     </div>
-
     <div class="faq-item">
-      <p class="faq-q">I forgot my password. How do I reset it?</p>
-      <p class="faq-a">On the login screen, tap <strong>"Forgot password"</strong> and enter your email. You'll receive a reset link within a few minutes.</p>
+      <p class="faq-q">Olvidé mi contraseña. ¿Cómo la recupero?</p>
+      <p class="faq-a">En la pantalla de inicio de sesión, pulsa <strong>"¿Olvidaste tu contraseña?"</strong> e introduce tu email. Recibirás un enlace en pocos minutos.</p>
     </div>
-
     <div class="faq-item">
       <p class="faq-q">¿La app funciona sin conexión a internet?</p>
-      <p class="faq-a">Algunas funciones requieren conexión (sincronización de datos, recetas). El seguimiento del ciclo básico funciona sin conexión.</p>
+      <p class="faq-a">Algunas funciones requieren conexión (sincronización, recetas). El seguimiento del ciclo básico funciona sin conexión.</p>
     </div>
   </div>
+</div>
 
-  <p class="lang-note">Support available in Español · English · Français · Italiano</p>
+<!-- ══════════════════════ ENGLISH ══════════════════════ -->
+<div id="lang-en" class="lang-section">
+  <a href="index.html" class="back-link">← Back</a>
+  <h2>How can we help you?</h2>
+  <p class="lead">If you have a question or issue with the app, we're here to help.</p>
+
+  <div class="card">
+    <h3>✉️ Direct contact</h3>
+    <p>Write to us at <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a> — we reply within 48 hours.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗑️ Delete my account</h3>
+    <p>To delete your account and all your data, send us an email with subject <strong>"Delete account"</strong> from your registered email address. You can also do it from the app at <strong>Profile → Delete account</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h3>❓ Frequently asked questions</h3>
+    <div class="faq-item">
+      <p class="faq-q">How do I change my last period date?</p>
+      <p class="faq-a">Go to the <strong>Cycle</strong> tab → tap the calendar → select the first day of your last period.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I change the language?</p>
+      <p class="faq-a">Go to <strong>Profile</strong> → Settings → Language. Available: Español, English, Français, Italiano.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Why am I not receiving notifications?</p>
+      <p class="faq-a">Check that notification permissions are enabled in your phone Settings → Meirins → Notifications.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I filter recipes by my diet (vegan, keto, etc.)?</p>
+      <p class="faq-a">In the <strong>Nutrition</strong> tab → filter icon → select your dietary preference.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">I forgot my password. How do I reset it?</p>
+      <p class="faq-a">On the login screen, tap <strong>"Forgot password?"</strong> and enter your email. You'll receive a reset link within a few minutes.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Does the app work offline?</p>
+      <p class="faq-a">Some features require an internet connection (sync, recipes). Basic cycle tracking works offline.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ FRANÇAIS ══════════════════════ -->
+<div id="lang-fr" class="lang-section">
+  <a href="index.html" class="back-link">← Retour</a>
+  <h2>Comment pouvons-nous t'aider ?</h2>
+  <p class="lead">Si tu as un problème avec l'app ou une question, nous sommes là pour t'aider.</p>
+
+  <div class="card">
+    <h3>✉️ Contact direct</h3>
+    <p>Écris-nous à <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a> — nous répondons sous 48 heures.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗑️ Supprimer mon compte</h3>
+    <p>Pour supprimer ton compte et toutes tes données, envoie-nous un email avec l'objet <strong>« Supprimer le compte »</strong> depuis ton adresse email enregistrée. Tu peux aussi le faire depuis l'app dans <strong>Profil → Supprimer le compte</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h3>❓ Questions fréquentes</h3>
+    <div class="faq-item">
+      <p class="faq-q">Comment modifier la date de mes dernières règles ?</p>
+      <p class="faq-a">Va dans l'onglet <strong>Cycle</strong> → appuie sur le calendrier → sélectionne le premier jour de tes dernières règles.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Comment changer la langue ?</p>
+      <p class="faq-a">Va dans <strong>Profil</strong> → Paramètres → Langue. Disponible : Español, English, Français, Italiano.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Pourquoi je ne reçois pas les notifications ?</p>
+      <p class="faq-a">Vérifie que les autorisations sont activées dans Réglages du téléphone → Meirins → Notifications.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Comment filtrer les recettes selon mon alimentation (vegan, keto…) ?</p>
+      <p class="faq-a">Dans l'onglet <strong>Nutrition</strong> → icône filtre → sélectionne ta préférence alimentaire.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">J'ai oublié mon mot de passe. Comment le réinitialiser ?</p>
+      <p class="faq-a">Sur l'écran de connexion, appuie sur <strong>« Mot de passe oublié ? »</strong> et entre ton email. Tu recevras un lien en quelques minutes.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">L'app fonctionne-t-elle sans connexion internet ?</p>
+      <p class="faq-a">Certaines fonctions nécessitent une connexion (synchronisation, recettes). Le suivi de cycle de base fonctionne hors ligne.</p>
+    </div>
+  </div>
+</div>
+
 </main>
+
+<script>
+  function showLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    localStorage.setItem('meirins_lang', lang);
+  }
+  const saved = localStorage.getItem('meirins_lang');
+  if (saved && document.getElementById('lang-' + saved)) showLang(saved);
+</script>
 </body>
 </html>

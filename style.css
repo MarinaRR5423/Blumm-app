@@ -58,9 +58,13 @@ header .container {
 }
 .logo { font-size: 28px; }
 .brand-name { font-size: 18px; letter-spacing: 0.5px; }
-header nav { display: flex; gap: 22px; }
+header nav { display: flex; gap: 22px; align-items: center; }
 header nav a { color: var(--muted); font-size: 14px; font-weight: 500; }
 header nav a:hover { color: var(--blue); text-decoration: none; }
+.lang-switcher { display: flex; gap: 4px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 16px; }
+.lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px; cursor: pointer; transition: all 0.15s; letter-spacing: 0.5px; }
+.lang-btn:hover { color: white; border-color: rgba(255,255,255,0.6); }
+.lang-btn.active { color: white; border-color: white; background: rgba(255,255,255,0.15); }
 
 /* ───── Hero ───── */
 .hero {

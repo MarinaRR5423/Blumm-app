@@ -15,9 +15,14 @@
         <span class="brand-name">Meirins</span>
       </div>
       <nav>
-        <a href="#app">La app</a>
-        <a href="#entrenadora">Para entrenadoras</a>
-        <a href="#legal">Legal</a>
+        <a href="#app" data-i18n="nav.app">La app</a>
+        <a href="#entrenadora" data-i18n="nav.trainers">Para entrenadoras</a>
+        <a href="#legal" data-i18n="nav.legal">Legal</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -27,21 +32,21 @@
     <!-- ── HERO ── -->
     <section class="hero" id="app">
       <div class="container">
-        <h1>Tu bienestar, sincronizado con tu ciclo</h1>
-        <p class="lead">Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.</p>
+        <h1 data-i18n="hero.title">Tu bienestar, sincronizado con tu ciclo</h1>
+        <p class="lead" data-i18n="hero.lead">Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.</p>
         <div class="badges">
-          <span class="badge">🥗 Nutrición adaptada</span>
-          <span class="badge">🏋️ Entrenamiento por fase</span>
-          <span class="badge">🌸 Salud menstrual</span>
+          <span class="badge" data-i18n="badge.nutrition">🥗 Nutrición adaptada</span>
+          <span class="badge" data-i18n="badge.training">🏋️ Entrenamiento por fase</span>
+          <span class="badge" data-i18n="badge.health">🌸 Salud menstrual</span>
         </div>
         <div class="store-buttons">
           <a href="https://apps.apple.com/app/meirins/id6748039313" class="store-btn" target="_blank">
             <span class="store-icon">🍎</span>
-            <span><small>Disponible en</small>App Store</span>
+            <span><small data-i18n="store.available">Disponible en</small>App Store</span>
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.marina13.meirins" class="store-btn" target="_blank">
             <span class="store-icon">▶️</span>
-            <span><small>Disponible en</small>Google Play</span>
+            <span><small data-i18n="store.available">Disponible en</small>Google Play</span>
           </a>
         </div>
       </div>
@@ -53,18 +58,18 @@
         <div class="grid">
           <div class="card">
             <span class="card-emoji">📊</span>
-            <h3>Algoritmo personalizado</h3>
-            <p>Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.</p>
+            <h3 data-i18n="feat.algo.title">Algoritmo personalizado</h3>
+            <p data-i18n="feat.algo.text">Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.</p>
           </div>
           <div class="card">
             <span class="card-emoji">📅</span>
-            <h3>Seguimiento diario</h3>
-            <p>Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.</p>
+            <h3 data-i18n="feat.track.title">Seguimiento diario</h3>
+            <p data-i18n="feat.track.text">Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.</p>
           </div>
           <div class="card">
             <span class="card-emoji">🔒</span>
-            <h3>Privacidad por diseño</h3>
-            <p>Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.</p>
+            <h3 data-i18n="feat.privacy.title">Privacidad por diseño</h3>
+            <p data-i18n="feat.privacy.text">Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.</p>
           </div>
         </div>
       </div>
@@ -75,16 +80,16 @@
       <div class="container">
         <div class="trainer-inner">
           <div class="trainer-text">
-            <span class="trainer-tag">Para profesionales</span>
-            <h2>¿Eres entrenadora personal?</h2>
-            <p>Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Meirins.</p>
+            <span class="trainer-tag" data-i18n="trainer.tag">Para profesionales</span>
+            <h2 data-i18n="trainer.title">¿Eres entrenadora personal?</h2>
+            <p data-i18n="trainer.text">Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Meirins.</p>
             <ul class="trainer-perks">
-              <li>✦ Dashboard con todas tus alumnas conectadas</li>
-              <li>✦ Planes de entrenamiento personalizados por fase</li>
-              <li>✦ Código único para que tus alumnas te encuentren</li>
-              <li>✦ Sincronización automática con la app móvil</li>
+              <li data-i18n="trainer.perk1">✦ Dashboard con todas tus alumnas conectadas</li>
+              <li data-i18n="trainer.perk2">✦ Planes de entrenamiento personalizados por fase</li>
+              <li data-i18n="trainer.perk3">✦ Código único para que tus alumnas te encuentren</li>
+              <li data-i18n="trainer.perk4">✦ Sincronización automática con la app móvil</li>
             </ul>
-            <a href="coach.html" class="trainer-btn">Acceder al panel de entrenadora →</a>
+            <a href="coach.html" class="trainer-btn" data-i18n="trainer.btn">Acceder al panel de entrenadora →</a>
           </div>
           <div class="trainer-visual">
             <div class="trainer-card-preview">
@@ -95,11 +100,11 @@
               <div class="tcp-stats">
                 <div class="tcp-stat">
                   <span class="tcp-num">12</span>
-                  <span class="tcp-label">Alumnas</span>
+                  <span class="tcp-label" data-i18n="trainer.stat1">Alumnas</span>
                 </div>
                 <div class="tcp-stat">
                   <span class="tcp-num">4</span>
-                  <span class="tcp-label">Fases activas</span>
+                  <span class="tcp-label" data-i18n="trainer.stat2">Fases activas</span>
                 </div>
               </div>
               <div class="tcp-clients">
@@ -107,21 +112,21 @@
                   <div class="tcp-avatar">A</div>
                   <div class="tcp-info">
                     <span class="tcp-name">Ana G.</span>
-                    <span class="tcp-phase phase-follicular">Folicular</span>
+                    <span class="tcp-phase phase-follicular" data-i18n="phase.follicular">Folicular</span>
                   </div>
                 </div>
                 <div class="tcp-client">
                   <div class="tcp-avatar">M</div>
                   <div class="tcp-info">
                     <span class="tcp-name">María L.</span>
-                    <span class="tcp-phase phase-luteal">Lútea</span>
+                    <span class="tcp-phase phase-luteal" data-i18n="phase.luteal">Lútea</span>
                   </div>
                 </div>
                 <div class="tcp-client">
                   <div class="tcp-avatar">S</div>
                   <div class="tcp-info">
                     <span class="tcp-name">Sara P.</span>
-                    <span class="tcp-phase phase-ovulation">Ovulación</span>
+                    <span class="tcp-phase phase-ovulation" data-i18n="phase.ovulation">Ovulación</span>
                   </div>
                 </div>
               </div>
@@ -134,37 +139,37 @@
     <!-- ── LEGAL ── -->
     <section class="legal" id="legal">
       <div class="container">
-        <h2>Documentación legal</h2>
+        <h2 data-i18n="legal.title">Documentación legal</h2>
         <div class="legal-links">
           <a href="privacy.html" class="legal-card">
             <span class="legal-emoji">🔒</span>
             <div>
-              <h4>Política de privacidad</h4>
-              <p>Cómo tratamos tus datos personales y de salud</p>
+              <h4 data-i18n="legal.privacy.title">Política de privacidad</h4>
+              <p data-i18n="legal.privacy.text">Cómo tratamos tus datos personales y de salud</p>
             </div>
             <span class="arrow">→</span>
           </a>
           <a href="terms.html" class="legal-card">
             <span class="legal-emoji">📜</span>
             <div>
-              <h4>Términos de uso</h4>
-              <p>Condiciones del servicio y aviso médico</p>
+              <h4 data-i18n="legal.terms.title">Términos de uso</h4>
+              <p data-i18n="legal.terms.text">Condiciones del servicio y aviso médico</p>
             </div>
             <span class="arrow">→</span>
           </a>
           <a href="support.html" class="legal-card">
             <span class="legal-emoji">💬</span>
             <div>
-              <h4>Ayuda y soporte</h4>
-              <p>Preguntas frecuentes y contacto</p>
+              <h4 data-i18n="legal.support.title">Ayuda y soporte</h4>
+              <p data-i18n="legal.support.text">Preguntas frecuentes y contacto</p>
             </div>
             <span class="arrow">→</span>
           </a>
           <a href="delete-account.html" class="legal-card">
             <span class="legal-emoji">🗑️</span>
             <div>
-              <h4>Eliminar cuenta</h4>
-              <p>Cómo borrar tu cuenta y todos tus datos</p>
+              <h4 data-i18n="legal.delete.title">Eliminar cuenta</h4>
+              <p data-i18n="legal.delete.text">Cómo borrar tu cuenta y todos tus datos</p>
             </div>
             <span class="arrow">→</span>
           </a>
@@ -176,14 +181,106 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Meirins. Hecho con 💙 para la salud femenina.</p>
+      <p data-i18n="footer.copy">© 2026 Meirins. Hecho con 💙 para la salud femenina.</p>
       <p class="small">
-        <a href="support.html">Ayuda / Support</a> ·
-        <a href="privacy.html">Privacidad / Privacy</a> ·
-        <a href="terms.html">Términos / Terms</a>
+        <a href="support.html" data-i18n="footer.help">Ayuda / Support</a> ·
+        <a href="privacy.html" data-i18n="footer.privacy">Privacidad / Privacy</a> ·
+        <a href="terms.html" data-i18n="footer.terms">Términos / Terms</a>
       </p>
-      <p class="small">¿Necesitas ayuda? <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a></p>
+      <p class="small"><span data-i18n="footer.contact">¿Necesitas ayuda?</span> <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a></p>
     </div>
   </footer>
+
+  <script>
+    const T = {
+      es: {
+        'nav.app': 'La app', 'nav.trainers': 'Para entrenadoras', 'nav.legal': 'Legal',
+        'hero.title': 'Tu bienestar, sincronizado con tu ciclo',
+        'hero.lead': 'Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.',
+        'badge.nutrition': '🥗 Nutrición adaptada', 'badge.training': '🏋️ Entrenamiento por fase', 'badge.health': '🌸 Salud menstrual',
+        'store.available': 'Disponible en',
+        'feat.algo.title': 'Algoritmo personalizado', 'feat.algo.text': 'Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.',
+        'feat.track.title': 'Seguimiento diario', 'feat.track.text': 'Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.',
+        'feat.privacy.title': 'Privacidad por diseño', 'feat.privacy.text': 'Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.',
+        'trainer.tag': 'Para profesionales', 'trainer.title': '¿Eres entrenadora personal?',
+        'trainer.text': 'Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Meirins.',
+        'trainer.perk1': '✦ Dashboard con todas tus alumnas conectadas', 'trainer.perk2': '✦ Planes de entrenamiento personalizados por fase',
+        'trainer.perk3': '✦ Código único para que tus alumnas te encuentren', 'trainer.perk4': '✦ Sincronización automática con la app móvil',
+        'trainer.btn': 'Acceder al panel de entrenadora →', 'trainer.stat1': 'Alumnas', 'trainer.stat2': 'Fases activas',
+        'phase.follicular': 'Folicular', 'phase.luteal': 'Lútea', 'phase.ovulation': 'Ovulación',
+        'legal.title': 'Documentación legal',
+        'legal.privacy.title': 'Política de privacidad', 'legal.privacy.text': 'Cómo tratamos tus datos personales y de salud',
+        'legal.terms.title': 'Términos de uso', 'legal.terms.text': 'Condiciones del servicio y aviso médico',
+        'legal.support.title': 'Ayuda y soporte', 'legal.support.text': 'Preguntas frecuentes y contacto',
+        'legal.delete.title': 'Eliminar cuenta', 'legal.delete.text': 'Cómo borrar tu cuenta y todos tus datos',
+        'footer.copy': '© 2026 Meirins. Hecho con 💙 para la salud femenina.',
+        'footer.help': 'Ayuda', 'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.contact': '¿Necesitas ayuda?',
+      },
+      en: {
+        'nav.app': 'The app', 'nav.trainers': 'For trainers', 'nav.legal': 'Legal',
+        'hero.title': 'Your wellbeing, in sync with your cycle',
+        'hero.lead': 'Personalised nutrition and training based on your menstrual phase, health conditions, and goals.',
+        'badge.nutrition': '🥗 Adapted nutrition', 'badge.training': '🏋️ Phase-based training', 'badge.health': '🌸 Menstrual health',
+        'store.available': 'Available on',
+        'feat.algo.title': 'Personalised algorithm', 'feat.algo.text': 'Recipes and workouts tailored to your diet, health conditions (PCOS, endometriosis…) and cycle phase.',
+        'feat.track.title': 'Daily tracking', 'feat.track.text': 'Flow, pain, energy, mood. Like Clue but with a complete meal and workout plan.',
+        'feat.privacy.title': 'Privacy by design', 'feat.privacy.text': 'Your data is encrypted. You can delete your account and export everything at any time.',
+        'trainer.tag': 'For professionals', 'trainer.title': 'Are you a personal trainer?',
+        'trainer.text': 'Manage all your clients from a single dashboard. Track their progress, adapt their plans to their cycle, and connect with them in real time through the Meirins app.',
+        'trainer.perk1': '✦ Dashboard with all your connected clients', 'trainer.perk2': '✦ Phase-personalised training plans',
+        'trainer.perk3': '✦ Unique code so your clients can find you', 'trainer.perk4': '✦ Automatic sync with the mobile app',
+        'trainer.btn': 'Access the trainer dashboard →', 'trainer.stat1': 'Clients', 'trainer.stat2': 'Active phases',
+        'phase.follicular': 'Follicular', 'phase.luteal': 'Luteal', 'phase.ovulation': 'Ovulation',
+        'legal.title': 'Legal documentation',
+        'legal.privacy.title': 'Privacy Policy', 'legal.privacy.text': 'How we handle your personal and health data',
+        'legal.terms.title': 'Terms of Use', 'legal.terms.text': 'Service conditions and medical disclaimer',
+        'legal.support.title': 'Help & Support', 'legal.support.text': 'Frequently asked questions and contact',
+        'legal.delete.title': 'Delete account', 'legal.delete.text': 'How to delete your account and all your data',
+        'footer.copy': '© 2026 Meirins. Made with 💙 for women\'s health.',
+        'footer.help': 'Help', 'footer.privacy': 'Privacy', 'footer.terms': 'Terms', 'footer.contact': 'Need help?',
+      },
+      fr: {
+        'nav.app': "L'app", 'nav.trainers': 'Pour les coachs', 'nav.legal': 'Légal',
+        'hero.title': 'Ton bien-être, synchronisé avec ton cycle',
+        'hero.lead': 'Nutrition et entraînement personnalisés selon ta phase menstruelle, tes conditions de santé et tes objectifs.',
+        'badge.nutrition': '🥗 Nutrition adaptée', 'badge.training': '🏋️ Entraînement par phase', 'badge.health': '🌸 Santé menstruelle',
+        'store.available': 'Disponible sur',
+        'feat.algo.title': 'Algorithme personnalisé', 'feat.algo.text': 'Recettes et entraînements adaptés à ton alimentation, tes conditions de santé (SOPK, endométriose…) et ta phase de cycle.',
+        'feat.track.title': 'Suivi quotidien', 'feat.track.text': "Flux, douleur, énergie, humeur. Comme Clue mais avec un plan complet de repas et d'exercices.",
+        'feat.privacy.title': 'Confidentialité par conception', 'feat.privacy.text': 'Tes données sont chiffrées. Tu peux supprimer ton compte et tout exporter à tout moment.',
+        'trainer.tag': 'Pour les professionnels', 'trainer.title': 'Tu es coach personnel·le ?',
+        'trainer.text': "Gère toutes tes clientes depuis un seul tableau de bord. Suis leurs progrès, adapte leurs plans selon leur cycle et connecte-toi avec elles en temps réel via l'app Meirins.",
+        'trainer.perk1': '✦ Tableau de bord avec toutes tes clientes connectées', 'trainer.perk2': "✦ Plans d'entraînement personnalisés par phase",
+        'trainer.perk3': '✦ Code unique pour que tes clientes te trouvent', 'trainer.perk4': "✦ Synchronisation automatique avec l'app mobile",
+        'trainer.btn': 'Accéder au tableau de bord coach →', 'trainer.stat1': 'Clientes', 'trainer.stat2': 'Phases actives',
+        'phase.follicular': 'Folliculaire', 'phase.luteal': 'Lutéale', 'phase.ovulation': 'Ovulation',
+        'legal.title': 'Documentation légale',
+        'legal.privacy.title': 'Politique de confidentialité', 'legal.privacy.text': 'Comment nous traitons tes données personnelles et de santé',
+        'legal.terms.title': "Conditions d'utilisation", 'legal.terms.text': "Conditions du service et avertissement médical",
+        'legal.support.title': 'Aide et support', 'legal.support.text': 'Questions fréquentes et contact',
+        'legal.delete.title': 'Supprimer le compte', 'legal.delete.text': 'Comment supprimer ton compte et toutes tes données',
+        'footer.copy': '© 2026 Meirins. Fait avec 💙 pour la santé féminine.',
+        'footer.help': 'Aide', 'footer.privacy': 'Confidentialité', 'footer.terms': 'Conditions', 'footer.contact': "Besoin d'aide ?",
+      }
+    };
+
+    function setLang(lang) {
+      localStorage.setItem('meirins_lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (T[lang] && T[lang][key]) el.textContent = T[lang][key];
+      });
+      ['es','en','fr'].forEach(l => {
+        const btn = document.getElementById('btn-' + l);
+        if (btn) btn.classList.toggle('active', l === lang);
+      });
+    }
+
+    const saved = localStorage.getItem('meirins_lang');
+    const browser = navigator.language?.slice(0,2);
+    const initial = (saved && T[saved]) ? saved : (T[browser] ? browser : 'es');
+    setLang(initial);
+  </script>
 </body>
 </html>

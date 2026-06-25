@@ -12,7 +12,14 @@
   <!-- ── LOGIN / REGISTER ── -->
   <div id="auth-screen" class="coach-auth">
     <div class="coach-auth-card">
-      <a href="index.html" class="coach-back">← Volver</a>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <a href="index.html" class="coach-back">← <span data-i18n="back">Volver</span></a>
+        <div style="display:flex;gap:6px;">
+          <button class="coach-lang-btn active" id="cbtn-es" onclick="setCoachLang('es')">ES</button>
+          <button class="coach-lang-btn" id="cbtn-en" onclick="setCoachLang('en')">EN</button>
+          <button class="coach-lang-btn" id="cbtn-fr" onclick="setCoachLang('fr')">FR</button>
+        </div>
+      </div>
       <div class="coach-logo">
         <span>🌙</span>
         <span class="coach-brand">Meirins <strong>Coach</strong></span>
@@ -20,25 +27,25 @@
 
       <!-- Tabs -->
       <div class="auth-tabs">
-        <button class="auth-tab active" onclick="showTab('login')">Entrar</button>
-        <button class="auth-tab" onclick="showTab('register')">Crear cuenta</button>
+        <button class="auth-tab active" onclick="showTab('login')" data-i18n="tab.login">Entrar</button>
+        <button class="auth-tab" onclick="showTab('register')" data-i18n="tab.register">Crear cuenta</button>
       </div>
 
       <!-- Login -->
       <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
         <input class="auth-input" type="email" id="login-email" placeholder="Email" required />
-        <input class="auth-input" type="password" id="login-password" placeholder="Contraseña" required />
+        <input class="auth-input" type="password" id="login-password" data-i18n-placeholder="placeholder.password" placeholder="Contraseña" required />
         <p id="login-error" class="auth-error"></p>
-        <button class="auth-btn" type="submit" id="login-btn">Entrar</button>
+        <button class="auth-btn" type="submit" id="login-btn" data-i18n="tab.login">Entrar</button>
       </form>
 
       <!-- Register -->
       <form id="register-form" class="auth-form hidden" onsubmit="handleRegister(event)">
-        <input class="auth-input" type="text" id="reg-name" placeholder="Tu nombre" required />
+        <input class="auth-input" type="text" id="reg-name" data-i18n-placeholder="placeholder.name" placeholder="Tu nombre" required />
         <input class="auth-input" type="email" id="reg-email" placeholder="Email" required />
-        <input class="auth-input" type="password" id="reg-password" placeholder="Contraseña (mín. 6 caracteres)" minlength="6" required />
+        <input class="auth-input" type="password" id="reg-password" data-i18n-placeholder="placeholder.password6" placeholder="Contraseña (mín. 6 caracteres)" minlength="6" required />
         <p id="reg-error" class="auth-error"></p>
-        <button class="auth-btn" type="submit" id="reg-btn">Crear cuenta</button>
+        <button class="auth-btn" type="submit" id="reg-btn" data-i18n="tab.register">Crear cuenta</button>
       </form>
     </div>
   </div>
@@ -52,27 +59,31 @@
       </div>
       <p id="trainer-email" class="sidebar-email"></p>
       <nav class="sidebar-nav">
-        <span class="sidebar-navitem active">Mis alumnas</span>
+        <span class="sidebar-navitem active" data-i18n="clients">Mis alumnas</span>
       </nav>
       <div class="sidebar-code-box">
-        <p class="sidebar-code-label">Tu código de entrenadora</p>
+        <p class="sidebar-code-label" data-i18n="code.label">Tu código de entrenadora</p>
         <p id="trainer-code" class="sidebar-code">—</p>
-        <p class="sidebar-code-hint">Tus alumnas lo introducen en la app Meirins para conectarse contigo.</p>
+        <p class="sidebar-code-hint" data-i18n="code.hint">Tus alumnas lo introducen en la app Meirins para conectarse contigo.</p>
       </div>
-      <button class="sidebar-logout" onclick="handleLogout()">Cerrar sesión</button>
+      <button class="sidebar-logout" onclick="handleLogout()" data-i18n="logout">Cerrar sesión</button>
     </aside>
 
     <main class="coach-main">
-      <h1 class="coach-heading">Mis alumnas</h1>
-      <div id="clients-loading" class="coach-muted">Cargando…</div>
+      <h1 class="coach-heading" data-i18n="clients">Mis alumnas</h1>
+      <div id="clients-loading" class="coach-muted" data-i18n="loading">Cargando…</div>
       <div id="clients-empty" class="coach-empty hidden">
-        <p class="coach-empty-title">Aún no tienes alumnas conectadas</p>
-        <p class="coach-muted">Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.</p>
+        <p class="coach-empty-title" data-i18n="empty.title">Aún no tienes alumnas conectadas</p>
+        <p class="coach-muted" data-i18n="empty.hint">Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.</p>
       </div>
       <div id="clients-list" class="clients-grid hidden"></div>
     </main>
   </div>
 
+  <style>
+    .coach-lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; cursor: pointer; }
+    .coach-lang-btn.active { color: white; border-color: white; background: rgba(255,255,255,0.15); }
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
     const { createClient } = supabase;
@@ -80,6 +91,33 @@
       'https://lpcvkzmfemxziuhdmzpx.supabase.co',
       'sb_publishable__JhEh4SY-q0NWRB5SO8-9Q_zLr_wszB'
     );
+
+    // ── i18n ──
+    const CT = {
+      es: { back:'Volver', 'tab.login':'Entrar', 'tab.register':'Crear cuenta', 'placeholder.password':'Contraseña', 'placeholder.name':'Tu nombre', 'placeholder.password6':'Contraseña (mín. 6 caracteres)', clients:'Mis alumnas', 'code.label':'Tu código de entrenadora', 'code.hint':'Tus alumnas lo introducen en la app Meirins para conectarse contigo.', logout:'Cerrar sesión', loading:'Cargando…', 'empty.title':'Aún no tienes alumnas conectadas', 'empty.hint':'Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.', active:'activa', noname:'Sin nombre' },
+      en: { back:'Back', 'tab.login':'Log in', 'tab.register':'Create account', 'placeholder.password':'Password', 'placeholder.name':'Your name', 'placeholder.password6':'Password (min. 6 characters)', clients:'My clients', 'code.label':'Your trainer code', 'code.hint':'Your clients enter this code in the Meirins app to connect with you.', logout:'Log out', loading:'Loading…', 'empty.title':'No clients connected yet', 'empty.hint':'When a client enters your code in the Meirins app, they will appear here.', active:'active', noname:'No name' },
+      fr: { back:'Retour', 'tab.login':'Se connecter', 'tab.register':'Créer un compte', 'placeholder.password':'Mot de passe', 'placeholder.name':'Ton prénom', 'placeholder.password6':'Mot de passe (min. 6 caractères)', clients:'Mes clientes', 'code.label':'Ton code coach', 'code.hint':'Tes clientes entrent ce code dans l\'app Meirins pour se connecter avec toi.', logout:'Se déconnecter', loading:'Chargement…', 'empty.title':'Aucune cliente connectée pour l\'instant', 'empty.hint':'Quand une cliente entre ton code dans l\'app Meirins, elle apparaîtra ici.', active:'active', noname:'Sans nom' },
+    };
+    let currentLang = localStorage.getItem('meirins_lang') || 'es';
+
+    function setCoachLang(lang) {
+      if (!CT[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('meirins_lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.dataset.i18n;
+        if (CT[lang][k]) el.textContent = CT[lang][k];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const k = el.dataset.i18nPlaceholder;
+        if (CT[lang][k]) el.placeholder = CT[lang][k];
+      });
+      ['es','en','fr'].forEach(l => {
+        const b = document.getElementById('cbtn-' + l);
+        if (b) b.classList.toggle('active', l === lang);
+      });
+    }
+    setCoachLang(currentLang);
 
     // ── Auth state ──
     sb.auth.onAuthStateChange((_e, session) => {
