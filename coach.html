@@ -86,115 +86,24 @@
 
       <!-- ── MIS PROGRAMAS ── -->
       <section id="section-programs" class="hidden">
-        <h1 class="coach-heading">Mis programas</h1>
-        <div class="programs-grid">
-
-          <div class="program-card">
-            <div class="program-header">
-              <span class="program-days-badge">3 días / semana</span>
-              <h2 class="program-title">Fuerza total · Iniciación</h2>
-              <p class="program-desc">Programa de introducción a la fuerza con ejercicios compuestos. Ideal para alumnas que empiezan desde cero.</p>
-            </div>
-            <div class="program-sessions">
-              <div class="session-block">
-                <p class="session-label">Lunes · Tren inferior</p>
-                <ul class="session-list">
-                  <li>Sentadilla goblet — 3×12</li>
-                  <li>Peso muerto rumano con mancuernas — 3×10</li>
-                  <li>Zancadas alternas — 3×10 cada pierna</li>
-                  <li>Puente de glúteo — 3×15</li>
-                  <li>Plancha frontal — 3×30 seg</li>
-                </ul>
-              </div>
-              <div class="session-block">
-                <p class="session-label">Miércoles · Tren superior</p>
-                <ul class="session-list">
-                  <li>Press de banca con mancuernas — 3×10</li>
-                  <li>Remo en polea baja — 3×12</li>
-                  <li>Press militar sentada — 3×10</li>
-                  <li>Curl de bíceps — 3×12</li>
-                  <li>Tríceps en polea — 3×12</li>
-                </ul>
-              </div>
-              <div class="session-block">
-                <p class="session-label">Viernes · Cuerpo completo</p>
-                <ul class="session-list">
-                  <li>Sentadilla con barra — 3×8</li>
-                  <li>Dominadas asistidas — 3×6</li>
-                  <li>Hip thrust — 3×12</li>
-                  <li>Fondos en paralelas — 3×8</li>
-                  <li>Core: dead bug — 3×10</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="program-card">
-            <div class="program-header">
-              <span class="program-days-badge">2 días / semana</span>
-              <h2 class="program-title">Glúteo y core · Sin material</h2>
-              <p class="program-desc">Entrenamiento en casa sin equipamiento. Foco en glúteo, core y movilidad. Perfecto para mantener actividad entre sesiones.</p>
-            </div>
-            <div class="program-sessions">
-              <div class="session-block">
-                <p class="session-label">Martes · Glúteo y pierna</p>
-                <ul class="session-list">
-                  <li>Sentadilla sumo — 4×15</li>
-                  <li>Puente de glúteo a una pierna — 3×12 c/u</li>
-                  <li>Patada de glúteo en cuadrupedia — 3×15 c/u</li>
-                  <li>Abducción lateral tumbada — 3×20 c/u</li>
-                  <li>Sentadilla isométrica en pared — 3×45 seg</li>
-                </ul>
-              </div>
-              <div class="session-block">
-                <p class="session-label">Jueves · Core y movilidad</p>
-                <ul class="session-list">
-                  <li>Plancha lateral — 3×30 seg c/u</li>
-                  <li>Mountainclimbers — 3×20</li>
-                  <li>Superman — 3×12</li>
-                  <li>Estiramiento de cadera en paloma — 2×60 seg</li>
-                  <li>Movilidad torácica con rodillo — 5 min</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="program-card">
-            <div class="program-header">
-              <span class="program-days-badge">2 días / semana</span>
-              <h2 class="program-title">Resistencia y tonificación · Elásticos</h2>
-              <p class="program-desc">Programa con bandas elásticas para trabajar todo el cuerpo con alta activación muscular y bajo impacto articular.</p>
-            </div>
-            <div class="program-sessions">
-              <div class="session-block">
-                <p class="session-label">Lunes · Tren inferior con banda</p>
-                <ul class="session-list">
-                  <li>Sentadilla con banda en rodillas — 4×15</li>
-                  <li>Hip thrust con banda — 4×15</li>
-                  <li>Caminata lateral con banda — 3×12 c/u</li>
-                  <li>Good morning con banda — 3×12</li>
-                  <li>Curl femoral de pie con banda — 3×12 c/u</li>
-                </ul>
-              </div>
-              <div class="session-block">
-                <p class="session-label">Jueves · Tren superior con banda</p>
-                <ul class="session-list">
-                  <li>Press de pecho con banda — 3×12</li>
-                  <li>Remo con banda — 3×12</li>
-                  <li>Press hombro con banda — 3×12</li>
-                  <li>Curl de bíceps con banda — 3×15</li>
-                  <li>Extensión de tríceps con banda — 3×15</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
+        <div class="section-header">
+          <h1 class="coach-heading">Mis programas</h1>
+          <button class="btn-add" onclick="openModal('modal-program')">+ Nuevo programa</button>
+        </div>
+        <div id="programs-loading" class="coach-muted">Cargando…</div>
+        <div id="programs-list" class="programs-grid hidden"></div>
+        <div id="programs-empty" class="coach-empty hidden">
+          <p class="coach-empty-title">Aún no tienes programas</p>
+          <p class="coach-muted">Crea tu primer programa con el botón de arriba.</p>
         </div>
       </section>
 
       <!-- ── EJERCICIOS ── -->
       <section id="section-exercises" class="hidden">
-        <h1 class="coach-heading">Ejercicios</h1>
+        <div class="section-header">
+          <h1 class="coach-heading">Ejercicios</h1>
+          <button class="btn-add" onclick="openModal('modal-exercise')">+ Nuevo ejercicio</button>
+        </div>
         <div class="ex-filters">
           <div class="ex-filter-group">
             <label class="ex-filter-label">Parte del cuerpo</label>
@@ -222,8 +131,96 @@
             </div>
           </div>
         </div>
+        <div id="ex-loading" class="coach-muted">Cargando…</div>
         <div id="ex-list" class="ex-grid"></div>
       </section>
+
+      <!-- ── MODAL EJERCICIO ── -->
+      <div id="modal-exercise" class="modal-overlay hidden" onclick="if(event.target===this)closeModal('modal-exercise')">
+        <div class="modal-card">
+          <div class="modal-header">
+            <h2 class="modal-title">Nuevo ejercicio</h2>
+            <button class="modal-close" onclick="closeModal('modal-exercise')">✕</button>
+          </div>
+          <form onsubmit="saveExercise(event)">
+            <div class="form-group">
+              <label class="form-label">Nombre del ejercicio *</label>
+              <input class="form-input" id="ex-name" type="text" placeholder="Ej: Sentadilla goblet" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Parte del cuerpo</label>
+                <select class="form-input" id="ex-body">
+                  <option value="">— Selecciona —</option>
+                  <option value="glúteo">Glúteo</option>
+                  <option value="pierna">Pierna</option>
+                  <option value="pecho">Pecho</option>
+                  <option value="espalda">Espalda</option>
+                  <option value="hombro">Hombro</option>
+                  <option value="bíceps">Bíceps</option>
+                  <option value="tríceps">Tríceps</option>
+                  <option value="core">Core</option>
+                  <option value="movilidad">Movilidad</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Material</label>
+                <select class="form-input" id="ex-equip">
+                  <option value="">— Selecciona —</option>
+                  <option value="sin material">Sin material</option>
+                  <option value="pesas">Pesas</option>
+                  <option value="elásticos">Elásticos</option>
+                  <option value="máquina">Máquina</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Notas (opcional)</label>
+              <textarea class="form-input" id="ex-notes" rows="2" placeholder="Indicaciones, variantes…"></textarea>
+            </div>
+            <p id="ex-error" class="auth-error"></p>
+            <button class="auth-btn" type="submit" id="ex-save-btn">Guardar ejercicio</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ── MODAL PROGRAMA ── -->
+      <div id="modal-program" class="modal-overlay hidden" onclick="if(event.target===this)closeModal('modal-program')">
+        <div class="modal-card">
+          <div class="modal-header">
+            <h2 class="modal-title">Nuevo programa</h2>
+            <button class="modal-close" onclick="closeModal('modal-program')">✕</button>
+          </div>
+          <form onsubmit="saveProgram(event)">
+            <div class="form-group">
+              <label class="form-label">Nombre del programa *</label>
+              <input class="form-input" id="prog-name" type="text" placeholder="Ej: Fuerza total · Iniciación" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Días por semana</label>
+                <select class="form-input" id="prog-days">
+                  <option value="2">2 días</option>
+                  <option value="3" selected>3 días</option>
+                  <option value="4">4 días</option>
+                  <option value="5">5 días</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Descripción (opcional)</label>
+              <textarea class="form-input" id="prog-desc" rows="2" placeholder="Objetivo, nivel, indicaciones…"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Sesiones</label>
+              <div id="prog-sessions-list"></div>
+              <button type="button" class="btn-add-session" onclick="addSession()">+ Añadir sesión</button>
+            </div>
+            <p id="prog-error" class="auth-error"></p>
+            <button class="auth-btn" type="submit" id="prog-save-btn">Guardar programa</button>
+          </form>
+        </div>
+      </div>
 
     </main>
   </div>
@@ -237,19 +234,27 @@
     .sidebar-navitem:hover { background: rgba(255,255,255,0.07); color: white; }
     .sidebar-navitem.active { background: rgba(124,106,247,0.25); color: #a898ff; }
 
+    /* Section header */
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .section-header .coach-heading { margin: 0; }
+    .btn-add { background: #7c6af7; color: white; border: none; border-radius: 10px; padding: 9px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: opacity .15s; }
+    .btn-add:hover { opacity: .85; }
+
     /* Programs */
-    .programs-grid { display: flex; flex-direction: column; gap: 24px; }
+    .programs-grid { display: flex; flex-direction: column; gap: 20px; }
     .program-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; }
-    .program-header { padding: 20px 24px 16px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .program-header { padding: 18px 22px 14px; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: flex-start; }
+    .program-header-left { flex: 1; }
     .program-days-badge { display: inline-block; background: rgba(124,106,247,0.2); color: #a898ff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
-    .program-title { font-size: 18px; font-weight: 700; color: white; margin: 0 0 6px; }
+    .program-title { font-size: 17px; font-weight: 700; color: white; margin: 0 0 5px; }
     .program-desc { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0; }
-    .program-sessions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; }
-    .session-block { padding: 16px 24px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .program-sessions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .session-block { padding: 14px 22px; border-right: 1px solid rgba(255,255,255,0.07); }
     .session-block:last-child { border-right: none; }
-    .session-label { font-size: 12px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: .5px; margin: 0 0 10px; }
-    .session-list { margin: 0; padding-left: 16px; }
-    .session-list li { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 5px; }
+    .session-label { font-size: 11px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: .5px; margin: 0 0 8px; }
+    .session-exercises { font-size: 13px; color: rgba(255,255,255,0.65); white-space: pre-line; margin: 0; }
+    .btn-delete { background: none; border: none; color: rgba(255,255,255,0.25); font-size: 16px; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: all .15s; }
+    .btn-delete:hover { color: #ff6b6b; background: rgba(255,107,107,0.1); }
 
     /* Exercises */
     .ex-filters { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
@@ -259,13 +264,34 @@
     .ex-fbtn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.55); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; cursor: pointer; transition: all .15s; }
     .ex-fbtn:hover { background: rgba(255,255,255,0.12); color: white; }
     .ex-fbtn.active { background: rgba(124,106,247,0.25); border-color: #7c6af7; color: #a898ff; }
-    .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-    .ex-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; }
+    .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+    .ex-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: flex-start; }
+    .ex-card-left { flex: 1; }
     .ex-card-name { font-size: 14px; font-weight: 700; color: white; margin: 0 0 6px; }
     .ex-card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .ex-card-notes { font-size: 12px; color: rgba(255,255,255,0.4); margin: 5px 0 0; }
     .ex-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
     .ex-tag-body { background: rgba(124,106,247,0.2); color: #a898ff; }
     .ex-tag-equip { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
+
+    /* Modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+    .modal-card { background: #1e1b2e; border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 28px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .modal-title { font-size: 18px; font-weight: 700; color: white; margin: 0; }
+    .modal-close { background: none; border: none; color: rgba(255,255,255,0.4); font-size: 18px; cursor: pointer; padding: 4px 8px; border-radius: 8px; }
+    .modal-close:hover { color: white; background: rgba(255,255,255,0.08); }
+    .form-group { margin-bottom: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-label { display: block; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+    .form-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: white; font-size: 14px; padding: 10px 12px; box-sizing: border-box; }
+    .form-input:focus { outline: none; border-color: #7c6af7; }
+    .form-input option { background: #1e1b2e; }
+    textarea.form-input { resize: vertical; font-family: inherit; }
+    .session-form-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+    .session-form-title { font-size: 12px; font-weight: 700; color: #a898ff; margin: 0 0 8px; }
+    .btn-add-session { background: transparent; border: 1px dashed rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer; width: 100%; margin-top: 4px; }
+    .btn-add-session:hover { border-color: #7c6af7; color: #a898ff; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
@@ -387,6 +413,7 @@
 
       const { data: trainerRow } = await sb.from('trainers').select('id, name, trainer_code').eq('user_id', user.id).single();
       if (trainerRow) {
+        currentTrainerId = trainerRow.id;
         document.getElementById('trainer-code').textContent = trainerRow.trainer_code;
         const { data: clients } = await sb.from('trainer_clients')
           .select('*, profile:profiles(*)')
@@ -398,6 +425,12 @@
       }
     }
 
+    // ── State ──
+    let currentTrainerId = null;
+    let allExercises = [];
+    let activeBody = 'all', activeEquip = 'all';
+    let sessionCount = 0;
+
     // ── Section navigation ──
     function showSection(name) {
       ['clients','programs','exercises'].forEach(s => {
@@ -406,92 +439,77 @@
       document.querySelectorAll('.sidebar-navitem').forEach((el, i) => {
         el.classList.toggle('active', ['clients','programs','exercises'][i] === name);
       });
-      if (name === 'exercises') renderExercises();
+      if (name === 'exercises') loadExercises();
+      if (name === 'programs') loadPrograms();
     }
 
-    // ── Exercise data ──
-    const EXERCISES = [
-      { name: 'Sentadilla', body: 'pierna', equip: 'sin material' },
-      { name: 'Sentadilla goblet', body: 'pierna', equip: 'pesas' },
-      { name: 'Sentadilla con barra', body: 'pierna', equip: 'pesas' },
-      { name: 'Sentadilla sumo', body: 'glúteo', equip: 'sin material' },
-      { name: 'Sentadilla sumo con mancuerna', body: 'glúteo', equip: 'pesas' },
-      { name: 'Sentadilla isométrica en pared', body: 'pierna', equip: 'sin material' },
-      { name: 'Sentadilla con banda', body: 'pierna', equip: 'elásticos' },
-      { name: 'Zancada alterna', body: 'pierna', equip: 'sin material' },
-      { name: 'Zancada con mancuernas', body: 'pierna', equip: 'pesas' },
-      { name: 'Peso muerto rumano', body: 'glúteo', equip: 'pesas' },
-      { name: 'Good morning con banda', body: 'glúteo', equip: 'elásticos' },
-      { name: 'Hip thrust con barra', body: 'glúteo', equip: 'pesas' },
-      { name: 'Hip thrust con banda', body: 'glúteo', equip: 'elásticos' },
-      { name: 'Puente de glúteo', body: 'glúteo', equip: 'sin material' },
-      { name: 'Puente de glúteo a una pierna', body: 'glúteo', equip: 'sin material' },
-      { name: 'Patada de glúteo en cuadrupedia', body: 'glúteo', equip: 'sin material' },
-      { name: 'Patada de glúteo con banda', body: 'glúteo', equip: 'elásticos' },
-      { name: 'Abducción lateral tumbada', body: 'glúteo', equip: 'sin material' },
-      { name: 'Caminata lateral con banda', body: 'glúteo', equip: 'elásticos' },
-      { name: 'Curl femoral en máquina', body: 'pierna', equip: 'máquina' },
-      { name: 'Extensión de cuádriceps en máquina', body: 'pierna', equip: 'máquina' },
-      { name: 'Prensa de pierna', body: 'pierna', equip: 'máquina' },
-      { name: 'Curl femoral de pie con banda', body: 'pierna', equip: 'elásticos' },
-      { name: 'Press de banca con mancuernas', body: 'pecho', equip: 'pesas' },
-      { name: 'Press de banca con barra', body: 'pecho', equip: 'pesas' },
-      { name: 'Press de pecho con banda', body: 'pecho', equip: 'elásticos' },
-      { name: 'Aperturas con mancuernas', body: 'pecho', equip: 'pesas' },
-      { name: 'Flexiones', body: 'pecho', equip: 'sin material' },
-      { name: 'Fondos en paralelas', body: 'tríceps', equip: 'sin material' },
-      { name: 'Remo con mancuerna', body: 'espalda', equip: 'pesas' },
-      { name: 'Remo en polea baja', body: 'espalda', equip: 'máquina' },
-      { name: 'Remo con banda', body: 'espalda', equip: 'elásticos' },
-      { name: 'Dominadas asistidas', body: 'espalda', equip: 'máquina' },
-      { name: 'Jalón al pecho en polea', body: 'espalda', equip: 'máquina' },
-      { name: 'Superman', body: 'espalda', equip: 'sin material' },
-      { name: 'Press militar con mancuernas', body: 'hombro', equip: 'pesas' },
-      { name: 'Press hombro con banda', body: 'hombro', equip: 'elásticos' },
-      { name: 'Elevaciones laterales', body: 'hombro', equip: 'pesas' },
-      { name: 'Elevaciones frontales', body: 'hombro', equip: 'pesas' },
-      { name: 'Curl de bíceps con mancuernas', body: 'bíceps', equip: 'pesas' },
-      { name: 'Curl de bíceps con banda', body: 'bíceps', equip: 'elásticos' },
-      { name: 'Curl martillo', body: 'bíceps', equip: 'pesas' },
-      { name: 'Curl en polea', body: 'bíceps', equip: 'máquina' },
-      { name: 'Tríceps en polea alta', body: 'tríceps', equip: 'máquina' },
-      { name: 'Extensión de tríceps con banda', body: 'tríceps', equip: 'elásticos' },
-      { name: 'Press francés con mancuerna', body: 'tríceps', equip: 'pesas' },
-      { name: 'Plancha frontal', body: 'core', equip: 'sin material' },
-      { name: 'Plancha lateral', body: 'core', equip: 'sin material' },
-      { name: 'Dead bug', body: 'core', equip: 'sin material' },
-      { name: 'Mountain climbers', body: 'core', equip: 'sin material' },
-      { name: 'Crunch abdominal', body: 'core', equip: 'sin material' },
-      { name: 'Rueda abdominal', body: 'core', equip: 'sin material' },
-      { name: 'Hollow hold', body: 'core', equip: 'sin material' },
-      { name: 'Estiramiento de cadera en paloma', body: 'movilidad', equip: 'sin material' },
-      { name: 'Movilidad torácica con rodillo', body: 'movilidad', equip: 'sin material' },
-      { name: 'Hip flexor stretch', body: 'movilidad', equip: 'sin material' },
-      { name: "World's greatest stretch", body: 'movilidad', equip: 'sin material' },
-      { name: 'Movilidad de tobillo', body: 'movilidad', equip: 'sin material' },
-    ];
+    // ── Modal ──
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-    let activeBody = 'all', activeEquip = 'all';
+    // ── EJERCICIOS ──
+    async function loadExercises() {
+      if (!currentTrainerId) return;
+      document.getElementById('ex-loading').classList.remove('hidden');
+      document.getElementById('ex-list').innerHTML = '';
+      const { data } = await sb.from('trainer_exercises')
+        .select('*').eq('trainer_id', currentTrainerId).order('name');
+      allExercises = data || [];
+      document.getElementById('ex-loading').classList.add('hidden');
+      renderExercises();
+    }
 
     function renderExercises() {
-      const filtered = EXERCISES.filter(e =>
-        (activeBody === 'all' || e.body === activeBody) &&
-        (activeEquip === 'all' || e.equip === activeEquip)
+      const filtered = allExercises.filter(e =>
+        (activeBody === 'all' || e.body_part === activeBody) &&
+        (activeEquip === 'all' || e.equipment === activeEquip)
       );
       document.getElementById('ex-list').innerHTML = filtered.length
         ? filtered.map(e => `
           <div class="ex-card">
-            <p class="ex-card-name">${e.name}</p>
-            <div class="ex-card-tags">
-              <span class="ex-tag ex-tag-body">${e.body}</span>
-              <span class="ex-tag ex-tag-equip">${e.equip}</span>
+            <div class="ex-card-left">
+              <p class="ex-card-name">${e.name}</p>
+              <div class="ex-card-tags">
+                ${e.body_part ? `<span class="ex-tag ex-tag-body">${e.body_part}</span>` : ''}
+                ${e.equipment ? `<span class="ex-tag ex-tag-equip">${e.equipment}</span>` : ''}
+              </div>
+              ${e.notes ? `<p class="ex-card-notes">${e.notes}</p>` : ''}
             </div>
+            <button class="btn-delete" onclick="deleteExercise('${e.id}')" title="Eliminar">✕</button>
           </div>`).join('')
         : '<p class="coach-muted">No hay ejercicios con estos filtros.</p>';
     }
 
-    document.addEventListener('click', e => {
-      const btn = e.target.closest('.ex-fbtn');
+    async function saveExercise(e) {
+      e.preventDefault();
+      const btn = document.getElementById('ex-save-btn');
+      btn.textContent = 'Guardando…'; btn.disabled = true;
+      const { error } = await sb.from('trainer_exercises').insert({
+        trainer_id: currentTrainerId,
+        name: document.getElementById('ex-name').value.trim(),
+        body_part: document.getElementById('ex-body').value || null,
+        equipment: document.getElementById('ex-equip').value || null,
+        notes: document.getElementById('ex-notes').value.trim() || null,
+      });
+      if (error) {
+        document.getElementById('ex-error').textContent = error.message;
+        btn.textContent = 'Guardar ejercicio'; btn.disabled = false;
+        return;
+      }
+      e.target.reset();
+      closeModal('modal-exercise');
+      btn.textContent = 'Guardar ejercicio'; btn.disabled = false;
+      loadExercises();
+    }
+
+    async function deleteExercise(id) {
+      if (!confirm('¿Eliminar este ejercicio?')) return;
+      await sb.from('trainer_exercises').delete().eq('id', id);
+      loadExercises();
+    }
+
+    document.addEventListener('click', ev => {
+      const btn = ev.target.closest('.ex-fbtn');
       if (!btn) return;
       const { filter, val } = btn.dataset;
       if (filter === 'body') activeBody = val;
@@ -500,6 +518,97 @@
       btn.classList.add('active');
       renderExercises();
     });
+
+    // ── PROGRAMAS ──
+    async function loadPrograms() {
+      if (!currentTrainerId) return;
+      document.getElementById('programs-loading').classList.remove('hidden');
+      document.getElementById('programs-list').classList.add('hidden');
+      document.getElementById('programs-empty').classList.add('hidden');
+      const { data } = await sb.from('trainer_programs')
+        .select('*').eq('trainer_id', currentTrainerId).order('created_at', { ascending: false });
+      document.getElementById('programs-loading').classList.add('hidden');
+      renderPrograms(data || []);
+    }
+
+    function renderPrograms(programs) {
+      if (programs.length === 0) {
+        document.getElementById('programs-empty').classList.remove('hidden');
+        return;
+      }
+      const list = document.getElementById('programs-list');
+      list.classList.remove('hidden');
+      list.innerHTML = programs.map(p => {
+        const sessions = p.sessions || [];
+        const sessionsHtml = sessions.length
+          ? sessions.map(s => `
+              <div class="session-block">
+                <p class="session-label">${s.title || 'Sesión'}</p>
+                <p class="session-exercises">${(s.exercises || '').replace(/\n/g, '<br>')}</p>
+              </div>`).join('')
+          : '<div class="session-block"><p class="coach-muted" style="font-size:13px">Sin sesiones</p></div>';
+        return `
+          <div class="program-card">
+            <div class="program-header">
+              <div class="program-header-left">
+                <span class="program-days-badge">${p.days_per_week || '?'} días / semana</span>
+                <h2 class="program-title">${p.name}</h2>
+                ${p.description ? `<p class="program-desc">${p.description}</p>` : ''}
+              </div>
+              <button class="btn-delete" onclick="deleteProgram('${p.id}')" title="Eliminar">✕</button>
+            </div>
+            <div class="program-sessions">${sessionsHtml}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function addSession() {
+      sessionCount++;
+      const div = document.createElement('div');
+      div.className = 'session-form-block';
+      div.id = 'session-block-' + sessionCount;
+      div.innerHTML = `
+        <p class="session-form-title">Sesión ${sessionCount}</p>
+        <input class="form-input" style="margin-bottom:8px" type="text" placeholder="Título (Ej: Lunes · Tren inferior)" data-session-title="${sessionCount}" />
+        <textarea class="form-input" rows="4" placeholder="Ejercicios (uno por línea, Ej: Sentadilla — 3×12)" data-session-exercises="${sessionCount}"></textarea>`;
+      document.getElementById('prog-sessions-list').appendChild(div);
+    }
+
+    async function saveProgram(e) {
+      e.preventDefault();
+      const btn = document.getElementById('prog-save-btn');
+      btn.textContent = 'Guardando…'; btn.disabled = true;
+      const sessions = [];
+      for (let i = 1; i <= sessionCount; i++) {
+        const titleEl = document.querySelector(`[data-session-title="${i}"]`);
+        const exEl = document.querySelector(`[data-session-exercises="${i}"]`);
+        if (titleEl && exEl) sessions.push({ title: titleEl.value.trim(), exercises: exEl.value.trim() });
+      }
+      const { error } = await sb.from('trainer_programs').insert({
+        trainer_id: currentTrainerId,
+        name: document.getElementById('prog-name').value.trim(),
+        days_per_week: parseInt(document.getElementById('prog-days').value),
+        description: document.getElementById('prog-desc').value.trim() || null,
+        sessions,
+      });
+      if (error) {
+        document.getElementById('prog-error').textContent = error.message;
+        btn.textContent = 'Guardar programa'; btn.disabled = false;
+        return;
+      }
+      e.target.reset();
+      document.getElementById('prog-sessions-list').innerHTML = '';
+      sessionCount = 0;
+      closeModal('modal-program');
+      btn.textContent = 'Guardar programa'; btn.disabled = false;
+      loadPrograms();
+    }
+
+    async function deleteProgram(id) {
+      if (!confirm('¿Eliminar este programa?')) return;
+      await sb.from('trainer_programs').delete().eq('id', id);
+      loadPrograms();
+    }
 
     // ── Render clients ──
     function renderClients(clients) {
