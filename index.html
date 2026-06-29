@@ -14,10 +14,13 @@
         <span class="logo">🌙</span>
         <span class="brand-name">Meirins</span>
       </div>
-      <nav>
-        <a href="#app" data-i18n="nav.app">La app</a>
-        <a href="#entrenadora" data-i18n="nav.trainers">Para entrenadoras</a>
-        <a href="#legal" data-i18n="nav.legal">Legal</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="#app" data-i18n="nav.app" onclick="closeMenu()">La app</a>
+        <a href="#entrenadora" data-i18n="nav.trainers" onclick="closeMenu()">Para entrenadoras</a>
+        <a href="#legal" data-i18n="nav.legal" onclick="closeMenu()">Legal</a>
         <div class="lang-switcher">
           <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
           <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
@@ -263,6 +266,17 @@
         'footer.help': 'Aide', 'footer.privacy': 'Confidentialité', 'footer.terms': 'Conditions', 'footer.contact': "Besoin d'aide ?",
       }
     };
+
+    function toggleMenu() {
+      const nav = document.getElementById('main-nav');
+      const btn = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('main-nav').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
 
     function setLang(lang) {
       localStorage.setItem('meirins_lang', lang);
