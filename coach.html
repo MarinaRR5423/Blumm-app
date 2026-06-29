@@ -548,12 +548,17 @@
 
     function renderExercises() {
       const equip = (e) => (e.equipment || '').toLowerCase().trim();
+      const equipMatch = (e, filter) => {
+        const eq = equip(e);
+        if (filter === 'sin material') return !eq || eq === 'body weight' || eq === 'bodyweight' || eq === 'sin material' || eq === 'body only' || eq === 'none';
+        if (filter === 'pesas') return eq.includes('barbell') || eq.includes('dumbbell') || eq.includes('weight') || eq.includes('pesa') || eq.includes('barra') || eq.includes('mancuerna') || eq.includes('kettlebell');
+        if (filter === 'elásticos') return eq.includes('band') || eq.includes('elástico') || eq.includes('resistance') || eq.includes('theraband');
+        if (filter === 'máquina') return eq.includes('machine') || eq.includes('cable') || eq.includes('máquina') || eq.includes('polea') || eq.includes('pulley');
+        return eq.includes(filter);
+      };
       const filtered = allExercises.filter(e =>
         (activeBody === 'all' || e.body_part === activeBody) &&
-        (activeEquip === 'all' ||
-          (activeEquip === 'sin material'
-            ? !equip(e) || equip(e) === 'sin material' || equip(e).includes('sin material')
-            : equip(e).includes(activeEquip)))
+        (activeEquip === 'all' || equipMatch(e, activeEquip))
       );
       document.getElementById('ex-list').innerHTML = filtered.length
         ? filtered.map(e => `
