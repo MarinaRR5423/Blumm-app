@@ -52,6 +52,24 @@
 
   <!-- ── DASHBOARD ── -->
   <div id="dashboard-screen" class="hidden">
+
+    <!-- Mobile top bar -->
+    <div class="coach-mobile-header">
+      <div class="coach-mobile-brand">🌙 <strong>Meirins Coach</strong></div>
+      <button class="coach-mobile-menu-btn" onclick="toggleCoachMenu()">☰</button>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="coach-mobile-nav" class="coach-mobile-nav hidden">
+      <span class="sidebar-navitem" onclick="showSection('clients');closeCoachMenu()" data-i18n="nav.clients">Mis alumnas</span>
+      <span class="sidebar-navitem" onclick="showSection('programs');closeCoachMenu()" data-i18n="nav.programs">Mis programas</span>
+      <span class="sidebar-navitem" onclick="showSection('exercises');closeCoachMenu()" data-i18n="nav.exercises">Ejercicios</span>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;align-items:center">
+        <p id="trainer-email-mobile" style="color:rgba(255,255,255,0.4);font-size:12px;margin:0"></p>
+        <button class="sidebar-logout" style="margin:0" onclick="handleLogout()" data-i18n="logout">Cerrar sesión</button>
+      </div>
+    </div>
+
     <aside class="coach-sidebar">
       <div class="sidebar-logo">
         <span>🌙</span>
@@ -486,6 +504,7 @@
       document.getElementById('auth-screen').classList.add('hidden');
       document.getElementById('dashboard-screen').classList.remove('hidden');
       document.getElementById('trainer-email').textContent = user.email;
+      document.getElementById('trainer-email-mobile').textContent = user.email;
 
       const { data: trainerRow } = await sb.from('trainers').select('id, name, trainer_code').eq('user_id', user.id).single();
       if (trainerRow) {
@@ -510,6 +529,14 @@
     let activePickerSession = null;
     let pickerBodyFilter = 'all';
     let currentDetailExercise = null;
+
+    // ── Mobile menu ──
+    function toggleCoachMenu() {
+      document.getElementById('coach-mobile-nav').classList.toggle('hidden');
+    }
+    function closeCoachMenu() {
+      document.getElementById('coach-mobile-nav').classList.add('hidden');
+    }
 
     // ── Section navigation ──
     function showSection(name) {
