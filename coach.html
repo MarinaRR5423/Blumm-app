@@ -256,10 +256,10 @@
     <div id="ex-picker-overlay" class="modal-overlay hidden" onclick="if(event.target===this)closeExPicker()">
       <div class="modal-card" style="display:flex;flex-direction:column;max-height:80vh">
         <div class="modal-header">
-          <h2 class="modal-title">Seleccionar ejercicio</h2>
+          <h2 class="modal-title" data-i18n="picker.title">Seleccionar ejercicio</h2>
           <button class="modal-close" onclick="closeExPicker()">✕</button>
         </div>
-        <input id="ex-picker-search" class="form-input" type="search" placeholder="Buscar ejercicio…" oninput="renderExPicker()" style="margin-bottom:10px" />
+        <input id="ex-picker-search" class="form-input" type="search" data-i18n-placeholder="picker.search" placeholder="Buscar ejercicio…" oninput="renderExPicker()" style="margin-bottom:10px" />
         <div id="ex-picker-filters" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
           <button class="ex-fbtn active" data-picker-filter="all" onclick="setPickerFilter(this,'all')">Todos</button>
           <button class="ex-fbtn" data-picker-filter="glúteo" onclick="setPickerFilter(this,'glúteo')">Glúteo</button>
@@ -374,9 +374,9 @@
 
     // ── i18n ──
     const CT = {
-      es: { back:'Volver', 'tab.login':'Entrar', 'tab.register':'Crear cuenta', 'placeholder.password':'Contraseña', 'placeholder.name':'Tu nombre', 'placeholder.password6':'Contraseña (mín. 6 caracteres)', clients:'Mis alumnas', 'code.label':'Tu código de entrenadora', 'code.hint':'Tus alumnas lo introducen en la app Meirins para conectarse contigo.', logout:'Cerrar sesión', loading:'Cargando…', 'empty.title':'Aún no tienes alumnas conectadas', 'empty.hint':'Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.', active:'activa', noname:'Sin nombre', 'nav.clients':'Mis alumnas', 'nav.programs':'Mis programas', 'nav.exercises':'Ejercicios', 'btn.new-program':'+ Nuevo programa', 'btn.new-exercise':'+ Nuevo ejercicio', 'empty.programs.title':'Aún no tienes programas', 'empty.programs.hint':'Crea tu primer programa con el botón de arriba.' },
-      en: { back:'Back', 'tab.login':'Log in', 'tab.register':'Create account', 'placeholder.password':'Password', 'placeholder.name':'Your name', 'placeholder.password6':'Password (min. 6 characters)', clients:'My clients', 'code.label':'Your trainer code', 'code.hint':'Your clients enter this code in the Meirins app to connect with you.', logout:'Log out', loading:'Loading…', 'empty.title':'No clients connected yet', 'empty.hint':'When a client enters your code in the Meirins app, they will appear here.', active:'active', noname:'No name', 'nav.clients':'My clients', 'nav.programs':'My programs', 'nav.exercises':'Exercises', 'btn.new-program':'+ New program', 'btn.new-exercise':'+ New exercise', 'empty.programs.title':'No programs yet', 'empty.programs.hint':'Create your first program with the button above.' },
-      fr: { back:'Retour', 'tab.login':'Se connecter', 'tab.register':'Créer un compte', 'placeholder.password':'Mot de passe', 'placeholder.name':'Ton prénom', 'placeholder.password6':'Mot de passe (min. 6 caractères)', clients:'Mes clientes', 'code.label':'Ton code coach', 'code.hint':'Tes clientes entrent ce code dans l\'app Meirins pour se connecter avec toi.', logout:'Se déconnecter', loading:'Chargement…', 'empty.title':'Aucune cliente connectée pour l\'instant', 'empty.hint':'Quand une cliente entre ton code dans l\'app Meirins, elle apparaîtra ici.', active:'active', noname:'Sans nom', 'nav.clients':'Mes clientes', 'nav.programs':'Mes programmes', 'nav.exercises':'Exercices', 'btn.new-program':'+ Nouveau programme', 'btn.new-exercise':'+ Nouvel exercice', 'empty.programs.title':'Aucun programme pour l\'instant', 'empty.programs.hint':'Crée ton premier programme avec le bouton ci-dessus.' },
+      es: { back:'Volver', 'tab.login':'Entrar', 'tab.register':'Crear cuenta', 'placeholder.password':'Contraseña', 'placeholder.name':'Tu nombre', 'placeholder.password6':'Contraseña (mín. 6 caracteres)', clients:'Mis alumnas', 'code.label':'Tu código de entrenadora', 'code.hint':'Tus alumnas lo introducen en la app Meirins para conectarse contigo.', logout:'Cerrar sesión', loading:'Cargando…', 'empty.title':'Aún no tienes alumnas conectadas', 'empty.hint':'Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.', active:'activa', noname:'Sin nombre', 'nav.clients':'Mis alumnas', 'nav.programs':'Mis programas', 'nav.exercises':'Ejercicios', 'btn.new-program':'+ Nuevo programa', 'btn.new-exercise':'+ Nuevo ejercicio', 'empty.programs.title':'Aún no tienes programas', 'empty.programs.hint':'Crea tu primer programa con el botón de arriba.', 'picker.title':'Seleccionar ejercicio', 'picker.search':'Buscar ejercicio…', 'picker.empty':'Sin resultados' },
+      en: { back:'Back', 'tab.login':'Log in', 'tab.register':'Create account', 'placeholder.password':'Password', 'placeholder.name':'Your name', 'placeholder.password6':'Password (min. 6 characters)', clients:'My clients', 'code.label':'Your trainer code', 'code.hint':'Your clients enter this code in the Meirins app to connect with you.', logout:'Log out', loading:'Loading…', 'empty.title':'No clients connected yet', 'empty.hint':'When a client enters your code in the Meirins app, they will appear here.', active:'active', noname:'No name', 'nav.clients':'My clients', 'nav.programs':'My programs', 'nav.exercises':'Exercises', 'btn.new-program':'+ New program', 'btn.new-exercise':'+ New exercise', 'empty.programs.title':'No programs yet', 'empty.programs.hint':'Create your first program with the button above.', 'picker.title':'Select exercise', 'picker.search':'Search exercise…', 'picker.empty':'No results' },
+      fr: { back:'Retour', 'tab.login':'Se connecter', 'tab.register':'Créer un compte', 'placeholder.password':'Mot de passe', 'placeholder.name':'Ton prénom', 'placeholder.password6':'Mot de passe (min. 6 caractères)', clients:'Mes clientes', 'code.label':'Ton code coach', 'code.hint':'Tes clientes entrent ce code dans l\'app Meirins pour se connecter avec toi.', logout:'Se déconnecter', loading:'Chargement…', 'empty.title':'Aucune cliente connectée pour l\'instant', 'empty.hint':'Quand une cliente entre ton code dans l\'app Meirins, elle apparaîtra ici.', active:'active', noname:'Sans nom', 'nav.clients':'Mes clientes', 'nav.programs':'Mes programmes', 'nav.exercises':'Exercices', 'btn.new-program':'+ Nouveau programme', 'btn.new-exercise':'+ Nouvel exercice', 'empty.programs.title':'Aucun programme pour l\'instant', 'empty.programs.hint':'Crée ton premier programme avec le bouton ci-dessus.', 'picker.title':'Sélectionner un exercice', 'picker.search':'Rechercher un exercice…', 'picker.empty':'Aucun résultat' },
     };
     let currentLang = localStorage.getItem('meirins_lang') || 'es';
 
@@ -522,15 +522,20 @@
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
     // ── EJERCICIOS ──
-    async function loadExercises() {
-      document.getElementById('ex-loading').classList.remove('hidden');
-      document.getElementById('ex-list').innerHTML = '';
+    async function fetchAllExercises() {
+      if (allExercises.length) return; // ya cargados
       const { data } = await sb.from('exercises_library').select('*').order('name');
       allExercises = (data || []).map(e => ({
         ...e,
         body_part: e.muscle_es || e.muscle,
         equipment: e.equipment,
       }));
+    }
+
+    async function loadExercises() {
+      document.getElementById('ex-loading').classList.remove('hidden');
+      document.getElementById('ex-list').innerHTML = '';
+      await fetchAllExercises();
       document.getElementById('ex-loading').classList.add('hidden');
       renderExercises();
     }
@@ -746,8 +751,8 @@
       document.querySelectorAll('#ex-picker-filters .ex-fbtn').forEach(b => b.classList.toggle('active', b.dataset.pickerFilter === 'all'));
       document.getElementById('ex-picker-overlay').classList.remove('hidden');
       if (!allExercises.length) {
-        document.getElementById('ex-picker-list').innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:13px;padding:16px 0;text-align:center">Cargando…</p>';
-        await loadExercises();
+        document.getElementById('ex-picker-list').innerHTML = `<p style="color:rgba(255,255,255,0.4);font-size:13px;padding:16px 0;text-align:center">${CT[currentLang]?.loading || 'Cargando…'}</p>`;
+        await fetchAllExercises();
       }
       renderExPicker();
     }
@@ -783,7 +788,7 @@
               <span style="font-size:18px;flex-shrink:0">${isAdded ? '✓' : '+'}</span>
             </div>`;
           }).join('')
-        : '<p style="color:rgba(255,255,255,0.4);font-size:13px;padding:16px 0;text-align:center">Sin resultados</p>';
+        : `<p style="color:rgba(255,255,255,0.4);font-size:13px;padding:16px 0;text-align:center">${CT[currentLang]?.['picker.empty'] || 'Sin resultados'}</p>`;
     }
 
     function pickExercise(id, name) {
