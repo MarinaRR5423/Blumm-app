@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meirins · Bienestar femenino</title>
-  <meta name="description" content="Meirins es una app de bienestar femenino que adapta tu nutrición y entrenamiento a tu ciclo menstrual.">
-  <link rel="stylesheet" href="style.css?v=2">
+  <title>Meirins · Tu ciclo, tu energía</title>
+  <meta name="description" content="Meirins adapta tu nutrición y entrenamiento a cada fase de tu ciclo menstrual. Sin planes genéricos.">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
+
+  <!-- ── HEADER ── -->
   <header>
     <div class="container">
       <div class="brand">
@@ -34,23 +36,52 @@
 
     <!-- ── HERO ── -->
     <section class="hero" id="app">
-      <div class="container">
-        <h1 data-i18n="hero.title">Tu bienestar, sincronizado con tu ciclo</h1>
-        <p class="lead" data-i18n="hero.lead">Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.</p>
-        <div class="badges">
-          <span class="badge" data-i18n="badge.nutrition">🥗 Nutrición adaptada</span>
-          <span class="badge" data-i18n="badge.training">🏋️ Entrenamiento por fase</span>
-          <span class="badge" data-i18n="badge.health">🌸 Salud menstrual</span>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Bienestar femenino</p>
+          <h1 data-i18n="hero.title">Tu ciclo, tu energía.</h1>
+          <p class="lead" data-i18n="hero.lead">Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.</p>
+          <div class="store-buttons">
+            <a href="https://apps.apple.com/app/meirins/id6748039313" class="store-btn" target="_blank">
+              <span class="store-icon">🍎</span>
+              <span><small data-i18n="store.available">Disponible en</small>App Store</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.marina13.meirins" class="store-btn" target="_blank">
+              <span class="store-icon">▶️</span>
+              <span><small data-i18n="store.available">Disponible en</small>Google Play</span>
+            </a>
+          </div>
+          <div class="badges">
+            <span class="badge" data-i18n="badge.nutrition">🥗 Nutrición adaptada</span>
+            <span class="badge" data-i18n="badge.training">🏋️ Entrenamiento por fase</span>
+            <span class="badge" data-i18n="badge.health">🌸 Salud menstrual</span>
+          </div>
         </div>
-        <div class="store-buttons">
-          <a href="https://apps.apple.com/app/meirins/id6748039313" class="store-btn" target="_blank">
-            <span class="store-icon">🍎</span>
-            <span><small data-i18n="store.available">Disponible en</small>App Store</span>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.marina13.meirins" class="store-btn" target="_blank">
-            <span class="store-icon">▶️</span>
-            <span><small data-i18n="store.available">Disponible en</small>Google Play</span>
-          </a>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hv-card hv-phase">
+            <div class="hv-card-top">
+              <span class="hv-label">Día 22 de 28</span>
+              <span class="hv-moon">🌕</span>
+            </div>
+            <div class="hv-phase-name">Fase lútea</div>
+            <p class="hv-tip">Prioriza proteínas y magnesio. Baja la intensidad.</p>
+            <div class="hv-tags">
+              <span>zinc</span><span>magnesio</span><span>fibra</span>
+            </div>
+          </div>
+          <div class="hv-card hv-habit">
+            <div class="hv-streak">🔥 3 días seguidos</div>
+            <div class="hv-bars">
+              <div class="hv-bar on"></div>
+              <div class="hv-bar on"></div>
+              <div class="hv-bar on"></div>
+              <div class="hv-bar"></div>
+              <div class="hv-bar"></div>
+              <div class="hv-bar"></div>
+              <div class="hv-bar"></div>
+            </div>
+            <div class="hv-bar-label">Hábito de ejercicio</div>
+          </div>
         </div>
       </div>
     </section>
@@ -59,18 +90,18 @@
     <section class="features">
       <div class="container">
         <div class="grid">
-          <div class="card">
-            <span class="card-emoji">📊</span>
+          <div class="card card-green">
+            <div class="card-num">01</div>
             <h3 data-i18n="feat.algo.title">Algoritmo personalizado</h3>
             <p data-i18n="feat.algo.text">Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.</p>
           </div>
-          <div class="card">
-            <span class="card-emoji">📅</span>
+          <div class="card card-rose">
+            <div class="card-num">02</div>
             <h3 data-i18n="feat.track.title">Seguimiento diario</h3>
             <p data-i18n="feat.track.text">Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.</p>
           </div>
-          <div class="card">
-            <span class="card-emoji">🔒</span>
+          <div class="card card-ink">
+            <div class="card-num">03</div>
             <h3 data-i18n="feat.privacy.title">Privacidad por diseño</h3>
             <p data-i18n="feat.privacy.text">Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.</p>
           </div>
@@ -184,11 +215,15 @@
 
   <footer>
     <div class="container">
-      <p data-i18n="footer.copy">© 2026 Meirins. Hecho con 💙 para la salud femenina.</p>
+      <div class="footer-brand">
+        <span>🌙</span>
+        <span>Meirins</span>
+      </div>
+      <p data-i18n="footer.copy">© 2026 Meirins. Bienestar femenino sincronizado.</p>
       <p class="small">
-        <a href="support.html" data-i18n="footer.help">Ayuda / Support</a> ·
-        <a href="privacy.html" data-i18n="footer.privacy">Privacidad / Privacy</a> ·
-        <a href="terms.html" data-i18n="footer.terms">Términos / Terms</a>
+        <a href="support.html" data-i18n="footer.help">Ayuda</a> ·
+        <a href="privacy.html" data-i18n="footer.privacy">Privacidad</a> ·
+        <a href="terms.html" data-i18n="footer.terms">Términos</a>
       </p>
       <p class="small"><span data-i18n="footer.contact">¿Necesitas ayuda?</span> <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a></p>
     </div>
@@ -198,7 +233,7 @@
     const T = {
       es: {
         'nav.app': 'La app', 'nav.trainers': 'Para entrenadoras', 'nav.legal': 'Legal',
-        'hero.title': 'Tu bienestar, sincronizado con tu ciclo',
+        'hero.title': 'Tu ciclo, tu energía.',
         'hero.lead': 'Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.',
         'badge.nutrition': '🥗 Nutrición adaptada', 'badge.training': '🏋️ Entrenamiento por fase', 'badge.health': '🌸 Salud menstrual',
         'store.available': 'Disponible en',
@@ -216,12 +251,12 @@
         'legal.terms.title': 'Términos de uso', 'legal.terms.text': 'Condiciones del servicio y aviso médico',
         'legal.support.title': 'Ayuda y soporte', 'legal.support.text': 'Preguntas frecuentes y contacto',
         'legal.delete.title': 'Eliminar cuenta', 'legal.delete.text': 'Cómo borrar tu cuenta y todos tus datos',
-        'footer.copy': '© 2026 Meirins. Hecho con 💙 para la salud femenina.',
+        'footer.copy': '© 2026 Meirins. Bienestar femenino sincronizado.',
         'footer.help': 'Ayuda', 'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.contact': '¿Necesitas ayuda?',
       },
       en: {
         'nav.app': 'The app', 'nav.trainers': 'For trainers', 'nav.legal': 'Legal',
-        'hero.title': 'Your wellbeing, in sync with your cycle',
+        'hero.title': 'Your cycle, your energy.',
         'hero.lead': 'Personalised nutrition and training based on your menstrual phase, health conditions, and goals.',
         'badge.nutrition': '🥗 Adapted nutrition', 'badge.training': '🏋️ Phase-based training', 'badge.health': '🌸 Menstrual health',
         'store.available': 'Available on',
@@ -239,12 +274,12 @@
         'legal.terms.title': 'Terms of Use', 'legal.terms.text': 'Service conditions and medical disclaimer',
         'legal.support.title': 'Help & Support', 'legal.support.text': 'Frequently asked questions and contact',
         'legal.delete.title': 'Delete account', 'legal.delete.text': 'How to delete your account and all your data',
-        'footer.copy': '© 2026 Meirins. Made with 💙 for women\'s health.',
+        'footer.copy': '© 2026 Meirins. Femme wellness, synchronised.',
         'footer.help': 'Help', 'footer.privacy': 'Privacy', 'footer.terms': 'Terms', 'footer.contact': 'Need help?',
       },
       fr: {
         'nav.app': "L'app", 'nav.trainers': 'Pour les coachs', 'nav.legal': 'Légal',
-        'hero.title': 'Ton bien-être, synchronisé avec ton cycle',
+        'hero.title': 'Ton cycle, ton énergie.',
         'hero.lead': 'Nutrition et entraînement personnalisés selon ta phase menstruelle, tes conditions de santé et tes objectifs.',
         'badge.nutrition': '🥗 Nutrition adaptée', 'badge.training': '🏋️ Entraînement par phase', 'badge.health': '🌸 Santé menstruelle',
         'store.available': 'Disponible sur',
@@ -262,7 +297,7 @@
         'legal.terms.title': "Conditions d'utilisation", 'legal.terms.text': "Conditions du service et avertissement médical",
         'legal.support.title': 'Aide et support', 'legal.support.text': 'Questions fréquentes et contact',
         'legal.delete.title': 'Supprimer le compte', 'legal.delete.text': 'Comment supprimer ton compte et toutes tes données',
-        'footer.copy': '© 2026 Meirins. Fait avec 💙 pour la santé féminine.',
+        'footer.copy': '© 2026 Meirins. Bien-être féminin synchronisé.',
         'footer.help': 'Aide', 'footer.privacy': 'Confidentialité', 'footer.terms': 'Conditions', 'footer.contact': "Besoin d'aide ?",
       }
     };
