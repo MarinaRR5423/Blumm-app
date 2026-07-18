@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meirins Coach · Panel de entrenadora</title>
+  <title>Blumm Coach · Panel de entrenadora</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="coach.css">
 </head>
@@ -22,7 +22,7 @@
       </div>
       <div class="coach-logo">
         <span>🌙</span>
-        <span class="coach-brand">Meirins <strong>Coach</strong></span>
+        <span class="coach-brand">Blumm <strong>Coach</strong></span>
       </div>
 
       <!-- Tabs -->
@@ -55,7 +55,7 @@
 
     <!-- Mobile top bar -->
     <div class="coach-mobile-header">
-      <div class="coach-mobile-brand">🌙 <strong>Meirins Coach</strong></div>
+      <div class="coach-mobile-brand">🌙 <strong>Blumm Coach</strong></div>
       <button class="coach-mobile-menu-btn" onclick="toggleCoachMenu()">☰</button>
     </div>
 
@@ -73,7 +73,7 @@
     <aside class="coach-sidebar">
       <div class="sidebar-logo">
         <span>🌙</span>
-        <span>Meirins <strong>Coach</strong></span>
+        <span>Blumm <strong>Coach</strong></span>
       </div>
       <p id="trainer-email" class="sidebar-email"></p>
       <nav class="sidebar-nav">
@@ -84,7 +84,7 @@
       <div class="sidebar-code-box">
         <p class="sidebar-code-label" data-i18n="code.label">Tu código de entrenadora</p>
         <p id="trainer-code" class="sidebar-code">—</p>
-        <p class="sidebar-code-hint" data-i18n="code.hint">Tus alumnas lo introducen en la app Meirins para conectarse contigo.</p>
+        <p class="sidebar-code-hint" data-i18n="code.hint">Tus alumnas lo introducen en la app Blumm para conectarse contigo.</p>
       </div>
       <button class="sidebar-theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
         <span id="theme-label">☀️ Modo claro</span>
@@ -101,7 +101,7 @@
         <div id="clients-loading" class="coach-muted" data-i18n="loading">Cargando…</div>
         <div id="clients-empty" class="coach-empty hidden">
           <p class="coach-empty-title" data-i18n="empty.title">Aún no tienes alumnas conectadas</p>
-          <p class="coach-muted" data-i18n="empty.hint">Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.</p>
+          <p class="coach-muted" data-i18n="empty.hint">Cuando una alumna introduzca tu código en la app Blumm, aparecerá aquí.</p>
         </div>
         <div id="clients-list" class="clients-grid hidden"></div>
       </section>
@@ -397,9 +397,9 @@
 
     // ── i18n ──
     const CT = {
-      es: { back:'Volver', 'tab.login':'Entrar', 'tab.register':'Crear cuenta', 'placeholder.password':'Contraseña', 'placeholder.name':'Tu nombre', 'placeholder.password6':'Contraseña (mín. 6 caracteres)', clients:'Mis alumnas', 'code.label':'Tu código de entrenadora', 'code.hint':'Tus alumnas lo introducen en la app Meirins para conectarse contigo.', logout:'Cerrar sesión', loading:'Cargando…', 'empty.title':'Aún no tienes alumnas conectadas', 'empty.hint':'Cuando una alumna introduzca tu código en la app Meirins, aparecerá aquí.', active:'activa', noname:'Sin nombre', 'nav.clients':'Mis alumnas', 'nav.programs':'Mis programas', 'nav.exercises':'Ejercicios', 'btn.new-program':'+ Nuevo programa', 'btn.new-exercise':'+ Nuevo ejercicio', 'empty.programs.title':'Aún no tienes programas', 'empty.programs.hint':'Crea tu primer programa con el botón de arriba.', 'picker.title':'Seleccionar ejercicio', 'picker.search':'Buscar ejercicio…', 'picker.empty':'Sin resultados' },
-      en: { back:'Back', 'tab.login':'Log in', 'tab.register':'Create account', 'placeholder.password':'Password', 'placeholder.name':'Your name', 'placeholder.password6':'Password (min. 6 characters)', clients:'My clients', 'code.label':'Your trainer code', 'code.hint':'Your clients enter this code in the Meirins app to connect with you.', logout:'Log out', loading:'Loading…', 'empty.title':'No clients connected yet', 'empty.hint':'When a client enters your code in the Meirins app, they will appear here.', active:'active', noname:'No name', 'nav.clients':'My clients', 'nav.programs':'My programs', 'nav.exercises':'Exercises', 'btn.new-program':'+ New program', 'btn.new-exercise':'+ New exercise', 'empty.programs.title':'No programs yet', 'empty.programs.hint':'Create your first program with the button above.', 'picker.title':'Select exercise', 'picker.search':'Search exercise…', 'picker.empty':'No results' },
-      fr: { back:'Retour', 'tab.login':'Se connecter', 'tab.register':'Créer un compte', 'placeholder.password':'Mot de passe', 'placeholder.name':'Ton prénom', 'placeholder.password6':'Mot de passe (min. 6 caractères)', clients:'Mes clientes', 'code.label':'Ton code coach', 'code.hint':'Tes clientes entrent ce code dans l\'app Meirins pour se connecter avec toi.', logout:'Se déconnecter', loading:'Chargement…', 'empty.title':'Aucune cliente connectée pour l\'instant', 'empty.hint':'Quand une cliente entre ton code dans l\'app Meirins, elle apparaîtra ici.', active:'active', noname:'Sans nom', 'nav.clients':'Mes clientes', 'nav.programs':'Mes programmes', 'nav.exercises':'Exercices', 'btn.new-program':'+ Nouveau programme', 'btn.new-exercise':'+ Nouvel exercice', 'empty.programs.title':'Aucun programme pour l\'instant', 'empty.programs.hint':'Crée ton premier programme avec le bouton ci-dessus.', 'picker.title':'Sélectionner un exercice', 'picker.search':'Rechercher un exercice…', 'picker.empty':'Aucun résultat' },
+      es: { back:'Volver', 'tab.login':'Entrar', 'tab.register':'Crear cuenta', 'placeholder.password':'Contraseña', 'placeholder.name':'Tu nombre', 'placeholder.password6':'Contraseña (mín. 6 caracteres)', clients:'Mis alumnas', 'code.label':'Tu código de entrenadora', 'code.hint':'Tus alumnas lo introducen en la app Blumm para conectarse contigo.', logout:'Cerrar sesión', loading:'Cargando…', 'empty.title':'Aún no tienes alumnas conectadas', 'empty.hint':'Cuando una alumna introduzca tu código en la app Blumm, aparecerá aquí.', active:'activa', noname:'Sin nombre', 'nav.clients':'Mis alumnas', 'nav.programs':'Mis programas', 'nav.exercises':'Ejercicios', 'btn.new-program':'+ Nuevo programa', 'btn.new-exercise':'+ Nuevo ejercicio', 'empty.programs.title':'Aún no tienes programas', 'empty.programs.hint':'Crea tu primer programa con el botón de arriba.', 'picker.title':'Seleccionar ejercicio', 'picker.search':'Buscar ejercicio…', 'picker.empty':'Sin resultados' },
+      en: { back:'Back', 'tab.login':'Log in', 'tab.register':'Create account', 'placeholder.password':'Password', 'placeholder.name':'Your name', 'placeholder.password6':'Password (min. 6 characters)', clients:'My clients', 'code.label':'Your trainer code', 'code.hint':'Your clients enter this code in the Blumm app to connect with you.', logout:'Log out', loading:'Loading…', 'empty.title':'No clients connected yet', 'empty.hint':'When a client enters your code in the Blumm app, they will appear here.', active:'active', noname:'No name', 'nav.clients':'My clients', 'nav.programs':'My programs', 'nav.exercises':'Exercises', 'btn.new-program':'+ New program', 'btn.new-exercise':'+ New exercise', 'empty.programs.title':'No programs yet', 'empty.programs.hint':'Create your first program with the button above.', 'picker.title':'Select exercise', 'picker.search':'Search exercise…', 'picker.empty':'No results' },
+      fr: { back:'Retour', 'tab.login':'Se connecter', 'tab.register':'Créer un compte', 'placeholder.password':'Mot de passe', 'placeholder.name':'Ton prénom', 'placeholder.password6':'Mot de passe (min. 6 caractères)', clients:'Mes clientes', 'code.label':'Ton code coach', 'code.hint':'Tes clientes entrent ce code dans l\'app Blumm pour se connecter avec toi.', logout:'Se déconnecter', loading:'Chargement…', 'empty.title':'Aucune cliente connectée pour l\'instant', 'empty.hint':'Quand une cliente entre ton code dans l\'app Blumm, elle apparaîtra ici.', active:'active', noname:'Sans nom', 'nav.clients':'Mes clientes', 'nav.programs':'Mes programmes', 'nav.exercises':'Exercices', 'btn.new-program':'+ Nouveau programme', 'btn.new-exercise':'+ Nouvel exercice', 'empty.programs.title':'Aucun programme pour l\'instant', 'empty.programs.hint':'Crée ton premier programme avec le bouton ci-dessus.', 'picker.title':'Sélectionner un exercice', 'picker.search':'Rechercher un exercice…', 'picker.empty':'Aucun résultat' },
     };
     let currentLang = localStorage.getItem('meirins_lang') || 'es';
 
