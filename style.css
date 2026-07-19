@@ -74,7 +74,7 @@ header .container {
 }
 .logo { font-size: 22px; }
 .brand-name { letter-spacing: 0.2px; }
-.blumm-logo { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); }
+.blumm-logo { height: 28px; width: auto; display: block; filter: invert(1); mix-blend-mode: screen; }
 
 #main-nav {
   display: flex;
