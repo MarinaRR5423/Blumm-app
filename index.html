@@ -23,6 +23,7 @@
         <a href="#app" data-i18n="nav.app" onclick="closeMenu()">La app</a>
         <a href="#entrenadora" data-i18n="nav.trainers" onclick="closeMenu()">Para entrenadoras</a>
         <a href="#legal" data-i18n="nav.legal" onclick="closeMenu()">Legal</a>
+        <a href="#" class="nav-download" onclick="smartDownload(event)" data-i18n="nav.download">Descargar app</a>
         <div class="lang-switcher">
           <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
           <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
@@ -230,7 +231,7 @@
   <script>
     const T = {
       es: {
-        'nav.app': 'La app', 'nav.trainers': 'Para entrenadoras', 'nav.legal': 'Legal',
+        'nav.app': 'La app', 'nav.trainers': 'Para entrenadoras', 'nav.legal': 'Legal', 'nav.download': 'Descargar app',
         'hero.title': 'Tu ciclo, tu energía.',
         'hero.lead': 'Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.',
         'badge.nutrition': '🥗 Nutrición adaptada', 'badge.training': '🏋️ Entrenamiento por fase', 'badge.health': '🌸 Salud menstrual',
@@ -257,7 +258,7 @@
         'card.streak': '3 días seguidos', 'card.habit': 'Hábito de ejercicio',
       },
       en: {
-        'nav.app': 'The app', 'nav.trainers': 'For trainers', 'nav.legal': 'Legal',
+        'nav.app': 'The app', 'nav.trainers': 'For trainers', 'nav.legal': 'Legal', 'nav.download': 'Download app',
         'hero.title': 'Your cycle, your energy.',
         'hero.lead': 'Personalised nutrition and training based on your menstrual phase, health conditions, and goals.',
         'badge.nutrition': '🥗 Adapted nutrition', 'badge.training': '🏋️ Phase-based training', 'badge.health': '🌸 Menstrual health',
@@ -284,7 +285,7 @@
         'card.streak': '3 days in a row', 'card.habit': 'Exercise habit',
       },
       fr: {
-        'nav.app': "L'app", 'nav.trainers': 'Pour les coachs', 'nav.legal': 'Légal',
+        'nav.app': "L'app", 'nav.trainers': 'Pour les coachs', 'nav.legal': 'Légal', 'nav.download': "Télécharger l'app",
         'hero.title': 'Ton cycle, ton énergie.',
         'hero.lead': 'Nutrition et entraînement personnalisés selon ta phase menstruelle, tes conditions de santé et tes objectifs.',
         'badge.nutrition': '🥗 Nutrition adaptée', 'badge.training': '🏋️ Entraînement par phase', 'badge.health': '🌸 Santé menstruelle',
@@ -311,6 +312,22 @@
         'card.streak': '3 jours de suite', 'card.habit': 'Habitude d\'exercice',
       }
     };
+
+    const APP_STORE_URL = 'https://apps.apple.com/app/meirins/id6748039313';
+    const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.marina13.meirins';
+
+    function smartDownload(e) {
+      if (e) e.preventDefault();
+      const ua = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        window.open(APP_STORE_URL, '_blank');
+      } else if (/Android/i.test(ua)) {
+        window.open(PLAY_STORE_URL, '_blank');
+      } else {
+        document.getElementById('app').scrollIntoView({ behavior: 'smooth' });
+      }
+      closeMenu();
+    }
 
     function toggleMenu() {
       const nav = document.getElementById('main-nav');
