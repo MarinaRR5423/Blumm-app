@@ -6,169 +6,265 @@
   <title>Blumm · Tu ciclo, tu energía</title>
   <meta name="description" content="Blumm adapta tu nutrición y entrenamiento a cada fase de tu ciclo menstrual. Sin planes genéricos.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
-<body>
+<body class="landing-body">
+
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="ico-salad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12c-.62-2.08-1.75-3.5-3.13-4.67C7.5 6.5 7 5.36 7 4"/><path d="M13 12c.25-1.72 1-2.72 2-3.5.9-.7 1.5-1.7 1.5-3"/><path d="M17.5 6.5c-1 0-2 .5-2.5 1.5"/>
+    </symbol>
+    <symbol id="ico-shoe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 17c0-2 1-3 2-4l3-3c1-1 1.6-1.3 3-1.3 1.7 0 2.3.6 3.3 1.7.8.9 1.7 1.6 3 1.9 1.6.4 2.7 1.6 2.7 3.2V19H3v-2Z"/><path d="M8 10.5 10.5 8"/>
+    </symbol>
+    <symbol id="ico-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 6 6 6-6 6"/>
+    </symbol>
+    <symbol id="ico-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 6-6 6 6 6"/>
+    </symbol>
+    <symbol id="ico-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 7.5a2.5 2.5 0 1 0-2.5-2.5 2.5 2.5 0 0 0 2.5 2.5Z"/><path d="M12 7.5a2.5 2.5 0 1 1 2.5 2.5 2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M12 16.5A2.5 2.5 0 1 0 9.5 19a2.5 2.5 0 0 0 2.5-2.5Z"/><path d="M12 16.5a2.5 2.5 0 1 1 2.5 2.5 2.5 2.5 0 0 1-2.5-2.5Z"/><circle cx="12" cy="12" r="2.5"/><path d="M12 14.5V19"/><path d="M12 4v1.5"/>
+    </symbol>
+    <symbol id="ico-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="ico-heart" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21s-7.5-4.6-10-9.3C.6 8.6 2 5 5.4 4.4 7.6 4 9.8 5 12 7.4 14.2 5 16.4 4 18.6 4.4 22 5 23.4 8.6 22 11.7 19.5 16.4 12 21 12 21Z"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+  </svg>
+
+  <div class="page-frame">
 
   <!-- ── HEADER ── -->
   <header>
-    <div class="container">
-      <div class="brand">
-        <img src="blumm-logo.png" alt="Blumm" class="blumm-logo">
+    <div class="brand">
+      <img src="blumm-logo.png" alt="Blumm" class="blumm-logo">
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" class="tab-nav">
+      <a href="#app" class="tab-nav-item active" data-i18n="nav.app" onclick="closeMenu()">App</a>
+      <a href="#funcionalidades" class="tab-nav-item" data-i18n="nav.features" onclick="closeMenu()">Funcionalidades</a>
+      <a href="#entrenadora" class="tab-nav-item" data-i18n="nav.trainers" onclick="closeMenu()">Entrenadoras</a>
+      <a href="#legal" class="tab-nav-item" data-i18n="nav.help" onclick="closeMenu()">Ayuda</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
       </div>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav">
-        <a href="#app" data-i18n="nav.app" onclick="closeMenu()">La app</a>
-        <a href="#entrenadora" data-i18n="nav.trainers" onclick="closeMenu()">Para entrenadoras</a>
-        <a href="#legal" data-i18n="nav.legal" onclick="closeMenu()">Legal</a>
-        <a href="#" class="nav-download" onclick="smartDownload(event)" data-i18n="nav.download">Descargar app</a>
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
-          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
-        </div>
-      </nav>
+      <a href="#" class="nav-download" onclick="smartDownload(event)" data-i18n="nav.download">Descarga</a>
     </div>
   </header>
 
   <main>
 
     <!-- ── HERO ── -->
-    <section class="hero" id="app">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="hero-eyebrow" data-i18n="hero.eyebrow">Bienestar femenino</p>
-          <h1 data-i18n="hero.title">Tu ciclo, tu energía.</h1>
-          <p class="lead" data-i18n="hero.lead">Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.</p>
-          <div class="store-buttons">
-            <a href="https://apps.apple.com/app/meirins/id6748039313" class="store-btn" target="_blank">
-              <span class="store-icon">🍎</span>
-              <span><small data-i18n="store.available">Disponible en</small>App Store</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.marina13.meirins" class="store-btn" target="_blank">
-              <span class="store-icon">▶️</span>
-              <span><small data-i18n="store.available">Disponible en</small>Google Play</span>
-            </a>
-          </div>
-          <div class="badges">
-            <span class="badge" data-i18n="badge.nutrition">🥗 Nutrición adaptada</span>
-            <span class="badge" data-i18n="badge.training">🏋️ Entrenamiento por fase</span>
-            <span class="badge" data-i18n="badge.health">🌸 Salud menstrual</span>
-          </div>
+    <section class="hero-card" id="app">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Tu app de salud femenina</p>
+        <div class="hero-copy-content">
+          <h1 data-i18n="hero.title">Tu ciclo, convertido en un plan diario.</h1>
+          <p class="lead" data-i18n="hero.lead">Nutrición, entrenamiento y lista de la compra según tu fase, tu programa y tu etapa vital. Con base fisiológica, no de calendario.</p>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hv-card hv-phase">
-            <div class="hv-card-top">
-              <span class="hv-label" data-i18n="card.day">Día 22 de 28</span>
-              <span class="hv-moon">🌕</span>
-            </div>
-            <div class="hv-phase-name" data-i18n="card.phase">Fase lútea</div>
-            <p class="hv-tip" data-i18n="card.tip">Prioriza proteínas y magnesio. Baja la intensidad.</p>
-            <div class="hv-tags">
-              <span data-i18n="card.tag1">zinc</span><span data-i18n="card.tag2">magnesio</span><span data-i18n="card.tag3">fibra</span>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.marina13.meirins" class="store-btn" target="_blank">
+            <svg class="store-icon" viewBox="0 0 20 20" fill="none"><path d="M2.5 2.2v15.6c0 .3.16.55.4.7l9-8.5-9-8.5c-.24.15-.4.4-.4.7z" fill="#00d2ff"/><path d="M14.8 8.1l-2.9-1.65-3.3 3.55 3.3 3.55 2.9-1.65c1-.55 1-1.95 0-2.5z" fill="#ffe000"/><path d="M2.9 17.8c.2.1.45.1.65 0l8.35-4.75-3-3.05-6 7.8z" fill="#ff3a44"/><path d="M2.9 2.2l6 7.8 3-3.05L3.55 2.2c-.2-.1-.45-.1-.65 0z" fill="#00e177"/></svg>
+            <span><small data-i18n="store.available">Disponible en</small>Google Play</span>
+          </a>
+          <a href="https://apps.apple.com/app/meirins/id6748039313" class="store-btn" target="_blank">
+            <svg class="store-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M14.9 10.6c0-2 1.6-2.9 1.7-3-.9-1.3-2.3-1.5-2.8-1.5-1.2-.1-2.3.7-2.9.7s-1.5-.7-2.5-.7c-1.3 0-2.5.75-3.1 1.9-1.3 2.3-.35 5.7.95 7.6.63.9 1.4 1.95 2.4 1.9.95-.04 1.3-.62 2.5-.62s1.5.62 2.5.6c1.05-.02 1.7-.95 2.35-1.85.7-1.05 1-2.05 1-2.1-.02-.02-1.95-.75-1.95-2.93z" /><path d="M12.8 4.6c.5-.63.85-1.5.75-2.4-.75.03-1.65.5-2.2 1.15-.47.55-.9 1.45-.78 2.3.83.06 1.7-.42 2.23-1.05z"/></svg>
+            <span><small data-i18n="store.available">Disponible en</small>App Store</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="assets/figma/ovulacion.png" alt="" class="hero-visual-bg">
+        <div class="glass-stack">
+          <div class="mini-card mini-phase" style="background-image:url('assets/figma/ovulacion.png')">
+            <p class="mini-phase-title" data-i18n="card.day">Día 16, estás entrando en la fase de ovulación</p>
+            <div class="tags-row">
+              <span class="tag" data-i18n="card.tag1">día 17/28</span>
+              <span class="tag" data-i18n="card.tag2">intensidad máxima</span>
             </div>
           </div>
-          <div class="hv-card hv-habit">
-            <div class="hv-streak">🔥 <span data-i18n="card.streak">3 días seguidos</span></div>
-            <div class="hv-bars">
-              <div class="hv-bar on"></div>
-              <div class="hv-bar on"></div>
-              <div class="hv-bar on"></div>
-              <div class="hv-bar"></div>
-              <div class="hv-bar"></div>
-              <div class="hv-bar"></div>
-              <div class="hv-bar"></div>
+          <div class="glass-2col">
+            <div class="stat-card">
+              <div class="stat-title-row">
+                <span class="stat-title"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-salad"/></svg><span data-i18n="card.kcal.label">Kcal.consumidas</span></span>
+                <svg class="ico ico-chevron" viewBox="0 0 24 24"><use href="#ico-chevron-right"/></svg>
+              </div>
+              <p class="stat-num stat-num-orange">1230</p>
+              <p class="stat-sub" data-i18n="card.kcal.sub">1000 restantes</p>
+              <div class="status-bar"><div class="status-bar-fill" style="width:62%;background:var(--naranja-500)"></div></div>
             </div>
-            <div class="hv-bar-label" data-i18n="card.habit">Hábito de ejercicio</div>
+            <div class="stat-card">
+              <div class="stat-title-row">
+                <span class="stat-title"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-shoe"/></svg><span data-i18n="card.workout.label">Entreno</span></span>
+                <svg class="ico ico-chevron" viewBox="0 0 24 24"><use href="#ico-chevron-right"/></svg>
+              </div>
+              <p class="stat-num stat-num-blue">HIIT</p>
+              <p class="stat-sub" data-i18n="card.workout.sub">25 minutos</p>
+              <div class="tag-row-inline"><span data-i18n="card.workout.tag.label">Intensidad</span><span class="tag tag-blue" data-i18n="card.workout.tag.value">Máxima</span></div>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="stat-title-row">
+              <span class="stat-title"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-salad"/></svg><span data-i18n="card.meal.label">Siguiente comida</span></span>
+              <svg class="ico ico-chevron" viewBox="0 0 24 24"><use href="#ico-chevron-right"/></svg>
+            </div>
+            <p class="meal-eyebrow" data-i18n="card.meal.eyebrow">Desayuno</p>
+            <p class="meal-title" data-i18n="card.meal.title">Smoothie bowl de frutos rojos</p>
+            <ul class="meal-items">
+              <li data-i18n="card.meal.item1">200ml leche de coco</li>
+              <li data-i18n="card.meal.item2">100g frutos rojos</li>
+            </ul>
+            <div class="tags-row">
+              <span class="tag tag-peach" data-i18n="card.meal.tag1">Zinc</span>
+              <span class="tag tag-peach" data-i18n="card.meal.tag2">Antioxidantes</span>
+              <span class="tag tag-peach" data-i18n="card.meal.tag3">Fibra</span>
+            </div>
+            <button class="meal-btn" data-i18n="card.meal.btn">Ya lo he comido</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── FEATURES ── -->
-    <section class="features">
-      <div class="container">
-        <div class="grid">
-          <div class="card card-green">
-            <div class="card-num">01</div>
-            <h3 data-i18n="feat.algo.title">Algoritmo personalizado</h3>
-            <p data-i18n="feat.algo.text">Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.</p>
-          </div>
-          <div class="card card-rose">
-            <div class="card-num">02</div>
-            <h3 data-i18n="feat.track.title">Seguimiento diario</h3>
-            <p data-i18n="feat.track.text">Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.</p>
-          </div>
-          <div class="card card-ink">
-            <div class="card-num">03</div>
-            <h3 data-i18n="feat.privacy.title">Privacidad por diseño</h3>
-            <p data-i18n="feat.privacy.text">Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.</p>
-          </div>
+    <!-- ── FEATURE PHOTO CARDS ── -->
+    <section class="feature-cards-row">
+      <div class="photo-card">
+        <img src="assets/figma/card-ciclo.png" alt="" class="photo-card-bg">
+        <div class="photo-card-tag"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-flower"/></svg><span data-i18n="feat.cycle.tag">Ciclo</span></div>
+        <div class="photo-card-glass">
+          <h3 data-i18n="feat.cycle.title">Tu ciclo como punto de partida</h3>
+          <p data-i18n="feat.cycle.text">Nutrición y entrenamiento que se adaptan automáticamente a cada fase hormonal, no al calendario.</p>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/figma/card-nutricion.png" alt="" class="photo-card-bg">
+        <div class="photo-card-tag"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-salad"/></svg><span data-i18n="feat.nutrition.tag">Nutrición</span></div>
+        <div class="photo-card-glass">
+          <h3 data-i18n="feat.nutrition.title">Recetas hechas a tu medida</h3>
+          <p data-i18n="feat.nutrition.text">Ajusta cantidades, gustos, alergias e intolerancias. La lista de la compra se genera sola.</p>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/figma/card-entrenamiento.png" alt="" class="photo-card-bg">
+        <div class="photo-card-tag"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-shoe"/></svg><span data-i18n="feat.training.tag">Entrenamiento</span></div>
+        <div class="photo-card-glass">
+          <h3 data-i18n="feat.training.title">Entrenos según tu energía</h3>
+          <p data-i18n="feat.training.text">La intensidad y el tipo de ejercicio cambian según tu fase, tu condición y tus objetivos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FUNCIONALIDADES ── -->
+    <section class="funcionalidades-card" id="funcionalidades">
+      <p class="eyebrow" data-i18n="func.eyebrow">Funcionalidades</p>
+      <div class="funcionalidades-heading">
+        <h2 data-i18n="func.title">Todo lo que necesitas, en un mismo sitio.</h2>
+        <p class="lead" data-i18n="func.lead">Ciclo, nutrición, entrenamiento e hidratación conectados entre sí — sin apps sueltas ni planes genéricos.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/ovulacion.png')"></div>
+          <h4 data-i18n="func.card1.title">Controla tus fases y descubre cómo tienes que sentirte</h4>
+          <p data-i18n="func.card1.text">Sigue tu ciclo día a día y entiende qué le pasa a tu cuerpo en cada fase hormonal.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/card-nutricion.png')"></div>
+          <h4 data-i18n="func.card2.title">Ajusta, cambia o guarda tus recetas dependiendo de tu fase</h4>
+          <p data-i18n="func.card2.text">Recetas flexibles que puedes adaptar a lo que tienes en la nevera y a tu tiempo disponible.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/card-entrenamiento.png')"></div>
+          <h4 data-i18n="func.card3.title">Ejercicios adaptados a tu condición y objetivos</h4>
+          <p data-i18n="func.card3.text">Entrenos que respetan tu energía, tus lesiones y lo que quieres conseguir.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/card-ciclo.png')"></div>
+          <h4 data-i18n="func.card4.title">Guarda tu día a día para conocer mejor tus sensaciones</h4>
+          <p data-i18n="func.card4.text">Flujo, dolor, energía y ánimo, registrados en segundos para detectar patrones.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/bento-placeholder.png')"></div>
+          <h4 data-i18n="func.card5.title">Controla tu hidratación para estar siempre al 100%</h4>
+          <p data-i18n="func.card5.text">Recordatorios y objetivos de agua ajustados a tu fase y a tu actividad diaria.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-img" style="background-image:url('assets/figma/bento-placeholder.png')"></div>
+          <h4 data-i18n="func.card6.title">Elige tu tipo de dieta: gustos, alergias, intolerancias y tiempo</h4>
+          <p data-i18n="func.card6.text">Configura tu perfil nutricional una vez y deja que el resto se adapte a ti.</p>
         </div>
       </div>
     </section>
 
     <!-- ── ENTRENADORA ── -->
-    <section class="trainer-section" id="entrenadora">
-      <div class="container">
-        <div class="trainer-inner">
-          <div class="trainer-text">
-            <span class="trainer-tag" data-i18n="trainer.tag">Para profesionales</span>
-            <h2 data-i18n="trainer.title">¿Eres entrenadora personal?</h2>
-            <p data-i18n="trainer.text">Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Blumm.</p>
-            <ul class="trainer-perks">
-              <li data-i18n="trainer.perk1">✦ Dashboard con todas tus alumnas conectadas</li>
-              <li data-i18n="trainer.perk2">✦ Planes de entrenamiento personalizados por fase</li>
-              <li data-i18n="trainer.perk3">✦ Código único para que tus alumnas te encuentren</li>
-              <li data-i18n="trainer.perk4">✦ Sincronización automática con la app móvil</li>
-            </ul>
-            <a href="coach.html" class="trainer-btn" data-i18n="trainer.btn">Acceder al panel de entrenadora →</a>
+    <section class="trainer-card" id="entrenadora">
+      <div class="trainer-copy">
+        <p class="eyebrow eyebrow-on-blue" data-i18n="trainer.tag">Profesionales</p>
+        <div class="hero-copy-content">
+          <h2 data-i18n="trainer.title">¿Eres entrenadora personal?</h2>
+          <p class="lead" data-i18n="trainer.text">Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Blumm.</p>
+        </div>
+        <a href="coach.html" class="trainer-btn" data-i18n="trainer.btn">Acceder al panel de entrenadora</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="assets/figma/card-entrenamiento.png" alt="" class="hero-visual-bg">
+        <div class="glass-stack glass-stack-narrow">
+          <div class="calendar-card">
+            <div class="calendar-header">
+              <svg class="ico ico-sm" viewBox="0 0 24 24"><use href="#ico-chevron-left"/></svg>
+              <span data-i18n="trainer.calendar.month">9 January 2026</span>
+              <svg class="ico ico-sm" viewBox="0 0 24 24"><use href="#ico-chevron-right"/></svg>
+            </div>
+            <div class="calendar-week">
+              <span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span><span>sun</span>
+            </div>
+            <div class="calendar-days">
+              <span class="cal-day">6</span><span class="cal-day">7</span><span class="cal-day">8</span>
+              <span class="cal-day cal-day-active">9</span><span class="cal-day">10</span><span class="cal-day">11</span><span class="cal-day">12</span>
+            </div>
           </div>
-          <div class="trainer-visual">
-            <div class="trainer-card-preview">
-              <div class="tcp-header">
-                <span class="tcp-brand">Blumm Coach</span>
-              </div>
-              <div class="tcp-stats">
-                <div class="tcp-stat">
-                  <span class="tcp-num">12</span>
-                  <span class="tcp-label" data-i18n="trainer.stat1">Alumnas</span>
-                </div>
-                <div class="tcp-stat">
-                  <span class="tcp-num">4</span>
-                  <span class="tcp-label" data-i18n="trainer.stat2">Fases activas</span>
-                </div>
-              </div>
-              <div class="tcp-clients">
-                <div class="tcp-client">
-                  <div class="tcp-avatar">A</div>
-                  <div class="tcp-info">
-                    <span class="tcp-name">Ana G.</span>
-                    <span class="tcp-phase phase-follicular" data-i18n="phase.follicular">Folicular</span>
-                  </div>
-                </div>
-                <div class="tcp-client">
-                  <div class="tcp-avatar">M</div>
-                  <div class="tcp-info">
-                    <span class="tcp-name">María L.</span>
-                    <span class="tcp-phase phase-luteal" data-i18n="phase.luteal">Lútea</span>
-                  </div>
-                </div>
-                <div class="tcp-client">
-                  <div class="tcp-avatar">S</div>
-                  <div class="tcp-info">
-                    <span class="tcp-name">Sara P.</span>
-                    <span class="tcp-phase phase-ovulation" data-i18n="phase.ovulation">Ovulación</span>
-                  </div>
-                </div>
-              </div>
+          <div class="mini-card mini-program" style="background-image:url('assets/figma/card-entrenamiento.png')">
+            <p class="mini-program-eyebrow" data-i18n="trainer.program.label">Programa</p>
+            <p class="mini-program-title" data-i18n="trainer.program.name">Hiit Progresivo</p>
+          </div>
+          <div class="session-card">
+            <div class="stat-title-row">
+              <span class="stat-title"><svg class="ico" viewBox="0 0 24 24"><use href="#ico-shoe"/></svg><span data-i18n="trainer.session.label">Sesión de hoy</span></span>
+              <svg class="ico ico-chevron" viewBox="0 0 24 24"><use href="#ico-chevron-right"/></svg>
+            </div>
+            <p class="stat-num stat-num-blue" data-i18n="trainer.session.title">HIIT explosivo full-body</p>
+            <p class="stat-sub" data-i18n="trainer.session.duration">35' minutos</p>
+            <div class="stat-sub-label" data-i18n="trainer.session.done">Realizados</div>
+            <div class="status-bar"><div class="status-bar-fill" style="width:12%;background:var(--naranja-500)"></div></div>
+            <ul class="session-list">
+              <li class="done"><span class="check-box"><svg class="ico ico-xs" viewBox="0 0 24 24"><use href="#ico-check"/></svg></span><span data-i18n="trainer.session.ex">Burpees</span><b>4x12</b></li>
+              <li class="done"><span class="check-box"><svg class="ico ico-xs" viewBox="0 0 24 24"><use href="#ico-check"/></svg></span><span data-i18n="trainer.session.ex">Burpees</span><b>4x12</b></li>
+              <li><span class="check-box"></span><span data-i18n="trainer.session.ex">Burpees</span><b>4x12</b></li>
+              <li><span class="check-box"></span><span data-i18n="trainer.session.ex">Burpees</span><b>4x12</b></li>
+            </ul>
+            <div class="session-actions">
+              <svg class="ico" viewBox="0 0 24 24"><use href="#ico-refresh"/></svg>
+              <svg class="ico" viewBox="0 0 24 24"><use href="#ico-heart"/></svg>
+              <svg class="ico" viewBox="0 0 24 24"><use href="#ico-check"/></svg>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+  </div><!-- /.page-frame -->
 
     <!-- ── LEGAL ── -->
     <section class="legal" id="legal">
@@ -231,20 +327,45 @@
   <script>
     const T = {
       es: {
-        'nav.app': 'La app', 'nav.trainers': 'Para entrenadoras', 'nav.legal': 'Legal', 'nav.download': 'Descargar app',
-        'hero.title': 'Tu ciclo, tu energía.',
-        'hero.lead': 'Nutrición y entrenamiento personalizados según tu fase menstrual, tus condiciones de salud y tus objetivos.',
-        'badge.nutrition': '🥗 Nutrición adaptada', 'badge.training': '🏋️ Entrenamiento por fase', 'badge.health': '🌸 Salud menstrual',
+        'nav.app': 'App', 'nav.features': 'Funcionalidades', 'nav.trainers': 'Entrenadoras', 'nav.help': 'Ayuda', 'nav.download': 'Descarga',
+        'hero.eyebrow': 'Tu app de salud femenina',
+        'hero.title': 'Tu ciclo, convertido en un plan diario.',
+        'hero.lead': 'Nutrición, entrenamiento y lista de la compra según tu fase, tu programa y tu etapa vital. Con base fisiológica, no de calendario.',
         'store.available': 'Disponible en',
-        'feat.algo.title': 'Algoritmo personalizado', 'feat.algo.text': 'Recetas y entrenos adaptados a tu dieta, condiciones de salud (PCOS, endometriosis…) y fase del ciclo.',
-        'feat.track.title': 'Seguimiento diario', 'feat.track.text': 'Flujo, dolor, energía, ánimo. Como Clue pero con plan completo de comidas y ejercicio.',
-        'feat.privacy.title': 'Privacidad por diseño', 'feat.privacy.text': 'Tus datos están cifrados. Puedes eliminar tu cuenta y exportar todo en cualquier momento.',
-        'trainer.tag': 'Para profesionales', 'trainer.title': '¿Eres entrenadora personal?',
+        'card.day': 'Día 16, estás entrando en la fase de ovulación',
+        'card.tag1': 'día 17/28', 'card.tag2': 'intensidad máxima',
+        'card.kcal.label': 'Kcal.consumidas', 'card.kcal.sub': '1000 restantes',
+        'card.workout.label': 'Entreno', 'card.workout.sub': '25 minutos', 'card.workout.tag.label': 'Intensidad', 'card.workout.tag.value': 'Máxima',
+        'card.meal.label': 'Siguiente comida', 'card.meal.eyebrow': 'Desayuno', 'card.meal.title': 'Smoothie bowl de frutos rojos',
+        'card.meal.item1': '200ml leche de coco', 'card.meal.item2': '100g frutos rojos',
+        'card.meal.tag1': 'Zinc', 'card.meal.tag2': 'Antioxidantes', 'card.meal.tag3': 'Fibra', 'card.meal.btn': 'Ya lo he comido',
+        'feat.cycle.tag': 'Ciclo', 'feat.cycle.title': 'Tu ciclo como punto de partida',
+        'feat.cycle.text': 'Nutrición y entrenamiento que se adaptan automáticamente a cada fase hormonal, no al calendario.',
+        'feat.nutrition.tag': 'Nutrición', 'feat.nutrition.title': 'Recetas hechas a tu medida',
+        'feat.nutrition.text': 'Ajusta cantidades, gustos, alergias e intolerancias. La lista de la compra se genera sola.',
+        'feat.training.tag': 'Entrenamiento', 'feat.training.title': 'Entrenos según tu energía',
+        'feat.training.text': 'La intensidad y el tipo de ejercicio cambian según tu fase, tu condición y tus objetivos.',
+        'func.eyebrow': 'Funcionalidades', 'func.title': 'Todo lo que necesitas, en un mismo sitio.',
+        'func.lead': 'Ciclo, nutrición, entrenamiento e hidratación conectados entre sí — sin apps sueltas ni planes genéricos.',
+        'func.card1.title': 'Controla tus fases y descubre cómo tienes que sentirte',
+        'func.card1.text': 'Sigue tu ciclo día a día y entiende qué le pasa a tu cuerpo en cada fase hormonal.',
+        'func.card2.title': 'Ajusta, cambia o guarda tus recetas dependiendo de tu fase',
+        'func.card2.text': 'Recetas flexibles que puedes adaptar a lo que tienes en la nevera y a tu tiempo disponible.',
+        'func.card3.title': 'Ejercicios adaptados a tu condición y objetivos',
+        'func.card3.text': 'Entrenos que respetan tu energía, tus lesiones y lo que quieres conseguir.',
+        'func.card4.title': 'Guarda tu día a día para conocer mejor tus sensaciones',
+        'func.card4.text': 'Flujo, dolor, energía y ánimo, registrados en segundos para detectar patrones.',
+        'func.card5.title': 'Controla tu hidratación para estar siempre al 100%',
+        'func.card5.text': 'Recordatorios y objetivos de agua ajustados a tu fase y a tu actividad diaria.',
+        'func.card6.title': 'Elige tu tipo de dieta: gustos, alergias, intolerancias y tiempo',
+        'func.card6.text': 'Configura tu perfil nutricional una vez y deja que el resto se adapte a ti.',
+        'trainer.tag': 'Profesionales', 'trainer.title': '¿Eres entrenadora personal?',
         'trainer.text': 'Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Blumm.',
-        'trainer.perk1': '✦ Dashboard con todas tus alumnas conectadas', 'trainer.perk2': '✦ Planes de entrenamiento personalizados por fase',
-        'trainer.perk3': '✦ Código único para que tus alumnas te encuentren', 'trainer.perk4': '✦ Sincronización automática con la app móvil',
-        'trainer.btn': 'Acceder al panel de entrenadora →', 'trainer.stat1': 'Alumnas', 'trainer.stat2': 'Fases activas',
-        'phase.follicular': 'Folicular', 'phase.luteal': 'Lútea', 'phase.ovulation': 'Ovulación',
+        'trainer.btn': 'Acceder al panel de entrenadora',
+        'trainer.calendar.month': '9 enero 2026',
+        'trainer.program.label': 'Programa', 'trainer.program.name': 'Hiit Progresivo',
+        'trainer.session.label': 'Sesión de hoy', 'trainer.session.title': 'HIIT explosivo full-body', 'trainer.session.duration': "35' minutos",
+        'trainer.session.done': 'Realizados', 'trainer.session.ex': 'Burpees',
         'legal.title': 'Documentación legal',
         'legal.privacy.title': 'Política de privacidad', 'legal.privacy.text': 'Cómo tratamos tus datos personales y de salud',
         'legal.terms.title': 'Términos de uso', 'legal.terms.text': 'Condiciones del servicio y aviso médico',
@@ -252,26 +373,47 @@
         'legal.delete.title': 'Eliminar cuenta', 'legal.delete.text': 'Cómo borrar tu cuenta y todos tus datos',
         'footer.copy': '© 2026 Blumm. Bienestar femenino sincronizado.',
         'footer.help': 'Ayuda', 'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.contact': '¿Necesitas ayuda?',
-        'hero.eyebrow': 'Bienestar femenino',
-        'card.day': 'Día 22 de 28', 'card.phase': 'Fase lútea', 'card.tip': 'Prioriza proteínas y magnesio. Baja la intensidad.',
-        'card.tag1': 'zinc', 'card.tag2': 'magnesio', 'card.tag3': 'fibra',
-        'card.streak': '3 días seguidos', 'card.habit': 'Hábito de ejercicio',
       },
       en: {
-        'nav.app': 'The app', 'nav.trainers': 'For trainers', 'nav.legal': 'Legal', 'nav.download': 'Download app',
-        'hero.title': 'Your cycle, your energy.',
-        'hero.lead': 'Personalised nutrition and training based on your menstrual phase, health conditions, and goals.',
-        'badge.nutrition': '🥗 Adapted nutrition', 'badge.training': '🏋️ Phase-based training', 'badge.health': '🌸 Menstrual health',
+        'nav.app': 'App', 'nav.features': 'Features', 'nav.trainers': 'Trainers', 'nav.help': 'Help', 'nav.download': 'Download',
+        'hero.eyebrow': 'Your female health app',
+        'hero.title': 'Your cycle, turned into a daily plan.',
+        'hero.lead': 'Nutrition, training and shopping list based on your phase, your programme and your life stage. Physiology-based, not calendar-based.',
         'store.available': 'Available on',
-        'feat.algo.title': 'Personalised algorithm', 'feat.algo.text': 'Recipes and workouts tailored to your diet, health conditions (PCOS, endometriosis…) and cycle phase.',
-        'feat.track.title': 'Daily tracking', 'feat.track.text': 'Flow, pain, energy, mood. Like Clue but with a complete meal and workout plan.',
-        'feat.privacy.title': 'Privacy by design', 'feat.privacy.text': 'Your data is encrypted. You can delete your account and export everything at any time.',
-        'trainer.tag': 'For professionals', 'trainer.title': 'Are you a personal trainer?',
+        'card.day': "Day 16, you're entering the ovulation phase",
+        'card.tag1': 'day 17/28', 'card.tag2': 'peak intensity',
+        'card.kcal.label': 'Calories eaten', 'card.kcal.sub': '1000 left',
+        'card.workout.label': 'Workout', 'card.workout.sub': '25 minutes', 'card.workout.tag.label': 'Intensity', 'card.workout.tag.value': 'Peak',
+        'card.meal.label': 'Next meal', 'card.meal.eyebrow': 'Breakfast', 'card.meal.title': 'Red berry smoothie bowl',
+        'card.meal.item1': '200ml coconut milk', 'card.meal.item2': '100g red berries',
+        'card.meal.tag1': 'Zinc', 'card.meal.tag2': 'Antioxidants', 'card.meal.tag3': 'Fibre', 'card.meal.btn': 'Already ate it',
+        'feat.cycle.tag': 'Cycle', 'feat.cycle.title': 'Your cycle as the starting point',
+        'feat.cycle.text': 'Nutrition and training that automatically adapt to each hormonal phase, not to the calendar.',
+        'feat.nutrition.tag': 'Nutrition', 'feat.nutrition.title': 'Recipes made to fit you',
+        'feat.nutrition.text': 'Adjust quantities, tastes, allergies and intolerances. The shopping list builds itself.',
+        'feat.training.tag': 'Training', 'feat.training.title': 'Workouts that match your energy',
+        'feat.training.text': 'Intensity and exercise type change with your phase, your condition and your goals.',
+        'func.eyebrow': 'Features', 'func.title': 'Everything you need, in one place.',
+        'func.lead': 'Cycle, nutrition, training and hydration connected to each other — no separate apps, no generic plans.',
+        'func.card1.title': 'Track your phases and discover how you should feel',
+        'func.card1.text': 'Follow your cycle day by day and understand what your body is doing in each hormonal phase.',
+        'func.card2.title': 'Adjust, swap or save your recipes depending on your phase',
+        'func.card2.text': 'Flexible recipes you can adapt to what you have at home and how much time you have.',
+        'func.card3.title': 'Exercises adapted to your condition and goals',
+        'func.card3.text': 'Workouts that respect your energy, your injuries and what you want to achieve.',
+        'func.card4.title': 'Log your day to better understand how you feel',
+        'func.card4.text': 'Flow, pain, energy and mood, logged in seconds to spot patterns.',
+        'func.card5.title': 'Track your hydration to stay at 100%',
+        'func.card5.text': 'Reminders and water goals adjusted to your phase and your daily activity.',
+        'func.card6.title': 'Choose your diet type: tastes, allergies, intolerances and time',
+        'func.card6.text': 'Set up your nutrition profile once and let everything else adapt to you.',
+        'trainer.tag': 'Professionals', 'trainer.title': 'Are you a personal trainer?',
         'trainer.text': 'Manage all your clients from a single dashboard. Track their progress, adapt their plans to their cycle, and connect with them in real time through the Blumm app.',
-        'trainer.perk1': '✦ Dashboard with all your connected clients', 'trainer.perk2': '✦ Phase-personalised training plans',
-        'trainer.perk3': '✦ Unique code so your clients can find you', 'trainer.perk4': '✦ Automatic sync with the mobile app',
-        'trainer.btn': 'Access the trainer dashboard →', 'trainer.stat1': 'Clients', 'trainer.stat2': 'Active phases',
-        'phase.follicular': 'Follicular', 'phase.luteal': 'Luteal', 'phase.ovulation': 'Ovulation',
+        'trainer.btn': 'Access the trainer dashboard',
+        'trainer.calendar.month': '9 January 2026',
+        'trainer.program.label': 'Programme', 'trainer.program.name': 'Progressive HIIT',
+        'trainer.session.label': "Today's session", 'trainer.session.title': 'Full-body explosive HIIT', 'trainer.session.duration': "35' minutes",
+        'trainer.session.done': 'Completed', 'trainer.session.ex': 'Burpees',
         'legal.title': 'Legal documentation',
         'legal.privacy.title': 'Privacy Policy', 'legal.privacy.text': 'How we handle your personal and health data',
         'legal.terms.title': 'Terms of Use', 'legal.terms.text': 'Service conditions and medical disclaimer',
@@ -279,26 +421,47 @@
         'legal.delete.title': 'Delete account', 'legal.delete.text': 'How to delete your account and all your data',
         'footer.copy': '© 2026 Blumm. Femme wellness, synchronised.',
         'footer.help': 'Help', 'footer.privacy': 'Privacy', 'footer.terms': 'Terms', 'footer.contact': 'Need help?',
-        'hero.eyebrow': 'Female wellness',
-        'card.day': 'Day 22 of 28', 'card.phase': 'Luteal phase', 'card.tip': 'Prioritise protein and magnesium. Lower the intensity.',
-        'card.tag1': 'zinc', 'card.tag2': 'magnesium', 'card.tag3': 'fibre',
-        'card.streak': '3 days in a row', 'card.habit': 'Exercise habit',
       },
       fr: {
-        'nav.app': "L'app", 'nav.trainers': 'Pour les coachs', 'nav.legal': 'Légal', 'nav.download': "Télécharger l'app",
-        'hero.title': 'Ton cycle, ton énergie.',
-        'hero.lead': 'Nutrition et entraînement personnalisés selon ta phase menstruelle, tes conditions de santé et tes objectifs.',
-        'badge.nutrition': '🥗 Nutrition adaptée', 'badge.training': '🏋️ Entraînement par phase', 'badge.health': '🌸 Santé menstruelle',
+        'nav.app': "L'app", 'nav.features': 'Fonctionnalités', 'nav.trainers': 'Coachs', 'nav.help': 'Aide', 'nav.download': 'Télécharger',
+        'hero.eyebrow': 'Ton app de santé féminine',
+        'hero.title': 'Ton cycle, transformé en plan quotidien.',
+        'hero.lead': "Nutrition, entraînement et liste de courses selon ta phase, ton programme et ton étape de vie. Une base physiologique, pas un calendrier.",
         'store.available': 'Disponible sur',
-        'feat.algo.title': 'Algorithme personnalisé', 'feat.algo.text': 'Recettes et entraînements adaptés à ton alimentation, tes conditions de santé (SOPK, endométriose…) et ta phase de cycle.',
-        'feat.track.title': 'Suivi quotidien', 'feat.track.text': "Flux, douleur, énergie, humeur. Comme Clue mais avec un plan complet de repas et d'exercices.",
-        'feat.privacy.title': 'Confidentialité par conception', 'feat.privacy.text': 'Tes données sont chiffrées. Tu peux supprimer ton compte et tout exporter à tout moment.',
-        'trainer.tag': 'Pour les professionnels', 'trainer.title': 'Tu es coach personnel·le ?',
+        'card.day': "Jour 16, tu entres dans la phase d'ovulation",
+        'card.tag1': 'jour 17/28', 'card.tag2': 'intensité maximale',
+        'card.kcal.label': 'Kcal consommées', 'card.kcal.sub': '1000 restantes',
+        'card.workout.label': 'Entraînement', 'card.workout.sub': '25 minutes', 'card.workout.tag.label': 'Intensité', 'card.workout.tag.value': 'Maximale',
+        'card.meal.label': 'Prochain repas', 'card.meal.eyebrow': 'Petit-déjeuner', 'card.meal.title': 'Bowl smoothie aux fruits rouges',
+        'card.meal.item1': '200ml de lait de coco', 'card.meal.item2': '100g de fruits rouges',
+        'card.meal.tag1': 'Zinc', 'card.meal.tag2': 'Antioxydants', 'card.meal.tag3': 'Fibres', 'card.meal.btn': 'Déjà mangé',
+        'feat.cycle.tag': 'Cycle', 'feat.cycle.title': 'Ton cycle comme point de départ',
+        'feat.cycle.text': "Nutrition et entraînement qui s'adaptent automatiquement à chaque phase hormonale, pas au calendrier.",
+        'feat.nutrition.tag': 'Nutrition', 'feat.nutrition.title': 'Des recettes faites pour toi',
+        'feat.nutrition.text': "Ajuste les quantités, tes goûts, allergies et intolérances. La liste de courses se génère toute seule.",
+        'feat.training.tag': 'Entraînement', 'feat.training.title': 'Des séances selon ton énergie',
+        'feat.training.text': "L'intensité et le type d'exercice changent selon ta phase, ta condition et tes objectifs.",
+        'func.eyebrow': 'Fonctionnalités', 'func.title': "Tout ce dont tu as besoin, au même endroit.",
+        'func.lead': "Cycle, nutrition, entraînement et hydratation connectés entre eux — sans applis séparées ni plans génériques.",
+        'func.card1.title': 'Suis tes phases et découvre comment tu devrais te sentir',
+        'func.card1.text': "Suis ton cycle jour après jour et comprends ce qui se passe dans ton corps à chaque phase hormonale.",
+        'func.card2.title': 'Ajuste, change ou enregistre tes recettes selon ta phase',
+        'func.card2.text': "Des recettes flexibles que tu peux adapter à ce que tu as chez toi et à ton temps disponible.",
+        'func.card3.title': 'Des exercices adaptés à ta condition et tes objectifs',
+        'func.card3.text': "Des entraînements qui respectent ton énergie, tes blessures et ce que tu veux atteindre.",
+        'func.card4.title': 'Enregistre ton quotidien pour mieux comprendre tes sensations',
+        'func.card4.text': "Flux, douleur, énergie et humeur, enregistrés en quelques secondes pour repérer des schémas.",
+        'func.card5.title': 'Contrôle ton hydratation pour rester à 100%',
+        'func.card5.text': "Rappels et objectifs d'eau ajustés à ta phase et à ton activité quotidienne.",
+        'func.card6.title': 'Choisis ton type de régime : goûts, allergies, intolérances et temps',
+        'func.card6.text': "Configure ton profil nutritionnel une fois et laisse le reste s'adapter à toi.",
+        'trainer.tag': 'Professionnels', 'trainer.title': 'Tu es coach personnel·le ?',
         'trainer.text': "Gère toutes tes clientes depuis un seul tableau de bord. Suis leurs progrès, adapte leurs plans selon leur cycle et connecte-toi avec elles en temps réel via l'app Blumm.",
-        'trainer.perk1': '✦ Tableau de bord avec toutes tes clientes connectées', 'trainer.perk2': "✦ Plans d'entraînement personnalisés par phase",
-        'trainer.perk3': '✦ Code unique pour que tes clientes te trouvent', 'trainer.perk4': "✦ Synchronisation automatique avec l'app mobile",
-        'trainer.btn': 'Accéder au tableau de bord coach →', 'trainer.stat1': 'Clientes', 'trainer.stat2': 'Phases actives',
-        'phase.follicular': 'Folliculaire', 'phase.luteal': 'Lutéale', 'phase.ovulation': 'Ovulation',
+        'trainer.btn': 'Accéder au tableau de bord coach',
+        'trainer.calendar.month': '9 janvier 2026',
+        'trainer.program.label': 'Programme', 'trainer.program.name': 'Hiit progressif',
+        'trainer.session.label': 'Séance du jour', 'trainer.session.title': 'HIIT explosif full-body', 'trainer.session.duration': "35' minutes",
+        'trainer.session.done': 'Réalisés', 'trainer.session.ex': 'Burpees',
         'legal.title': 'Documentation légale',
         'legal.privacy.title': 'Politique de confidentialité', 'legal.privacy.text': 'Comment nous traitons tes données personnelles et de santé',
         'legal.terms.title': "Conditions d'utilisation", 'legal.terms.text': "Conditions du service et avertissement médical",
@@ -306,10 +469,6 @@
         'legal.delete.title': 'Supprimer le compte', 'legal.delete.text': 'Comment supprimer ton compte et toutes tes données',
         'footer.copy': '© 2026 Blumm. Bien-être féminin synchronisé.',
         'footer.help': 'Aide', 'footer.privacy': 'Confidentialité', 'footer.terms': 'Conditions', 'footer.contact': "Besoin d'aide ?",
-        'hero.eyebrow': 'Bien-être féminin',
-        'card.day': 'Jour 22 sur 28', 'card.phase': 'Phase lutéale', 'card.tip': 'Privilégie les protéines et le magnésium. Réduis l\'intensité.',
-        'card.tag1': 'zinc', 'card.tag2': 'magnésium', 'card.tag3': 'fibres',
-        'card.streak': '3 jours de suite', 'card.habit': 'Habitude d\'exercice',
       }
     };
 
