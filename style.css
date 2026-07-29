@@ -44,6 +44,8 @@
   --azul-500: #429fe7;
   --azul-950: #0a1823;
   --verde-200: #b6ecaf;
+  --verde-500: #49cf38;
+  --amarillo-300: #fedf68;
 
   --rd-xxl: 32px;
   --rd-xl: 24px;
@@ -246,11 +248,12 @@ header {
 .hero-visual-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .glass-stack {
   position: absolute;
-  top: 8%;
+  top: 7.5%;
   left: 50%;
   transform: translateX(-50%);
-  width: 72%;
-  max-width: 320px;
+  width: 42%;
+  min-width: 200px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -311,6 +314,10 @@ header {
 .ico-chevron { width: 13px; height: 13px; color: var(--neutro-950); }
 .ico-sm { width: 16px; height: 16px; }
 .ico-xs { width: 10px; height: 10px; }
+.ico-orange { color: var(--naranja-500); }
+.ico-orange-dark { color: var(--naranja-950); }
+.ico-blue { color: var(--azul-500); }
+.ico-green { color: var(--verde-500); }
 .stat-num { font-family: var(--font-heading); font-weight: 700; font-size: 26px; line-height: 1.1; letter-spacing: -0.02em; }
 .stat-num-orange { color: var(--naranja-500); }
 .stat-num-blue { color: var(--azul-500); }
@@ -411,9 +418,8 @@ header {
 .funcionalidades-heading .lead { font-size: 18px; line-height: 1.3; color: var(--neutro-950); }
 
 .bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
 }
 .bento-card {
   background: var(--neutro-0);
@@ -424,7 +430,7 @@ header {
   gap: 16px;
 }
 .bento-img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 21 / 5;
   border-radius: var(--rd-xl);
   background: var(--verde-200) center / cover no-repeat;
   width: 100%;
@@ -469,7 +475,6 @@ header {
 .trainer-btn:hover { background: var(--neutro-800); }
 
 /* Floating calendar / program / session widgets */
-.glass-stack-narrow { width: 60%; max-width: 300px; }
 .calendar-card { background: var(--neutro-100); border-radius: 20px; padding: 13px; }
 .calendar-header { display: flex; align-items: center; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--neutro-950); margin-bottom: 6px; }
 .calendar-header .ico { color: var(--neutro-950); }
@@ -483,7 +488,11 @@ header {
   display: flex; align-items: center; justify-content: center;
   font-size: 10px; color: var(--neutro-950);
 }
-.cal-day-active { border: 1px solid var(--neutro-950); background: var(--verde-200); }
+.cal-day-active {
+  outline: 1px solid var(--neutro-950);
+  outline-offset: -1px;
+  box-shadow: 0 0 10px 4px var(--amarillo-300);
+}
 
 .mini-program {
   border-radius: 20px;
@@ -509,6 +518,35 @@ header {
 .session-list li.done .check-box { background: var(--neutro-800); border-color: var(--neutro-800); color: var(--neutro-0); }
 .session-actions { display: flex; gap: 2px; }
 .session-actions .ico { width: 19px; height: 19px; color: var(--neutro-950); flex: 1; }
+
+/* ════════════════════════════════════
+   CTA BANNER
+   ════════════════════════════════════ */
+.cta-banner {
+  position: relative;
+  aspect-ratio: 1392 / 783;
+  border-radius: var(--rd-xl);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-banner-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cta-banner-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--neutro-0);
+  color: var(--neutro-950);
+  font-size: 18px;
+  border-radius: var(--rd-m);
+  transition: transform 0.15s;
+}
+.cta-banner-btn:hover { transform: translateY(-1px); }
 
 /* ════════════════════════════════════
    LEGAL SECTION
@@ -658,12 +696,12 @@ footer a:hover { color: var(--white); }
   .hero-visual { display: none; }
   .feature-cards-row { flex-direction: column; }
   .photo-card { flex: 0 0 auto; height: 340px; }
-  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .bento-img { aspect-ratio: 4 / 3; }
+  .cta-banner { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 720px) {
   .page-frame { padding: 16px 16px 8px; }
-  .bento-grid { grid-template-columns: 1fr; }
   .funcionalidades-card { padding: 20px; }
 }
 
