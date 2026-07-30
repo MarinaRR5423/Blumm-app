@@ -118,7 +118,7 @@ header {
   gap: 16px;
 }
 .brand { display: flex; align-items: center; gap: 9px; }
-.blumm-logo { height: 32px; width: auto; display: block; filter: invert(1); mix-blend-mode: screen; }
+.blumm-logo { height: 32px; width: auto; display: block; }
 
 .tab-nav {
   display: flex;
