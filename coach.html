@@ -37,7 +37,9 @@
         <input class="auth-input" type="email" id="login-email" placeholder="Email" required />
         <input class="auth-input" type="password" id="login-password" data-i18n-placeholder="placeholder.password" placeholder="Contraseña" required />
         <p id="login-error" class="auth-error"></p>
+        <p id="login-success" class="auth-success"></p>
         <button class="auth-btn" type="submit" id="login-btn" data-i18n="tab.login">Entrar</button>
+        <button type="button" class="forgot-btn" onclick="handleForgotPassword()" data-i18n="forgot.password">¿Olvidaste tu contraseña?</button>
       </form>
 
       <!-- Register -->
@@ -437,6 +439,16 @@
     }
 
     // ── Login ──
+    async function handleForgotPassword() {
+      const email = document.getElementById('login-email').value.trim();
+      const errEl = document.getElementById('login-error');
+      const sucEl = document.getElementById('login-success');
+      errEl.textContent = ''; sucEl.textContent = '';
+      if (!email) { errEl.textContent = 'Introduce tu email primero.'; return; }
+      await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.href });
+      sucEl.textContent = 'Email enviado. Revisa tu bandeja de entrada.';
+    }
+
     async function handleLogin(e) {
       e.preventDefault();
       const btn = document.getElementById('login-btn');

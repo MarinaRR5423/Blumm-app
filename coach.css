@@ -162,6 +162,8 @@
 .auth-btn:disabled { opacity: 0.55; cursor: default; transform: none; }
 
 .auth-error { color: #ef4444; font-size: 13px; min-height: 18px; margin: 0; }
+.auth-success { color: #4ade80; font-size: 13px; min-height: 18px; margin: 0; }
+.forgot-btn { background: none; border: none; color: var(--c-muted); font-size: 13px; cursor: pointer; text-decoration: underline; padding: 4px 0; text-align: center; width: 100%; }
 .hidden { display: none !important; }
 
 /* ── Dashboard layout ── */
