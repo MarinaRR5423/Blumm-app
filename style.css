@@ -439,6 +439,52 @@ header {
 .bento-card p { font-size: 16px; line-height: 1.3; color: var(--neutro-950); }
 
 /* ════════════════════════════════════
+   QUIÉNES SOMOS / TEAM
+   ════════════════════════════════════ */
+.team-card {
+  background: var(--neutro-100);
+  border-radius: var(--rd-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.team-member-card {
+  background: var(--neutro-0);
+  border-radius: var(--rd-xl);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.team-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--rd-l);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--neutro-0);
+}
+.team-avatar-orange { background: var(--naranja-500); }
+.team-avatar-blue { background: var(--azul-500); }
+.team-info { display: flex; flex-direction: column; gap: 4px; }
+.team-info h4 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--neutro-950); }
+.team-role { font-size: 13px; font-weight: 700; color: var(--neutro-500); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.team-bio { font-size: 15px; line-height: 1.4; color: var(--neutro-950); }
+.team-linkedin { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--azul-500); }
+.team-linkedin:hover { text-decoration: underline; }
+
+/* ════════════════════════════════════
    TRAINER CARD
    ════════════════════════════════════ */
 .trainer-copy {
@@ -697,6 +743,8 @@ footer a:hover { color: var(--white); }
   .feature-cards-row { flex-direction: column; }
   .photo-card { flex: 0 0 auto; height: 340px; }
   .bento-img { aspect-ratio: 4 / 3; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-member-card { flex-direction: column; }
   .cta-banner { aspect-ratio: 4 / 3; }
 }
 

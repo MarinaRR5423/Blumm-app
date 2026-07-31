@@ -54,6 +54,7 @@
       <a href="#app" class="tab-nav-item active" data-i18n="nav.app" onclick="closeMenu()">App</a>
       <a href="#funcionalidades" class="tab-nav-item" data-i18n="nav.features" onclick="closeMenu()">Funcionalidades</a>
       <a href="#entrenadora" class="tab-nav-item" data-i18n="nav.trainers" onclick="closeMenu()">Entrenadoras</a>
+      <a href="#equipo" class="tab-nav-item" data-i18n="nav.team" onclick="closeMenu()">Equipo</a>
       <a href="#legal" class="tab-nav-item" data-i18n="nav.help" onclick="closeMenu()">Ayuda</a>
     </nav>
     <div class="header-right">
@@ -208,6 +209,34 @@
       </div>
     </section>
 
+    <!-- ── QUIÉNES SOMOS ── -->
+    <section class="team-card" id="equipo">
+      <p class="eyebrow" data-i18n="team.eyebrow">Equipo</p>
+      <div class="funcionalidades-heading">
+        <h2 data-i18n="team.title">Quiénes están detrás de Blumm</h2>
+        <p class="lead" data-i18n="team.lead">Un equipo de profesionales de la salud diseña y revisa cada recomendación de la app.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-member-card">
+          <div class="team-avatar team-avatar-orange">BP</div>
+          <div class="team-info">
+            <h4 data-i18n="team.blanca.name">Blanca Páramo Galván</h4>
+            <p class="team-role" data-i18n="team.blanca.role">Nutricionista</p>
+            <p class="team-bio" data-i18n="team.blanca.bio">Diseña las pautas nutricionales de Blumm, adaptadas a cada fase del ciclo y a tus objetivos.</p>
+            <a href="https://www.linkedin.com/in/blancap%C3%A1ramogalv%C3%A1n/" class="team-linkedin" target="_blank" rel="noopener" data-i18n="team.linkedin">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-member-card">
+          <div class="team-avatar team-avatar-blue">CP</div>
+          <div class="team-info">
+            <h4 data-i18n="team.clotilde.name">Clotilde Poete</h4>
+            <p class="team-role" data-i18n="team.clotilde.role">Fisioterapeuta</p>
+            <p class="team-bio" data-i18n="team.clotilde.bio">Supervisa los programas de entrenamiento para que se ajusten a tu energía y a tu cuerpo en cada fase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── ENTRENADORA ── -->
     <section class="trainer-card" id="entrenadora">
       <div class="trainer-copy">
@@ -333,7 +362,7 @@
   <script>
     const T = {
       es: {
-        'nav.app': 'App', 'nav.features': 'Funcionalidades', 'nav.trainers': 'Entrenadoras', 'nav.help': 'Ayuda', 'nav.download': 'Descarga',
+        'nav.app': 'App', 'nav.features': 'Funcionalidades', 'nav.trainers': 'Entrenadoras', 'nav.team': 'Equipo', 'nav.help': 'Ayuda', 'nav.download': 'Descarga',
         'hero.eyebrow': 'Tu app de salud femenina',
         'hero.title': 'Tu ciclo, convertido en un plan diario.',
         'hero.lead': 'Nutrición, entrenamiento y lista de la compra según tu fase, tu programa y tu etapa vital. Con base fisiológica, no de calendario.',
@@ -365,6 +394,13 @@
         'func.card5.text': 'Recordatorios y objetivos de agua ajustados a tu fase y a tu actividad diaria.',
         'func.card6.title': 'Elige tu tipo de dieta: gustos, alergias, intolerancias y tiempo',
         'func.card6.text': 'Configura tu perfil nutricional una vez y deja que el resto se adapte a ti.',
+        'team.eyebrow': 'Equipo', 'team.title': 'Quiénes están detrás de Blumm',
+        'team.lead': 'Un equipo de profesionales de la salud diseña y revisa cada recomendación de la app.',
+        'team.blanca.name': 'Blanca Páramo Galván', 'team.blanca.role': 'Nutricionista',
+        'team.blanca.bio': 'Diseña las pautas nutricionales de Blumm, adaptadas a cada fase del ciclo y a tus objetivos.',
+        'team.clotilde.name': 'Clotilde Poete', 'team.clotilde.role': 'Fisioterapeuta',
+        'team.clotilde.bio': 'Supervisa los programas de entrenamiento para que se ajusten a tu energía y a tu cuerpo en cada fase.',
+        'team.linkedin': 'LinkedIn →',
         'trainer.tag': 'Profesionales', 'trainer.title': '¿Eres entrenadora personal?',
         'trainer.text': 'Gestiona a tus alumnas desde un único panel. Ve su progreso, adapta sus planes según su ciclo y conecta con ellas en tiempo real a través de la app Blumm.',
         'trainer.btn': 'Acceder al panel de entrenadora',
@@ -382,7 +418,7 @@
         'footer.help': 'Ayuda', 'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.contact': '¿Necesitas ayuda?',
       },
       en: {
-        'nav.app': 'App', 'nav.features': 'Features', 'nav.trainers': 'Trainers', 'nav.help': 'Help', 'nav.download': 'Download',
+        'nav.app': 'App', 'nav.features': 'Features', 'nav.trainers': 'Trainers', 'nav.team': 'Team', 'nav.help': 'Help', 'nav.download': 'Download',
         'hero.eyebrow': 'Your female health app',
         'hero.title': 'Your cycle, turned into a daily plan.',
         'hero.lead': 'Nutrition, training and shopping list based on your phase, your programme and your life stage. Physiology-based, not calendar-based.',
@@ -414,6 +450,13 @@
         'func.card5.text': 'Reminders and water goals adjusted to your phase and your daily activity.',
         'func.card6.title': 'Choose your diet type: tastes, allergies, intolerances and time',
         'func.card6.text': 'Set up your nutrition profile once and let everything else adapt to you.',
+        'team.eyebrow': 'Team', 'team.title': 'Who is behind Blumm',
+        'team.lead': 'A team of health professionals designs and reviews every recommendation in the app.',
+        'team.blanca.name': 'Blanca Páramo Galván', 'team.blanca.role': 'Nutritionist',
+        'team.blanca.bio': "Designs Blumm's nutrition guidelines, adapted to each cycle phase and your goals.",
+        'team.clotilde.name': 'Clotilde Poete', 'team.clotilde.role': 'Physiotherapist',
+        'team.clotilde.bio': 'Oversees the training programmes so they match your energy and your body in each phase.',
+        'team.linkedin': 'LinkedIn →',
         'trainer.tag': 'Professionals', 'trainer.title': 'Are you a personal trainer?',
         'trainer.text': 'Manage all your clients from a single dashboard. Track their progress, adapt their plans to their cycle, and connect with them in real time through the Blumm app.',
         'trainer.btn': 'Access the trainer dashboard',
@@ -431,7 +474,7 @@
         'footer.help': 'Help', 'footer.privacy': 'Privacy', 'footer.terms': 'Terms', 'footer.contact': 'Need help?',
       },
       fr: {
-        'nav.app': "L'app", 'nav.features': 'Fonctionnalités', 'nav.trainers': 'Coachs', 'nav.help': 'Aide', 'nav.download': 'Télécharger',
+        'nav.app': "L'app", 'nav.features': 'Fonctionnalités', 'nav.trainers': 'Coachs', 'nav.team': 'Équipe', 'nav.help': 'Aide', 'nav.download': 'Télécharger',
         'hero.eyebrow': 'Ton app de santé féminine',
         'hero.title': 'Ton cycle, transformé en plan quotidien.',
         'hero.lead': "Nutrition, entraînement et liste de courses selon ta phase, ton programme et ton étape de vie. Une base physiologique, pas un calendrier.",
@@ -463,6 +506,13 @@
         'func.card5.text': "Rappels et objectifs d'eau ajustés à ta phase et à ton activité quotidienne.",
         'func.card6.title': 'Choisis ton type de régime : goûts, allergies, intolérances et temps',
         'func.card6.text': "Configure ton profil nutritionnel une fois et laisse le reste s'adapter à toi.",
+        'team.eyebrow': 'Équipe', 'team.title': 'Qui est derrière Blumm',
+        'team.lead': "Une équipe de professionnel·les de la santé conçoit et vérifie chaque recommandation de l'app.",
+        'team.blanca.name': 'Blanca Páramo Galván', 'team.blanca.role': 'Nutritionniste',
+        'team.blanca.bio': "Conçoit les recommandations nutritionnelles de Blumm, adaptées à chaque phase du cycle et à tes objectifs.",
+        'team.clotilde.name': 'Clotilde Poete', 'team.clotilde.role': 'Kinésithérapeute',
+        'team.clotilde.bio': "Supervise les programmes d'entraînement pour qu'ils correspondent à ton énergie et à ton corps à chaque phase.",
+        'team.linkedin': 'LinkedIn →',
         'trainer.tag': 'Professionnels', 'trainer.title': 'Tu es coach personnel·le ?',
         'trainer.text': "Gère toutes tes clientes depuis un seul tableau de bord. Suis leurs progrès, adapte leurs plans selon leur cycle et connecte-toi avec elles en temps réel via l'app Blumm.",
         'trainer.btn': 'Accéder au tableau de bord coach',
