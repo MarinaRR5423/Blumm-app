@@ -115,7 +115,10 @@
           <p class="coach-empty-title" data-i18n="empty.title">Aún no tienes alumnas conectadas</p>
           <p class="coach-muted" data-i18n="empty.hint">Cuando una alumna introduzca tu código en la app Blumm, aparecerá aquí.</p>
         </div>
-        <div id="clients-list" class="clients-grid hidden"></div>
+        <div style="display:flex;gap:20px;align-items:flex-start">
+          <div id="clients-list" class="clients-grid hidden" style="flex:1;min-width:0"></div>
+          <div id="client-detail" class="client-detail hidden"></div>
+        </div>
       </section>
 
       <!-- ── MIS PROGRAMAS ── -->
@@ -1016,18 +1019,92 @@
     }
 
     // ── Render clients ──
+    let allClients = [];
+
+    function calcPhase(lastPeriod, cycleLength) {
+      if (!lastPeriod) return null;
+      const start = new Date(lastPeriod);
+      const today = new Date();
+      const diff = Math.floor((today - start) / 86400000);
+      const day = (diff % cycleLength) + 1;
+      if (day <= 5) return { name: 'Menstrual', emoji: '🔴', day };
+      if (day <= 13) return { name: 'Folicular', emoji: '🌸', day };
+      if (day <= 16) return { name: 'Ovulación', emoji: '✨', day };
+      return { name: 'Lútea', emoji: '🌙', day };
+    }
+
+    const DAYS_ES = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    const GOAL_ES = { lose_weight: 'Perder peso', maintain: 'Mantener peso', gain_muscle: 'Ganar músculo', improve_health: 'Mejorar salud' };
+    const DIET_ES = { vegan: 'Vegana', vegetarian: 'Vegetariana', gluten_free: 'Sin gluten', lactose_free: 'Sin lactosa', keto: 'Keto', none: 'Sin restricciones' };
+
+    function showClientDetail(idx) {
+      const c = allClients[idx];
+      const p = c.profile || {};
+      const ext = p.profile_extended || {};
+      const phase = calcPhase(p.last_period, p.cycle_length || 28);
+      const trainDays = (p.train_days || []).map(d => DAYS_ES[d]).join(', ') || '—';
+      const goal = GOAL_ES[p.goal] || p.goal || '—';
+      const diets = (p.dietary_restrictions || []).map(d => DIET_ES[d] || d).join(', ') || 'Sin restricciones';
+      const lang = ext.language || 'es';
+
+      // Marcar activo
+      document.querySelectorAll('.client-card').forEach((el, i) => el.classList.toggle('client-card-active', i === idx));
+
+      document.getElementById('client-detail').classList.remove('hidden');
+      document.getElementById('client-detail').innerHTML = `
+        <div class="cd-header">
+          <div class="client-avatar" style="width:52px;height:52px;font-size:22px">${(p.name || p.email || '?')[0].toUpperCase()}</div>
+          <div>
+            <p class="cd-name">${p.name || 'Sin nombre'}</p>
+            <p class="cd-email">${p.email || ''}</p>
+          </div>
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Datos básicos</p>
+          <div class="cd-grid">
+            <div class="cd-stat"><span class="cd-stat-val">${p.age || '—'}</span><span class="cd-stat-key">Edad</span></div>
+            <div class="cd-stat"><span class="cd-stat-val">${p.weight ? p.weight + ' kg' : '—'}</span><span class="cd-stat-key">Peso</span></div>
+            <div class="cd-stat"><span class="cd-stat-val">${p.height ? p.height + ' cm' : '—'}</span><span class="cd-stat-key">Altura</span></div>
+          </div>
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Ciclo menstrual</p>
+          ${phase
+            ? `<p class="cd-value">${phase.emoji} ${phase.name} <span class="cd-muted">(día ${phase.day} de ${p.cycle_length || 28})</span></p>`
+            : `<p class="cd-muted">Sin datos de ciclo</p>`}
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Días de entrenamiento</p>
+          <p class="cd-value">${trainDays}</p>
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Objetivo</p>
+          <p class="cd-value">${goal}</p>
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Dieta</p>
+          <p class="cd-value">${diets}</p>
+        </div>
+        <div class="cd-section">
+          <p class="cd-label">Idioma</p>
+          <p class="cd-value">${lang.toUpperCase()}</p>
+        </div>
+      `;
+    }
+
     function renderClients(clients) {
+      allClients = clients;
       document.getElementById('clients-loading').classList.add('hidden');
       if (clients.length === 0) {
         document.getElementById('clients-empty').classList.remove('hidden');
       } else {
         const list = document.getElementById('clients-list');
         list.classList.remove('hidden');
-        list.innerHTML = clients.map(c => {
+        list.innerHTML = clients.map((c, i) => {
           const p = c.profile || {};
           const initials = (p.name || p.email || '?')[0].toUpperCase();
           return `
-            <div class="client-card">
+            <div class="client-card" onclick="showClientDetail(${i})">
               <div class="client-avatar">${initials}</div>
               <div class="client-info">
                 <p class="client-name">${p.name || 'Sin nombre'}</p>
