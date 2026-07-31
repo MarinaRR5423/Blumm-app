@@ -161,7 +161,36 @@
 .auth-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .auth-btn:disabled { opacity: 0.55; cursor: default; transform: none; }
 
+/* ── Client detail panel ── */
+.client-detail {
+  width: 300px;
+  flex-shrink: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 18px;
+  padding: 20px;
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.client-card-active { border-color: var(--c-accent) !important; }
+.cd-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.cd-name { margin: 0; font-size: 16px; font-weight: 700; color: var(--c-text); }
+.cd-email { margin: 2px 0 0; font-size: 12px; color: var(--c-muted); }
+.cd-section { padding: 14px 0; border-top: 1px solid var(--c-border); }
+.cd-label { margin: 0 0 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--c-muted); }
+.cd-value { margin: 0; font-size: 14px; color: var(--c-text); font-weight: 500; }
+.cd-muted { color: var(--c-muted); font-size: 13px; margin: 0; }
+.cd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cd-stat { background: var(--c-card); border-radius: 10px; padding: 10px 8px; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+.cd-stat-val { font-size: 16px; font-weight: 700; color: var(--c-accent); }
+.cd-stat-key { font-size: 10px; color: var(--c-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
 .auth-error { color: #ef4444; font-size: 13px; min-height: 18px; margin: 0; }
+.auth-success { color: #4ade80; font-size: 13px; min-height: 18px; margin: 0; }
+.forgot-btn { background: none; border: none; color: var(--c-muted); font-size: 13px; cursor: pointer; text-decoration: underline; padding: 4px 0; text-align: center; width: 100%; }
 .hidden { display: none !important; }
 
 /* ── Dashboard layout ── */
