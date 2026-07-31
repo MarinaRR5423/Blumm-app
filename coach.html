@@ -50,6 +50,15 @@
         <p id="reg-error" class="auth-error"></p>
         <button class="auth-btn" type="submit" id="reg-btn" data-i18n="tab.register">Crear cuenta</button>
       </form>
+
+      <!-- Nueva contraseña (tras reset) -->
+      <form id="reset-form" class="auth-form hidden" onsubmit="handleNewPassword(event)">
+        <p style="color:var(--c-text-mid);font-size:14px;margin:0 0 4px">Introduce tu nueva contraseña:</p>
+        <input class="auth-input" type="password" id="reset-password" placeholder="Nueva contraseña (mín. 6 caracteres)" minlength="6" required />
+        <p id="reset-error" class="auth-error"></p>
+        <p id="reset-success" class="auth-success"></p>
+        <button class="auth-btn" type="submit" id="reset-btn">Guardar contraseña</button>
+      </form>
     </div>
   </div>
 
@@ -439,6 +448,40 @@
     }
 
     // ── Login ──
+    // Detectar token de reset en la URL al cargar
+    (function checkResetToken() {
+      const hash = window.location.hash;
+      const params = new URLSearchParams(hash.replace('#', '?'));
+      if (params.get('type') === 'recovery' && params.get('access_token')) {
+        // Ocultar tabs y formularios, mostrar form de nueva contraseña
+        document.querySelector('.auth-tabs').classList.add('hidden');
+        document.getElementById('login-form').classList.add('hidden');
+        document.getElementById('register-form').classList.add('hidden');
+        document.getElementById('reset-form').classList.remove('hidden');
+        // Limpiar el hash para no exponer el token en la URL
+        history.replaceState(null, '', window.location.pathname);
+      }
+    })();
+
+    async function handleNewPassword(e) {
+      e.preventDefault();
+      const btn = document.getElementById('reset-btn');
+      btn.textContent = 'Guardando…'; btn.disabled = true;
+      const password = document.getElementById('reset-password').value;
+      const { error } = await sb.auth.updateUser({ password });
+      if (error) {
+        document.getElementById('reset-error').textContent = error.message;
+        btn.textContent = 'Guardar contraseña'; btn.disabled = false;
+      } else {
+        document.getElementById('reset-success').textContent = 'Contraseña actualizada. Ya puedes entrar.';
+        setTimeout(() => {
+          document.getElementById('reset-form').classList.add('hidden');
+          document.querySelector('.auth-tabs').classList.remove('hidden');
+          document.getElementById('login-form').classList.remove('hidden');
+        }, 2000);
+      }
+    }
+
     async function handleForgotPassword() {
       const email = document.getElementById('login-email').value.trim();
       const errEl = document.getElementById('login-error');
