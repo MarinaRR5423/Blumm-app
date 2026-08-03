@@ -4,8 +4,9 @@
     {
       "name": "meirins-legal",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", ".", "-p", "5174", "--no-clipboard"],
-      "port": 5174
+      "runtimeArgs": ["serve", ".", "--no-clipboard"],
+      "port": 5174,
+      "autoPort": true
     }
   ]
 }
