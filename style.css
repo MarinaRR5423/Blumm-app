@@ -418,8 +418,9 @@ header {
 .funcionalidades-heading .lead { font-size: 18px; line-height: 1.3; color: var(--neutro-950); }
 
 .bento-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
 }
 .bento-card {
   background: var(--neutro-0);
@@ -430,7 +431,7 @@ header {
   gap: 16px;
 }
 .bento-img {
-  aspect-ratio: 21 / 5;
+  aspect-ratio: 4 / 3;
   border-radius: var(--rd-xl);
   background: var(--verde-200) center / cover no-repeat;
   width: 100%;
@@ -633,7 +634,18 @@ header {
   background: var(--green-light);
   transform: translateX(4px);
 }
-.legal-emoji { font-size: 26px; flex-shrink: 0; }
+.legal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--green-light);
+}
+.legal-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--green-dim); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.legal-card:hover .legal-icon { background: var(--white); }
 .legal-card div { flex: 1; }
 .legal-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; color: var(--ink); }
 .legal-card p { font-size: 13px; color: var(--muted); line-height: 1.4; }
@@ -742,7 +754,7 @@ footer a:hover { color: var(--white); }
   .hero-visual { display: none; }
   .feature-cards-row { flex-direction: column; }
   .photo-card { flex: 0 0 auto; height: 340px; }
-  .bento-img { aspect-ratio: 4 / 3; }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: 1fr; }
   .team-member-card { flex-direction: column; }
   .cta-banner { aspect-ratio: 4 / 3; }
@@ -751,6 +763,7 @@ footer a:hover { color: var(--white); }
 @media (max-width: 720px) {
   .page-frame { padding: 16px 16px 8px; }
   .funcionalidades-card { padding: 20px; }
+  .bento-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {

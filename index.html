@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="landing-body">
 
@@ -37,6 +37,18 @@
     </symbol>
     <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+    <symbol id="ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </symbol>
+    <symbol id="ico-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M8 9h1"/>
+    </symbol>
+    <symbol id="ico-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </symbol>
+    <symbol id="ico-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/>
     </symbol>
   </svg>
 
@@ -209,34 +221,6 @@
       </div>
     </section>
 
-    <!-- ── QUIÉNES SOMOS ── -->
-    <section class="team-card" id="equipo">
-      <p class="eyebrow" data-i18n="team.eyebrow">Equipo</p>
-      <div class="funcionalidades-heading">
-        <h2 data-i18n="team.title">Quiénes están detrás de Blumm</h2>
-        <p class="lead" data-i18n="team.lead">Un equipo de profesionales de la salud diseña y revisa cada recomendación de la app.</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-member-card">
-          <div class="team-avatar team-avatar-orange">BP</div>
-          <div class="team-info">
-            <h4 data-i18n="team.blanca.name">Blanca Páramo Galván</h4>
-            <p class="team-role" data-i18n="team.blanca.role">Nutricionista</p>
-            <p class="team-bio" data-i18n="team.blanca.bio">Diseña las pautas nutricionales de Blumm, adaptadas a cada fase del ciclo y a tus objetivos.</p>
-            <a href="https://www.linkedin.com/in/blancap%C3%A1ramogalv%C3%A1n/" class="team-linkedin" target="_blank" rel="noopener" data-i18n="team.linkedin">LinkedIn →</a>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <div class="team-avatar team-avatar-blue">CP</div>
-          <div class="team-info">
-            <h4 data-i18n="team.clotilde.name">Clotilde Poete</h4>
-            <p class="team-role" data-i18n="team.clotilde.role">Fisioterapeuta</p>
-            <p class="team-bio" data-i18n="team.clotilde.bio">Supervisa los programas de entrenamiento para que se ajusten a tu energía y a tu cuerpo en cada fase.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ── ENTRENADORA ── -->
     <section class="trainer-card" id="entrenadora">
       <div class="trainer-copy">
@@ -295,8 +279,36 @@
 
     <!-- ── CTA BANNER ── -->
     <section class="cta-banner">
-      <img src="assets/figma/ovulacion.png" alt="" class="cta-banner-bg">
+      <video class="cta-banner-bg" src="assets/Video_CTA_01.mp4" autoplay muted loop playsinline></video>
       <a href="#" class="cta-banner-btn" onclick="smartDownload(event)" data-i18n="cta.download">Descarga Blumm</a>
+    </section>
+
+    <!-- ── QUIÉNES SOMOS ── -->
+    <section class="team-card" id="equipo">
+      <p class="eyebrow" data-i18n="team.eyebrow">Equipo</p>
+      <div class="funcionalidades-heading">
+        <h2 data-i18n="team.title">Quiénes están detrás de Blumm</h2>
+        <p class="lead" data-i18n="team.lead">Un equipo de profesionales de la salud diseña y revisa cada recomendación de la app.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-member-card">
+          <div class="team-avatar team-avatar-orange">BP</div>
+          <div class="team-info">
+            <h4 data-i18n="team.blanca.name">Blanca Páramo Galván</h4>
+            <p class="team-role" data-i18n="team.blanca.role">Nutricionista</p>
+            <p class="team-bio" data-i18n="team.blanca.bio">Diseña las pautas nutricionales de Blumm, adaptadas a cada fase del ciclo y a tus objetivos.</p>
+            <a href="https://www.linkedin.com/in/blancap%C3%A1ramogalv%C3%A1n/" class="team-linkedin" target="_blank" rel="noopener" data-i18n="team.linkedin">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-member-card">
+          <div class="team-avatar team-avatar-blue">CP</div>
+          <div class="team-info">
+            <h4 data-i18n="team.clotilde.name">Clotilde Poete</h4>
+            <p class="team-role" data-i18n="team.clotilde.role">Fisioterapeuta</p>
+            <p class="team-bio" data-i18n="team.clotilde.bio">Supervisa los programas de entrenamiento para que se ajusten a tu energía y a tu cuerpo en cada fase.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
   </div><!-- /.page-frame -->
@@ -307,7 +319,7 @@
         <h2 data-i18n="legal.title">Documentación legal</h2>
         <div class="legal-links">
           <a href="privacy.html" class="legal-card">
-            <span class="legal-emoji">🔒</span>
+            <span class="legal-icon"><svg viewBox="0 0 24 24"><use href="#ico-lock"/></svg></span>
             <div>
               <h4 data-i18n="legal.privacy.title">Política de privacidad</h4>
               <p data-i18n="legal.privacy.text">Cómo tratamos tus datos personales y de salud</p>
@@ -315,7 +327,7 @@
             <span class="arrow">→</span>
           </a>
           <a href="terms.html" class="legal-card">
-            <span class="legal-emoji">📜</span>
+            <span class="legal-icon"><svg viewBox="0 0 24 24"><use href="#ico-file-text"/></svg></span>
             <div>
               <h4 data-i18n="legal.terms.title">Términos de uso</h4>
               <p data-i18n="legal.terms.text">Condiciones del servicio y aviso médico</p>
@@ -323,7 +335,7 @@
             <span class="arrow">→</span>
           </a>
           <a href="support.html" class="legal-card">
-            <span class="legal-emoji">💬</span>
+            <span class="legal-icon"><svg viewBox="0 0 24 24"><use href="#ico-message-circle"/></svg></span>
             <div>
               <h4 data-i18n="legal.support.title">Ayuda y soporte</h4>
               <p data-i18n="legal.support.text">Preguntas frecuentes y contacto</p>
@@ -331,7 +343,7 @@
             <span class="arrow">→</span>
           </a>
           <a href="delete-account.html" class="legal-card">
-            <span class="legal-emoji">🗑️</span>
+            <span class="legal-icon"><svg viewBox="0 0 24 24"><use href="#ico-trash"/></svg></span>
             <div>
               <h4 data-i18n="legal.delete.title">Eliminar cuenta</h4>
               <p data-i18n="legal.delete.text">Cómo borrar tu cuenta y todos tus datos</p>
@@ -355,7 +367,7 @@
         <a href="privacy.html" data-i18n="footer.privacy">Privacidad</a> ·
         <a href="terms.html" data-i18n="footer.terms">Términos</a>
       </p>
-      <p class="small"><span data-i18n="footer.contact">¿Necesitas ayuda?</span> <a href="mailto:marina.r.1348@gmail.com">marina.r.1348@gmail.com</a></p>
+      <p class="small"><span data-i18n="footer.contact">¿Necesitas ayuda?</span> <a href="mailto:info@blummapp.com">info@blummapp.com</a></p>
     </div>
   </footer>
 
