@@ -596,6 +596,128 @@ header {
 .cta-banner-btn:hover { transform: translateY(-1px); }
 
 /* ════════════════════════════════════
+   BETA SIGNUP PAGE
+   ════════════════════════════════════ */
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neutro-0);
+  font-size: 15px;
+}
+.back-link:hover { opacity: 0.8; }
+
+.beta-card {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  width: 100%;
+}
+.beta-copy {
+  flex: 1 0 0;
+  min-width: 0;
+  background: var(--neutro-100);
+  border-radius: var(--rd-xl);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+.beta-copy h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--neutro-950);
+}
+.beta-perks { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.beta-perks li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15px;
+  color: var(--neutro-950);
+}
+.beta-perks li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--naranja-500);
+  font-weight: 700;
+}
+
+.beta-form-card {
+  flex: 1 0 0;
+  min-width: 0;
+  background: var(--naranja-500);
+  border-radius: var(--rd-xl);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#beta-form { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; }
+.beta-field { display: flex; flex-direction: column; gap: 6px; }
+.beta-field label { font-size: 13px; font-weight: 700; color: var(--naranja-950); }
+.beta-field input, .beta-field select {
+  height: 48px;
+  padding: 0 16px;
+  border-radius: var(--rd-m);
+  border: none;
+  background: var(--neutro-0);
+  color: var(--neutro-950);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+.beta-field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px; padding-right: 40px; }
+.beta-field input:focus, .beta-field select:focus { outline: 2px solid var(--neutro-950); outline-offset: 1px; }
+.beta-submit {
+  height: 52px;
+  border: none;
+  border-radius: var(--rd-m);
+  background: var(--neutro-950);
+  color: var(--neutro-50);
+  font-family: var(--font-body);
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s;
+}
+.beta-submit:hover { background: var(--neutro-800); }
+.beta-submit:disabled { opacity: 0.6; cursor: default; }
+.beta-form-error {
+  font-size: 13px;
+  color: var(--naranja-950);
+  background: var(--neutro-0);
+  border-radius: var(--rd-s);
+  padding: 8px 12px;
+}
+.beta-success {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.beta-success h3 { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: var(--naranja-950); }
+.beta-success p { font-size: 15px; color: var(--naranja-950); }
+
+.beta-download-card {
+  background: var(--neutro-100);
+  border-radius: var(--rd-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.beta-download-label { font-size: 15px; color: var(--neutro-950); }
+.beta-download-card .store-buttons { max-width: 480px; }
+.store-btn-primary { background: var(--neutro-950); box-shadow: 0 0 0 2px var(--amarillo-500); }
+
+/* ════════════════════════════════════
    LEGAL SECTION
    ════════════════════════════════════ */
 .legal {
@@ -750,7 +872,7 @@ footer a:hover { color: var(--white); }
    RESPONSIVE
    ════════════════════════════════════ */
 @media (max-width: 900px) {
-  .hero-card, .trainer-card { flex-direction: column; }
+  .hero-card, .trainer-card, .beta-card { flex-direction: column; }
   .hero-visual { display: none; }
   .feature-cards-row { flex-direction: column; }
   .photo-card { flex: 0 0 auto; height: 340px; }

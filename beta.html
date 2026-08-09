@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blumm · Únete a la beta</title>
+  <meta name="description" content="Blumm está en fase beta — únete gratis como beta tester y ayúdanos a mejorar la app.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body class="landing-body">
+
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="ico-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>
+    </symbol>
+    <symbol id="ico-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </symbol>
+    <symbol id="ico-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+    </symbol>
+  </svg>
+
+  <div class="page-frame">
+
+    <!-- ── HEADER ── -->
+    <header>
+      <div class="brand">
+        <a href="index.html" style="display:flex;align-items:center">
+          <img src="blumm-logo-white.png" alt="Blumm" class="blumm-logo">
+        </a>
+      </div>
+      <a href="index.html" class="back-link" data-i18n="back">
+        <svg class="ico ico-sm" viewBox="0 0 24 24"><use href="#ico-arrow-left"/></svg>
+        <span data-i18n="back">Volver</span>
+      </a>
+      <div class="header-right">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── BETA ── -->
+      <section class="beta-card">
+        <div class="beta-copy">
+          <p class="eyebrow" data-i18n="beta.eyebrow">Beta privada</p>
+          <div class="hero-copy-content">
+            <h1 data-i18n="beta.title">Blumm está en beta — únete gratis</h1>
+            <p class="lead" data-i18n="beta.lead">Ahora mismo todas las funciones de la app son gratuitas mientras afinamos la experiencia. Apuntarte como beta tester nos ayuda muchísimo — solo te llevará 30 segundos.</p>
+          </div>
+          <ul class="beta-perks">
+            <li data-i18n="beta.perk1">Acceso completo y gratuito a todas las funciones</li>
+            <li data-i18n="beta.perk2">Tu opinión influye directamente en lo que construimos</li>
+            <li data-i18n="beta.perk3">Te avisamos en cuanto tengas acceso</li>
+          </ul>
+        </div>
+
+        <div class="beta-form-card">
+          <form id="beta-form" novalidate>
+            <div class="beta-field">
+              <label for="beta-first-name" data-i18n="beta.form.firstName">Nombre</label>
+              <input id="beta-first-name" name="first_name" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="beta-field">
+              <label for="beta-last-name" data-i18n="beta.form.lastName">Apellidos</label>
+              <input id="beta-last-name" name="last_name" type="text" autocomplete="family-name" required>
+            </div>
+            <div class="beta-field">
+              <label for="beta-email" data-i18n="beta.form.email">Email</label>
+              <input id="beta-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="beta-field">
+              <label for="beta-how-heard" data-i18n="beta.form.howHeard">¿Cómo nos has conocido?</label>
+              <select id="beta-how-heard" name="how_heard" required>
+                <option value="" data-i18n="beta.form.howHeard.placeholder">Selecciona una opción</option>
+                <option value="instagram" data-i18n="beta.form.howHeard.instagram">Instagram</option>
+                <option value="tiktok" data-i18n="beta.form.howHeard.tiktok">TikTok</option>
+                <option value="google" data-i18n="beta.form.howHeard.google">Google</option>
+                <option value="friend" data-i18n="beta.form.howHeard.friend">Recomendación de una amiga</option>
+                <option value="other" data-i18n="beta.form.howHeard.other">Otro</option>
+              </select>
+            </div>
+            <button type="submit" class="beta-submit" id="beta-submit-btn" data-i18n="beta.form.submit">Unirme a la beta</button>
+            <p class="beta-form-error" id="beta-form-error" hidden></p>
+          </form>
+
+          <div class="beta-success" id="beta-success" hidden>
+            <svg class="ico" viewBox="0 0 24 24" style="width:28px;height:28px;color:var(--green)"><use href="#ico-check-circle"/></svg>
+            <h3 data-i18n="beta.success.title">¡Ya estás dentro!</h3>
+            <p data-i18n="beta.success.text">Gracias por apuntarte. Te escribiremos en breve con el acceso a la beta.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div><!-- /.page-frame -->
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <img src="blumm-logo-white.png" alt="Blumm" style="height:24px;width:auto;opacity:0.9;">
+      </div>
+      <p data-i18n="footer.copy">© 2026 Blumm. Bienestar femenino sincronizado.</p>
+      <p class="small"><span data-i18n="footer.contact">¿Necesitas ayuda?</span> <a href="mailto:info@blummapp.com">info@blummapp.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://lpcvkzmfemxziuhdmzpx.supabase.co',
+      'sb_publishable__JhEh4SY-q0NWRB5SO8-9Q_zLr_wszB'
+    );
+
+    const params = new URLSearchParams(location.search);
+    const platform = params.get('platform'); // 'ios' | 'android' | null
+
+    const BT = {
+      es: {
+        back: 'Volver',
+        'beta.eyebrow': 'Beta privada',
+        'beta.title': 'Blumm está en beta — únete gratis',
+        'beta.lead': 'Ahora mismo todas las funciones de la app son gratuitas mientras afinamos la experiencia. Apuntarte como beta tester nos ayuda muchísimo — solo te llevará 30 segundos.',
+        'beta.perk1': 'Acceso completo y gratuito a todas las funciones',
+        'beta.perk2': 'Tu opinión influye directamente en lo que construimos',
+        'beta.perk3': 'Te avisamos en cuanto tengas acceso',
+        'beta.form.firstName': 'Nombre', 'beta.form.lastName': 'Apellidos', 'beta.form.email': 'Email',
+        'beta.form.howHeard': '¿Cómo nos has conocido?', 'beta.form.howHeard.placeholder': 'Selecciona una opción',
+        'beta.form.howHeard.instagram': 'Instagram', 'beta.form.howHeard.tiktok': 'TikTok', 'beta.form.howHeard.google': 'Google',
+        'beta.form.howHeard.friend': 'Recomendación de una amiga', 'beta.form.howHeard.other': 'Otro',
+        'beta.form.submit': 'Unirme a la beta',
+        'beta.form.error.generic': 'Algo ha ido mal. Inténtalo de nuevo en unos minutos.',
+        'beta.form.error.duplicate': 'Ese email ya está apuntado a la beta — ¡gracias!',
+        'beta.success.title': '¡Ya estás dentro!',
+        'beta.success.text': 'Gracias por apuntarte. Te escribiremos en breve con el acceso a la beta.',
+        'footer.copy': '© 2026 Blumm. Bienestar femenino sincronizado.',
+        'footer.contact': '¿Necesitas ayuda?',
+      },
+      en: {
+        back: 'Back',
+        'beta.eyebrow': 'Private beta',
+        'beta.title': "Blumm is in beta — join for free",
+        'beta.lead': "Right now every feature in the app is free while we polish the experience. Signing up as a beta tester helps us enormously — it only takes 30 seconds.",
+        'beta.perk1': 'Full, free access to every feature',
+        'beta.perk2': 'Your feedback directly shapes what we build',
+        'beta.perk3': "We'll let you know as soon as you have access",
+        'beta.form.firstName': 'First name', 'beta.form.lastName': 'Last name', 'beta.form.email': 'Email',
+        'beta.form.howHeard': 'How did you hear about us?', 'beta.form.howHeard.placeholder': 'Select an option',
+        'beta.form.howHeard.instagram': 'Instagram', 'beta.form.howHeard.tiktok': 'TikTok', 'beta.form.howHeard.google': 'Google',
+        'beta.form.howHeard.friend': "A friend's recommendation", 'beta.form.howHeard.other': 'Other',
+        'beta.form.submit': 'Join the beta',
+        'beta.form.error.generic': 'Something went wrong. Please try again in a few minutes.',
+        'beta.form.error.duplicate': "That email is already signed up for the beta — thank you!",
+        'beta.success.title': "You're in!",
+        'beta.success.text': "Thanks for signing up. We'll email you shortly with beta access.",
+        'footer.copy': '© 2026 Blumm. Femme wellness, synchronised.',
+        'footer.contact': 'Need help?',
+      },
+      fr: {
+        back: 'Retour',
+        'beta.eyebrow': 'Bêta privée',
+        'beta.title': 'Blumm est en bêta — inscris-toi gratuitement',
+        'beta.lead': "En ce moment, toutes les fonctionnalités de l'app sont gratuites pendant qu'on peaufine l'expérience. T'inscrire comme testeuse nous aide énormément — ça ne prend que 30 secondes.",
+        'beta.perk1': 'Accès complet et gratuit à toutes les fonctionnalités',
+        'beta.perk2': "Ton avis influence directement ce qu'on construit",
+        'beta.perk3': "On te préviendra dès que tu auras accès",
+        'beta.form.firstName': 'Prénom', 'beta.form.lastName': 'Nom', 'beta.form.email': 'Email',
+        'beta.form.howHeard': 'Comment nous as-tu connus ?', 'beta.form.howHeard.placeholder': 'Choisis une option',
+        'beta.form.howHeard.instagram': 'Instagram', 'beta.form.howHeard.tiktok': 'TikTok', 'beta.form.howHeard.google': 'Google',
+        'beta.form.howHeard.friend': "Recommandation d'une amie", 'beta.form.howHeard.other': 'Autre',
+        'beta.form.submit': 'Rejoindre la bêta',
+        'beta.form.error.generic': "Une erreur s'est produite. Réessaie dans quelques minutes.",
+        'beta.form.error.duplicate': 'Cet email est déjà inscrit à la bêta — merci !',
+        'beta.success.title': "C'est fait !",
+        'beta.success.text': "Merci de ton inscription. On t'écrira bientôt avec l'accès à la bêta.",
+        'footer.copy': '© 2026 Blumm. Bien-être féminin synchronisé.',
+        'footer.contact': "Besoin d'aide ?",
+      }
+    };
+
+    function setLang(lang) {
+      localStorage.setItem('meirins_lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (BT[lang] && BT[lang][key]) el.textContent = BT[lang][key];
+      });
+      ['es','en','fr'].forEach(l => {
+        const btn = document.getElementById('btn-' + l);
+        if (btn) btn.classList.toggle('active', l === lang);
+      });
+      currentLang = lang;
+    }
+
+    let currentLang = 'es';
+    const saved = localStorage.getItem('meirins_lang');
+    const browser = navigator.language?.slice(0,2);
+    const initial = (saved && BT[saved]) ? saved : (BT[browser] ? browser : 'es');
+    setLang(initial);
+
+    // ── Form submit ──
+    const form = document.getElementById('beta-form');
+    const submitBtn = document.getElementById('beta-submit-btn');
+    const errorEl = document.getElementById('beta-form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.hidden = true;
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '…';
+
+      const first_name = document.getElementById('beta-first-name').value.trim();
+      const last_name = document.getElementById('beta-last-name').value.trim();
+      const email = document.getElementById('beta-email').value.trim();
+      const how_heard = document.getElementById('beta-how-heard').value;
+
+      const { error } = await sb.from('beta_testers').insert({
+        first_name, last_name, email, how_heard,
+        platform: platform || null,
+        locale: currentLang,
+      });
+
+      if (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        const isDuplicate = error.code === '23505';
+        errorEl.textContent = BT[currentLang][isDuplicate ? 'beta.form.error.duplicate' : 'beta.form.error.generic'];
+        errorEl.hidden = false;
+        return;
+      }
+
+      form.hidden = true;
+      document.getElementById('beta-success').hidden = false;
+    });
+  </script>
+</body>
+</html>
