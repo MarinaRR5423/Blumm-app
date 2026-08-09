@@ -4,6 +4,8 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+.hidden { display: none !important; }
+
 :root {
   /* Brand palette */
   --ink:         #0C0C10;
@@ -658,8 +660,8 @@ header {
   align-items: center;
   justify-content: center;
 }
-#beta-form { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; }
-.beta-field { display: flex; flex-direction: column; gap: 6px; }
+#beta-form { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 20px; }
+.beta-field { display: flex; flex-direction: column; gap: 8px; }
 .beta-field label { font-size: 13px; font-weight: 700; color: var(--naranja-950); }
 .beta-field input, .beta-field select {
   height: 48px;
@@ -873,6 +875,8 @@ footer a:hover { color: var(--white); }
    ════════════════════════════════════ */
 @media (max-width: 900px) {
   .hero-card, .trainer-card, .beta-card { flex-direction: column; }
+  .beta-card { gap: 16px; }
+  .beta-copy, .beta-form-card { padding: 28px; }
   .hero-visual { display: none; }
   .feature-cards-row { flex-direction: column; }
   .photo-card { flex: 0 0 auto; height: 340px; }

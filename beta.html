@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body class="landing-body">
@@ -90,10 +90,10 @@
               </select>
             </div>
             <button type="submit" class="beta-submit" id="beta-submit-btn" data-i18n="beta.form.submit">Unirme a la beta</button>
-            <p class="beta-form-error" id="beta-form-error" hidden></p>
+            <p class="beta-form-error hidden" id="beta-form-error"></p>
           </form>
 
-          <div class="beta-success" id="beta-success" hidden>
+          <div class="beta-success hidden" id="beta-success">
             <svg class="ico" viewBox="0 0 24 24" style="width:28px;height:28px;color:var(--green)"><use href="#ico-check-circle"/></svg>
             <h3 data-i18n="beta.success.title">¡Ya estás dentro!</h3>
             <p data-i18n="beta.success.text">Gracias por apuntarte. Te escribiremos en breve con el acceso a la beta.</p>
@@ -214,7 +214,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      errorEl.hidden = true;
+      errorEl.classList.add('hidden');
       submitBtn.disabled = true;
       const originalText = submitBtn.textContent;
       submitBtn.textContent = '…';
@@ -235,12 +235,12 @@
         submitBtn.textContent = originalText;
         const isDuplicate = error.code === '23505';
         errorEl.textContent = BT[currentLang][isDuplicate ? 'beta.form.error.duplicate' : 'beta.form.error.generic'];
-        errorEl.hidden = false;
+        errorEl.classList.remove('hidden');
         return;
       }
 
-      form.hidden = true;
-      document.getElementById('beta-success').hidden = false;
+      form.classList.add('hidden');
+      document.getElementById('beta-success').classList.remove('hidden');
     });
   </script>
 </body>
