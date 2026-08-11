@@ -1,53 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meirins — Términos de Uso / Terms of Use</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blumm — Términos de Uso / Terms of Use</title>
+  <meta name="description" content="Condiciones de uso de la app Blumm.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #f8f9fa; }
-    header { background: #0F1F4A; color: white; padding: 24px 32px; }
-    header h1 { font-size: 24px; font-weight: 700; letter-spacing: 2px; }
-    header p { font-size: 13px; opacity: 0.7; margin-top: 4px; }
-    .lang-nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 12px 32px; display: flex; gap: 16px; flex-wrap: wrap; }
-    .lang-nav a { color: #1A56DB; text-decoration: none; font-size: 14px; font-weight: 500; }
-    .lang-nav a:hover { text-decoration: underline; }
-    main { max-width: 800px; margin: 40px auto; padding: 0 24px 80px; }
-    section { margin-bottom: 48px; }
-    section h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #1A56DB; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid #1A56DB; }
-    h3 { font-size: 16px; font-weight: 600; color: #0F1F4A; margin: 20px 0 8px; }
-    p { font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 12px; }
-    ul { margin: 8px 0 12px 20px; }
-    li { font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 4px; }
-    .date { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
-    .contact-box { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 20px 24px; margin-top: 24px; }
-    .contact-box p { margin: 0; }
-    .warning-box { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
-    a { color: #1A56DB; }
-    hr { border: none; border-top: 1px solid #e2e8f0; margin: 64px 0; }
-    .back-link { display: inline-block; margin: 24px 0 0; font-size: 14px; color: #1A56DB; text-decoration: none; }
-    .back-link:hover { text-decoration: underline; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
-<body>
+<body class="landing-body">
 
-<header>
-  <h1>MEIRINS</h1>
-  <p>Términos de Uso · Terms of Use · Conditions d'Utilisation · Termini di Utilizzo</p>
-</header>
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="ico-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+    </symbol>
+  </svg>
 
-<div class="lang-nav">
-  <a href="#es">Español</a>
-  <a href="#en">English</a>
-  <a href="#fr">Français</a>
-  <a href="#it">Italiano</a>
-</div>
+  <div class="page-frame">
 
-<main>
+    <header>
+      <div class="brand">
+        <a href="index.html" style="display:flex;align-items:center">
+          <img src="blumm-logo-white.png" alt="Blumm" class="blumm-logo">
+        </a>
+      </div>
+      <a href="index.html" class="back-link">
+        <svg class="ico ico-sm" viewBox="0 0 24 24"><use href="#ico-arrow-left"/></svg>
+        <span>Volver</span>
+      </a>
+    </header>
 
-<a href="index.html" class="back-link">← Volver / Back</a>
+    <main>
+      <section class="legal-doc-card">
+        <div class="legal-doc-langnav">
+          <a href="#es">Español</a>
+          <a href="#en">English</a>
+          <a href="#fr">Français</a>
+          <a href="#it">Italiano</a>
+        </div>
 
 <!-- ═══════════════════════════════════ ESPAÑOL ═══════════════════════════════════ -->
 <div id="es">
@@ -301,6 +294,19 @@
 </section>
 </div>
 
-</main>
+      </section>
+    </main>
+
+  </div><!-- /.page-frame -->
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <img src="blumm-logo-white.png" alt="Blumm" style="height:24px;width:auto;opacity:0.9;">
+      </div>
+      <p>© 2026 Blumm. Bienestar femenino sincronizado.</p>
+      <p class="small">¿Necesitas ayuda? <a href="mailto:info@blummapp.com">info@blummapp.com</a></p>
+    </div>
+  </footer>
 </body>
 </html>

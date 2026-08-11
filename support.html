@@ -1,58 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meirins — Soporte / Support / Aide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blumm — Soporte / Support / Aide</title>
+  <meta name="description" content="Centro de ayuda de Blumm.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #f8f9fa; }
-    header { background: #0F1F4A; color: white; padding: 24px 32px; }
-    header h1 { font-size: 24px; font-weight: 700; letter-spacing: 2px; }
-    header p { font-size: 13px; opacity: 0.7; margin-top: 4px; }
-    .lang-nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 12px 32px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .lang-nav a { color: #1A56DB; text-decoration: none; font-size: 14px; font-weight: 500; }
-    .lang-nav a:hover { text-decoration: underline; }
-    .lang-nav .sep { color: #e2e8f0; }
-    main { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
-    .lang-section { display: none; padding-top: 40px; }
-    .lang-section.active { display: block; }
-    h2 { font-size: 22px; font-weight: 700; color: #0F1F4A; margin-bottom: 8px; }
-    .lead { font-size: 16px; color: #6b7280; margin-bottom: 32px; line-height: 1.6; }
-    .card { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e5e7eb; }
-    .card h3 { font-size: 16px; font-weight: 700; color: #0F1F4A; margin-bottom: 10px; }
-    .card p { font-size: 15px; color: #4b5563; line-height: 1.65; }
-    .card a { color: #1A56DB; text-decoration: none; font-weight: 500; }
-    .card a:hover { text-decoration: underline; }
-    .faq-item { border-bottom: 1px solid #f3f4f6; padding: 16px 0; }
-    .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .faq-q { font-size: 15px; font-weight: 600; color: #111827; margin-bottom: 6px; }
-    .faq-a { font-size: 14px; color: #4b5563; line-height: 1.6; }
-    .back-link { display: inline-block; margin: 32px 0 24px; font-size: 14px; color: #1A56DB; text-decoration: none; }
-    .back-link:hover { text-decoration: underline; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
-<body>
+<body class="landing-body">
 
-<header>
-  <h1>MEIRINS</h1>
-  <p>Centro de ayuda · Help Center · Centre d'aide</p>
-</header>
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="ico-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+    </symbol>
+  </svg>
 
-<div class="lang-nav">
-  <a href="#" onclick="showLang('es');return false;">Español</a>
-  <span class="sep">|</span>
-  <a href="#" onclick="showLang('en');return false;">English</a>
-  <span class="sep">|</span>
-  <a href="#" onclick="showLang('fr');return false;">Français</a>
-</div>
+  <div class="page-frame">
 
-<main>
+    <header>
+      <div class="brand">
+        <a href="index.html" style="display:flex;align-items:center">
+          <img src="blumm-logo-white.png" alt="Blumm" class="blumm-logo">
+        </a>
+      </div>
+      <a href="index.html" class="back-link">
+        <svg class="ico ico-sm" viewBox="0 0 24 24"><use href="#ico-arrow-left"/></svg>
+        <span>Volver</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="legal-doc-card">
+        <div class="legal-doc-langnav">
+          <a href="#" onclick="showLang('es');return false;" id="langbtn-es">Español</a>
+          <a href="#" onclick="showLang('en');return false;" id="langbtn-en">English</a>
+          <a href="#" onclick="showLang('fr');return false;" id="langbtn-fr">Français</a>
+        </div>
 
 <!-- ══════════════════════ ESPAÑOL ══════════════════════ -->
 <div id="lang-es" class="lang-section active">
-  <a href="index.html" class="back-link">← Volver</a>
   <h2>¿Cómo podemos ayudarte?</h2>
   <p class="lead">Si tienes algún problema con la app o una pregunta, estamos aquí para ayudarte.</p>
 
@@ -97,7 +87,6 @@
 
 <!-- ══════════════════════ ENGLISH ══════════════════════ -->
 <div id="lang-en" class="lang-section">
-  <a href="index.html" class="back-link">← Back</a>
   <h2>How can we help you?</h2>
   <p class="lead">If you have a question or issue with the app, we're here to help.</p>
 
@@ -142,7 +131,6 @@
 
 <!-- ══════════════════════ FRANÇAIS ══════════════════════ -->
 <div id="lang-fr" class="lang-section">
-  <a href="index.html" class="back-link">← Retour</a>
   <h2>Comment pouvons-nous t'aider ?</h2>
   <p class="lead">Si tu as un problème avec l'app ou une question, nous sommes là pour t'aider.</p>
 
@@ -185,16 +173,33 @@
   </div>
 </div>
 
-</main>
+      </section>
+    </main>
+
+  </div><!-- /.page-frame -->
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <img src="blumm-logo-white.png" alt="Blumm" style="height:24px;width:auto;opacity:0.9;">
+      </div>
+      <p>© 2026 Blumm. Bienestar femenino sincronizado.</p>
+      <p class="small">¿Necesitas ayuda? <a href="mailto:info@blummapp.com">info@blummapp.com</a></p>
+    </div>
+  </footer>
 
 <script>
   function showLang(lang) {
     document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
     document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelectorAll('.legal-doc-langnav a').forEach(el => el.classList.remove('active'));
+    const btn = document.getElementById('langbtn-' + lang);
+    if (btn) btn.classList.add('active');
     localStorage.setItem('meirins_lang', lang);
   }
-  const saved = localStorage.getItem('meirins_lang');
+  const saved = (localStorage.getItem('meirins_lang') || '').slice(0,2);
   if (saved && document.getElementById('lang-' + saved)) showLang(saved);
+  else showLang('es');
 </script>
 </body>
 </html>
